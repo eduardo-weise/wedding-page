@@ -1,0 +1,146 @@
+.flash-tattoo {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #292C35;
+  padding: 40px 20px;
+  
+  .content {
+    max-width: 900px;
+    width: 100%;
+  }
+  
+  .header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 60px;
+    
+    .section-number {
+      font-size: 72px;
+      font-weight: 300;
+      color: rgba(224, 145, 69, 0.3);
+      font-family: 'Georgia', serif;
+      margin: 0;
+      line-height: 1;
+    }
+    
+    .section-label {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: #FCD9B8;
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+  
+  .tattoo-content {
+    color: #FCD9B8;
+    
+    .title {
+      font-size: 42px;
+      font-weight: 300;
+      font-family: 'Georgia', serif;
+      margin-bottom: 30px;
+      color: #E09145;
+    }
+    
+    .description {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 50px;
+      color: rgba(252, 217, 184, 0.8);
+      font-weight: 300;
+    }
+    
+    .designs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+      
+      .design-card {
+        background-color: rgba(23, 24, 29, 0.5);
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        border: 1px solid rgba(224, 145, 69, 0.2);
+        transition: all 0.3s ease-in-out;
+        
+        &:hover {
+          border-color: rgba(224, 145, 69, 0.5);
+          transform: translateY(-5px);
+        }
+        
+        .design-placeholder {
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: center;
+          
+          svg {
+            opacity: 0.7;
+          }
+        }
+        
+        .design-name {
+          font-size: 16px;
+          font-weight: 400;
+          margin-bottom: 10px;
+          color: #FCD9B8;
+        }
+        
+        .design-status {
+          font-size: 12px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: rgba(252, 217, 184, 0.5);
+          
+          &.available {
+            color: #E09145;
+          }
+        }
+      }
+    }
+    
+    .info-box {
+      background-color: rgba(224, 145, 69, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 3px solid #E09145;
+      
+      p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(252, 217, 184, 0.9);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .flash-tattoo {
+    padding: 30px 20px;
+    
+    .header {
+      margin-bottom: 40px;
+      
+      .section-number {
+        font-size: 56px;
+      }
+    }
+    
+    .tattoo-content {
+      .title {
+        font-size: 32px;
+      }
+      
+      .designs-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+  }
+}

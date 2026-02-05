@@ -1,0 +1,131 @@
+.convite {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #17181D;
+  padding: 40px 20px;
+  
+  .content {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 60px;
+    
+    .section-number {
+      font-size: 72px;
+      font-weight: 300;
+      color: rgba(224, 145, 69, 0.3);
+      font-family: 'Georgia', serif;
+      margin: 0;
+      line-height: 1;
+    }
+    
+    .section-label {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: #FCD9B8;
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+  
+  .invitation-text {
+    color: #FCD9B8;
+    
+    .couple-names {
+      font-size: 48px;
+      font-weight: 300;
+      font-family: 'Georgia', serif;
+      margin-bottom: 40px;
+      line-height: 1.2;
+      
+      .ampersand {
+        color: #E09145;
+        font-style: italic;
+        margin: 0 10px;
+      }
+    }
+    
+    .message {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      color: rgba(252, 217, 184, 0.8);
+      font-weight: 300;
+    }
+    
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      
+      .detail-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        
+        .detail-label {
+          font-size: 12px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: #E09145;
+          font-weight: 400;
+        }
+        
+        .detail-value {
+          font-size: 24px;
+          font-family: 'Georgia', serif;
+          color: #FCD9B8;
+          font-weight: 300;
+        }
+        
+        .detail-address {
+          font-size: 14px;
+          color: rgba(252, 217, 184, 0.7);
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .convite {
+    padding: 30px 20px;
+    
+    .header {
+      margin-bottom: 40px;
+      
+      .section-number {
+        font-size: 56px;
+      }
+    }
+    
+    .invitation-text {
+      .couple-names {
+        font-size: 36px;
+      }
+      
+      .message {
+        font-size: 15px;
+      }
+      
+      .details {
+        gap: 30px;
+        
+        .detail-item {
+          .detail-value {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

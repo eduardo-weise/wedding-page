@@ -1,0 +1,33 @@
+<section id="flash-tattoo" class="section flash-tattoo">
+  <div class="content">
+    <div class="header">
+      <h2 class="section-number">02</h2>
+      <h3 class="section-label">FLASH TATTOO</h3>
+    </div>
+    
+    <div class="tattoo-content">
+      <h1 class="title">Tatuagem Flash</h1>
+      
+      <p class="description">{{ description }}</p>
+      
+      <div class="designs-grid">
+        <div class="design-card" *ngFor="let design of flashDesigns">
+          <div class="design-placeholder">
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="35" stroke="#E09145" stroke-width="2" fill="none"/>
+              <path d="M40 20 L40 60 M20 40 L60 40" stroke="#E09145" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h4 class="design-name">{{ design.name }}</h4>
+          <span class="design-status" [class.available]="design.available">
+            {{ design.available ? 'Disponível' : 'Indisponível' }}
+          </span>
+        </div>
+      </div>
+      
+      <div class="info-box">
+        <p>As tatuagens serão realizadas por profissionais experientes em um ambiente seguro e higienizado.</p>
+      </div>
+    </div>
+  </div>
+</section>
