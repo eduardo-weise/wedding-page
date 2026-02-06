@@ -25,6 +25,7 @@ export class FlashTattooComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const existing = this.document.querySelector('script[src*="assets.pinterest.com/js/pinit.js"]');
     if (existing) {
+      this.buildPinterestEmbed();
       return;
     }
 
@@ -32,6 +33,14 @@ export class FlashTattooComponent implements AfterViewInit {
     script.async = true;
     script.defer = true;
     script.src = 'https://assets.pinterest.com/js/pinit.js';
+    script.onload = () => this.buildPinterestEmbed();
     this.renderer.appendChild(this.document.body, script);
+  }
+
+  private buildPinterestEmbed(): void {
+    const pinUtils = (window as typeof window & { PinUtils?: { build: () => void } }).PinUtils;
+    if (pinUtils?.build) {
+      pinUtils.build();
+    }
   }
 }
