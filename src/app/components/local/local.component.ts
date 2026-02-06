@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
 
 @Component({
   selector: 'app-local',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollRevealDirective, ScrollActiveDirective],
   templateUrl: './local.component.html',
   styleUrls: ['./local.component.scss']
 })

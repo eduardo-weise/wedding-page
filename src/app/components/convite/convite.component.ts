@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
 
 @Component({
   selector: 'app-convite',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollRevealDirective, ScrollActiveDirective],
   templateUrl: './convite.component.html',
   styleUrls: ['./convite.component.scss']
 })

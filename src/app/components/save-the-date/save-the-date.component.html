@@ -1,5 +1,13 @@
-<section id="save-the-date" class="section save-the-date">
+<section id="save-the-date" class="section save-the-date" appScrollActive>
   <div class="content">
-    <img class="save-the-date-logo" src="assets/logo.svg" alt="Save the date" />
+    <img
+      class="save-the-date-logo"
+      src="assets/logo.svg"
+      alt="Save the date"
+      appScrollReveal
+      [revealDelayMin]="80"
+      [revealDelayMax]="360"
+      [revealOnce]="false"
+    />
   </div>
 </section>

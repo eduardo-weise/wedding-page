@@ -1,20 +1,20 @@
-<section id="local" class="section local">
+<section id="local" class="section local" appScrollActive>
   <div class="content">
-    <div class="header">
+    <div class="header" appScrollReveal [revealDelayMin]="80" [revealDelayMax]="360" [revealOnce]="false">
       <h2 class="section-number">03</h2>
       <h3 class="section-label">O LOCAL</h3>
     </div>
     
     <div class="local-content">
-      <h1 class="venue-name">{{ venueName }}</h1>
+      <h1 class="venue-name" appScrollReveal [revealDelayMin]="100" [revealDelayMax]="420" [revealOnce]="false">{{ venueName }}</h1>
       
-      <div class="address-info">
+      <div class="address-info" appScrollReveal [revealDelayMin]="120" [revealDelayMax]="460" [revealOnce]="false">
         <p class="address">{{ address }}</p>
         <p class="city">{{ city }}</p>
         <p class="cep">CEP: {{ cep }}</p>
       </div>
       
-      <div class="map-container">
+      <div class="map-container" appScrollReveal [revealDelayMin]="140" [revealDelayMax]="500" [revealOnce]="false">
         <iframe 
           [src]="mapUrl" 
           width="100%" 
@@ -26,7 +26,7 @@
         </iframe>
       </div>
       
-      <button class="open-maps-btn" (click)="openInMaps()">
+      <button class="open-maps-btn" (click)="openInMaps()" appScrollReveal [revealDelayMin]="160" [revealDelayMax]="540" [revealOnce]="false">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M10 0C6.13 0 3 3.13 3 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
         </svg>

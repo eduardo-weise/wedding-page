@@ -1,19 +1,23 @@
-<section id="flash-tattoo" class="section flash-tattoo">
+<section id="flash-tattoo" class="section flash-tattoo" appScrollActive>
   <div class="content">
-    <div class="header">
+    <div class="header" appScrollReveal [revealDelayMin]="80" [revealDelayMax]="360" [revealOnce]="false">
       <h2 class="section-number">02</h2>
       <h3 class="section-label">FLASH TATTOO</h3>
     </div>
     
     <div class="tattoo-content">
-      <h1 class="title">Tatuagem Flash</h1>
+      <h1 class="title" appScrollReveal [revealDelayMin]="100" [revealDelayMax]="420" [revealOnce]="false">Tatuagem Flash</h1>
       
-      <p class="description">{{ description }}</p>
+      <p class="description" appScrollReveal [revealDelayMin]="120" [revealDelayMax]="460" [revealOnce]="false">{{ description }}</p>
 
-      <p class="flash-explainer">{{ flashExplainer }}</p>
+      <p class="flash-explainer" appScrollReveal [revealDelayMin]="140" [revealDelayMax]="500" [revealOnce]="false">{{ flashExplainer }}</p>
 
       <a
         class="whatsapp-button"
+        appScrollReveal
+        [revealDelayMin]="160"
+        [revealDelayMax]="540"
+        [revealOnce]="false"
         href="https://wa.me/555599015286?text=Oi%2C%20sou%20convidado%20do%20casamento%20do%20Eduardo%20e%20Maiara%20e%20gostaria%20de%20alinhar%20minha%20flash%20tattoo"
         target="_blank"
         rel="noopener noreferrer"
@@ -21,7 +25,7 @@
         Falar no WhatsApp
       </a>
       
-      <div class="pinterest-card">
+      <div class="pinterest-card" appScrollReveal [revealDelayMin]="180" [revealDelayMax]="580" [revealOnce]="false">
         <h4 class="pinterest-title">Inspirações no Pinterest</h4>
         <div class="pinterest-embed" id="pinterest-embed">
           <a
@@ -37,7 +41,7 @@
         </a>
       </div>
       
-      <div class="info-box">
+      <div class="info-box" appScrollReveal [revealDelayMin]="200" [revealDelayMax]="620" [revealOnce]="false">
         <p>As tatuagens serão realizadas por profissionais experientes em um ambiente seguro e higienizado.</p>
       </div>
     </div>

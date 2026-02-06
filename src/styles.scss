@@ -11,6 +11,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   overflow-x: hidden;
   background-color: var(--color-bg);
   color: var(--color-secondary);
+  scroll-snap-type: y mandatory;
 }
 
 /* Variáveis de cores baseadas na paleta fornecida */
@@ -33,6 +35,33 @@ body {
 /* Scroll suave para navegação */
 html {
   scroll-padding-top: 0;
+}
+
+/* Scroll snap por seção */
+.section {
+  width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.section--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Remover estilos padrão de listas */

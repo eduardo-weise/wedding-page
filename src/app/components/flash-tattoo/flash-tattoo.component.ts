@@ -1,10 +1,12 @@
 import { AfterViewInit, Component, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
+import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
 
 @Component({
   selector: 'app-flash-tattoo',
   standalone: true,
-  imports: [],
+  imports: [ScrollRevealDirective, ScrollActiveDirective],
   templateUrl: './flash-tattoo.component.html',
   styleUrls: ['./flash-tattoo.component.scss']
 })
