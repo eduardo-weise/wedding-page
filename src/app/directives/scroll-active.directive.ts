@@ -15,6 +15,11 @@ export class ScrollActiveDirective implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     const element = this.elementRef.nativeElement;
 
+    if (typeof IntersectionObserver === 'undefined') {
+      this.renderer.addClass(element, 'section--active');
+      return;
+    }
+
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,7 +31,8 @@ export class ScrollActiveDirective implements AfterViewInit, OnDestroy {
         });
       },
       {
-        threshold: 0.6
+        threshold: 0.35,
+        rootMargin: '0px 0px -25% 0px'
       }
     );
 
