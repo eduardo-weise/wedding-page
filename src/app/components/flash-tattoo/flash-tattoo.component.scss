@@ -48,17 +48,17 @@
 		}
 
 		.description {
-			font-size: 16px;
-			line-height: 1.8;
-			margin-bottom: 50px;
-			color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
-			font-weight: 300;
-		}
-
-		.flash-explainer {
 			font-size: 15px;
 			line-height: 1.7;
 			margin-bottom: 40px;
+			color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+			font-weight: 300;
+		}
+
+		.flash-inspirations {
+			font-size: 15px;
+			line-height: 1.7;
+			margin-bottom: 10px;
 			color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
 			font-weight: 300;
 		}
@@ -71,14 +71,6 @@
 		.pinterest-card {
 			padding: 0;
 			margin-bottom: 40px;
-
-			.pinterest-title {
-				font-size: 14px;
-				letter-spacing: 2px;
-				text-transform: uppercase;
-				margin: 0 0 16px;
-				color: var(--color-secondary);
-			}
 
 			.pinterest-embed {
 				max-height: 520px;

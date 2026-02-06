@@ -10,7 +10,7 @@
       
       <p class="description" appScrollReveal [revealDelayMin]="120" [revealDelayMax]="460" [revealOnce]="false">{{ description }}</p>
 
-      <p class="flash-explainer" appScrollReveal [revealDelayMin]="140" [revealDelayMax]="500" [revealOnce]="false">{{ flashExplainer }}</p>
+      <p class="description" appScrollReveal [revealDelayMin]="140" [revealDelayMax]="500" [revealOnce]="false">{{ flashExplainer }}</p>
 
       <a
         class="whatsapp-button"
@@ -26,7 +26,7 @@
       </a>
       
       <div class="pinterest-card" appScrollReveal [revealDelayMin]="180" [revealDelayMax]="580" [revealOnce]="false">
-        <h4 class="pinterest-title">Inspirações no Pinterest</h4>
+        <p class="flash-inspirations" appScrollReveal [revealDelayMin]="200" [revealDelayMax]="620">{{ flashInspirations }}</p>
         <div class="pinterest-embed" id="pinterest-embed">
           <a
             data-pin-do="embedBoard"
@@ -41,7 +41,7 @@
         </a>
       </div>
       
-      <div class="info-box" appScrollReveal [revealDelayMin]="200" [revealDelayMax]="620" [revealOnce]="false">
+      <div class="info-box" appScrollReveal [revealDelayMin]="240" [revealDelayMax]="680" [revealOnce]="false">
         <p>As tatuagens serão realizadas por profissionais experientes em um ambiente seguro e higienizado.</p>
       </div>
     </div>

@@ -11,9 +11,9 @@ import { ScrollActiveDirective } from '../../directives/scroll-active.directive'
   styleUrls: ['./flash-tattoo.component.scss']
 })
 export class FlashTattooComponent implements AfterViewInit {
-  description = 'Teremos um estúdio de tatuagem flash durante a festa! Escolha um dos desenhos especiais que preparamos para celebrar este momento único.';
-
-  flashExplainer = 'Flash tattoo é uma tatuagem rápida, feita no mesmo dia, com desenhos pré-selecionados. Para participar, o tamanho precisa ser de 5cm.';
+  description = 'Além das lembranças no coração, você também poderá levar esse momento marcado na pele. Durante a celebração, teremos um espaço exclusivo de flash tattoo disponível para os convidados.';
+  flashExplainer = 'A flash tattoo é uma tatuagem rápida e permanente, feita no mesmo dia, a partir de desenhos previamente selecionados, com até 5 cm de tamanho. As tatuagens serão realizadas no local do evento, ao longo da festa.Para agilizar o atendimento no dia, escolha sua arte e informe o desenho e o local do corpo diretamente para a tatuadora utilizando o botão abaixo.';
+  flashInspirations = 'Aqui a Bruna deixou algumas inspirações para ajudar na escolha.';
 
   pinterestBoardUrl = 'https://br.pinterest.com/ramonrocasilva/flash-5-cm/';
 
