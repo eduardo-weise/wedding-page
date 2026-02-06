@@ -1,10 +1,10 @@
 .local {
   min-height: 30vh;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-bg);
-  padding: 80px 20px 40px;
+  padding: 40px 20px;
   
   .content {
     max-width: 900px;
