@@ -1,151 +1,161 @@
 .flash-tattoo {
-  min-height: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-bg);
-  padding: 40px 20px;
-  
-  .content {
-    max-width: 900px;
-    width: 100%;
-  }
-  
-  .header {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    margin-bottom: 60px;
-    
-    .section-number {
-      font-size: 72px;
-      font-weight: 300;
-      color: color-mix(in srgb, var(--color-primary));
-      font-family: 'Georgia', serif;
-      margin: 0;
-      line-height: 1;
-    }
-    
-    .section-label {
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      color: var(--color-secondary);
-      margin: 0;
-      text-transform: uppercase;
-    }
-  }
-  
-  .tattoo-content {
-    color: var(--color-secondary);
-    
-    .title {
-      font-size: 42px;
-      font-weight: 300;
-      font-family: 'Georgia', serif;
-      margin-bottom: 30px;
-      color: var(--color-primary);
-    }
-    
-    .description {
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 50px;
-      color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
-      font-weight: 300;
-    }
+	min-height: 30vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-bg);
+	padding: 40px 20px;
 
-    .flash-explainer {
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-      color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
-      font-weight: 300;
-    }
+	.content {
+		max-width: 900px;
+		width: 100%;
+	}
 
-    .whatsapp-button {
-      width: 100%;
-      margin-bottom: 40px;
-    }
+	.header {
+		display: flex;
+		align-items: baseline;
+		gap: 20px;
+		margin-bottom: 60px;
 
-    .pinterest-card {
-      padding: 0;
-      margin-bottom: 40px;
+		.section-number {
+			font-size: 72px;
+			font-weight: 300;
+			color: color-mix(in srgb, var(--color-primary));
+			font-family: 'Georgia', serif;
+			margin: 0;
+			line-height: 1;
+		}
 
-      .pinterest-title {
-        font-size: 14px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin: 0 0 16px;
-        color: var(--color-secondary);
-      }
+		.section-label {
+			font-size: 14px;
+			font-weight: 400;
+			letter-spacing: 3px;
+			color: var(--color-secondary);
+			margin: 0;
+			text-transform: uppercase;
+		}
+	}
 
-      .pinterest-embed {
-        min-height: 520px;
-        background-color: color-mix(in srgb, var(--color-bg) 70%, transparent);
-        overflow: hidden;
+	.tattoo-content {
+		color: var(--color-secondary);
 
-        > span {
-          display: block !important;
-          width: 100% !important;
-          max-width: 100% !important;
-          min-width: 0 !important;
-        }
+		.title {
+			font-size: 42px;
+			font-weight: 300;
+			font-family: 'Georgia', serif;
+			margin-bottom: 30px;
+			color: var(--color-primary);
+		}
 
-        iframe {
-          width: 100% !important;
-          max-width: 100% !important;
-        }
-      }
+		.description {
+			font-size: 16px;
+			line-height: 1.8;
+			margin-bottom: 50px;
+			color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
+			font-weight: 300;
+		}
 
-      .pinterest-fallback {
-        margin-top: 16px;
-        width: 100%;
-      }
-    }
-    
-    .info-box {
-      background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent);
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 3px solid var(--color-secondary);
-      
-      p {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.6;
-        color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
-      }
-    }
-  }
+		.flash-explainer {
+			font-size: 15px;
+			line-height: 1.7;
+			margin-bottom: 40px;
+			color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+			font-weight: 300;
+		}
+
+		.whatsapp-button {
+			width: 100%;
+			margin-bottom: 40px;
+		}
+
+		.pinterest-card {
+			padding: 0;
+			margin-bottom: 40px;
+
+			.pinterest-title {
+				font-size: 14px;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin: 0 0 16px;
+				color: var(--color-secondary);
+			}
+
+			.pinterest-embed {
+				max-height: 520px;
+				background-color: color-mix(in srgb, var(--color-bg) 70%, transparent);
+				overflow: hidden;
+
+				>span {
+					display: block !important;
+					width: 100% !important;
+					max-width: 100% !important;
+					min-width: 0 !important;
+				}
+
+				iframe {
+					width: 100% !important;
+					max-width: 100% !important;
+				}
+			}
+
+			.pinterest-fallback {
+				margin-top: 16px;
+				width: 100%;
+			}
+		}
+
+		.info-box {
+			background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent);
+			padding: 20px;
+			border-radius: 8px;
+			border-left: 3px solid var(--color-secondary);
+
+			p {
+				margin: 0;
+				font-size: 14px;
+				line-height: 1.6;
+				color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+			}
+		}
+	}
 }
 
 @media (max-width: 768px) {
-  .flash-tattoo {
-    padding: 30px 20px;
-    
-    .header {
-      margin-bottom: 40px;
-      
-      .section-number {
-        font-size: 56px;
-      }
-    }
-    
-    .tattoo-content {
-      .title {
-        font-size: 32px;
-      }
+	.flash-tattoo {
+		padding: 30px 20px;
 
-      .pinterest-card {
-        .pinterest-embed {
-          min-height: 420px;
+		.header {
+			margin-bottom: 40px;
 
-          > span {
-            min-width: 0 !important;
-          }
-        }
-      }
-    }
-  }
+			.section-number {
+				font-size: 56px;
+			}
+		}
+
+		.tattoo-content {
+			.title {
+				font-size: 32px;
+			}
+
+			.pinterest-card {
+				.pinterest-embed {
+					max-height: 310px;
+
+					>span {
+						min-width: 0 !important;
+						height: 300px !important;
+
+
+						>span:nth-of-type(odd) {
+							height: 50px !important;
+						}
+
+						>span:nth-of-type(even) {
+							height: 200px !important;
+						}
+					}
+				}
+			}
+		}
+	}
 }
