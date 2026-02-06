@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #17181D;
+  background-color: var(--color-bg);
   padding: 40px 20px;
   
   .content {
@@ -20,7 +20,7 @@
     .section-number {
       font-size: 72px;
       font-weight: 300;
-      color: rgba(224, 145, 69, 0.3);
+      color: color-mix(in srgb, var(--color-primary));
       font-family: 'Georgia', serif;
       margin: 0;
       line-height: 1;
@@ -30,21 +30,21 @@
       font-size: 14px;
       font-weight: 400;
       letter-spacing: 3px;
-      color: #FCD9B8;
+      color: var(--color-secondary);
       margin: 0;
       text-transform: uppercase;
     }
   }
   
   .local-content {
-    color: #FCD9B8;
+    color: var(--color-secondary);
     
     .venue-name {
       font-size: 42px;
       font-weight: 300;
       font-family: 'Georgia', serif;
       margin-bottom: 30px;
-      color: #E09145;
+      color: var(--color-primary);
     }
     
     .address-info {
@@ -54,13 +54,13 @@
         margin: 8px 0;
         font-size: 16px;
         line-height: 1.6;
-        color: rgba(252, 217, 184, 0.8);
+        color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
         font-weight: 300;
       }
       
       .address {
         font-size: 18px;
-        color: #FCD9B8;
+        color: var(--color-secondary);
       }
     }
     
@@ -68,7 +68,7 @@
       margin-bottom: 30px;
       border-radius: 8px;
       overflow: hidden;
-      border: 2px solid rgba(224, 145, 69, 0.3);
+      border: 2px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
       
       iframe {
         display: block;
@@ -79,8 +79,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      background-color: #E09145;
-      color: #17181D;
+      background-color: var(--color-primary);
+      color: var(--color-bg);
       border: none;
       padding: 16px 32px;
       font-size: 16px;
@@ -92,9 +92,9 @@
       justify-content: center;
       
       &:hover {
-        background-color: #FCD9B8;
+        background-color: var(--color-secondary);
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(224, 145, 69, 0.3);
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
       }
       
       &:active {

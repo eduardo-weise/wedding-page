@@ -1,20 +1,35 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, Inject, Renderer2 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-flash-tattoo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './flash-tattoo.component.html',
   styleUrls: ['./flash-tattoo.component.scss']
 })
-export class FlashTattooComponent {
+export class FlashTattooComponent implements AfterViewInit {
   description = 'Teremos um estúdio de tatuagem flash durante a festa! Escolha um dos desenhos especiais que preparamos para celebrar este momento único.';
-  
-  flashDesigns = [
-    { id: 1, name: 'Aliança com Iniciais', available: true },
-    { id: 2, name: 'Coração Minimalista', available: true },
-    { id: 3, name: 'Data do Casamento', available: true },
-    { id: 4, name: 'Flor Delicada', available: true }
-  ];
+
+  flashExplainer = 'Flash tattoo é uma tatuagem rápida, feita no mesmo dia, com desenhos pré-selecionados. Para participar, o tamanho precisa ser de 5cm.';
+
+  pinterestBoardUrl = 'https://br.pinterest.com/ramonrocasilva/flash-5-cm/';
+
+  constructor(
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
+
+  ngAfterViewInit(): void {
+    const existing = this.document.querySelector('script[src*="assets.pinterest.com/js/pinit.js"]');
+    if (existing) {
+      return;
+    }
+
+    const script = this.renderer.createElement('script');
+    script.async = true;
+    script.defer = true;
+    script.src = 'https://assets.pinterest.com/js/pinit.js';
+    this.renderer.appendChild(this.document.body, script);
+  }
 }

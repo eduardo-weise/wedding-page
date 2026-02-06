@@ -9,20 +9,32 @@
       <h1 class="title">Tatuagem Flash</h1>
       
       <p class="description">{{ description }}</p>
+
+      <p class="flash-explainer">{{ flashExplainer }}</p>
+
+      <a
+        class="whatsapp-button"
+        href="https://wa.me/555599015286?text=Oi%2C%20sou%20convidado%20do%20casamento%20do%20Eduardo%20e%20Maiara%20e%20gostaria%20de%20alinhar%20minha%20flash%20tattoo"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Falar no WhatsApp
+      </a>
       
-      <div class="designs-grid">
-        <div class="design-card" *ngFor="let design of flashDesigns">
-          <div class="design-placeholder">
-            <svg width="80" height="80" viewBox="0 0 80 80">
-              <circle cx="40" cy="40" r="35" stroke="#E09145" stroke-width="2" fill="none"/>
-              <path d="M40 20 L40 60 M20 40 L60 40" stroke="#E09145" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <h4 class="design-name">{{ design.name }}</h4>
-          <span class="design-status" [class.available]="design.available">
-            {{ design.available ? 'Disponível' : 'Indisponível' }}
-          </span>
+      <div class="pinterest-card">
+        <h4 class="pinterest-title">Inspirações no Pinterest</h4>
+        <div class="pinterest-embed" id="pinterest-embed">
+          <a
+            data-pin-do="embedBoard"
+            data-pin-board-width="780"
+            data-pin-scale-height="520"
+            data-pin-scale-width="80"
+            [href]="pinterestBoardUrl"
+          ></a>
         </div>
+        <a class="pinterest-fallback" [href]="pinterestBoardUrl" target="_blank" rel="noopener noreferrer">
+          Abrir no Pinterest
+        </a>
       </div>
       
       <div class="info-box">

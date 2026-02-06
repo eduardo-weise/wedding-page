@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #292C35;
+  background-color: var(--color-bg);
   padding: 40px 20px;
   
   .content {
@@ -20,7 +20,7 @@
     .section-number {
       font-size: 72px;
       font-weight: 300;
-      color: rgba(224, 145, 69, 0.3);
+      color: color-mix(in srgb, var(--color-primary));
       font-family: 'Georgia', serif;
       margin: 0;
       line-height: 1;
@@ -30,91 +30,127 @@
       font-size: 14px;
       font-weight: 400;
       letter-spacing: 3px;
-      color: #FCD9B8;
+      color: var(--color-secondary);
       margin: 0;
       text-transform: uppercase;
     }
   }
   
   .tattoo-content {
-    color: #FCD9B8;
+    color: var(--color-secondary);
     
     .title {
       font-size: 42px;
       font-weight: 300;
       font-family: 'Georgia', serif;
       margin-bottom: 30px;
-      color: #E09145;
+      color: var(--color-primary);
     }
     
     .description {
       font-size: 16px;
       line-height: 1.8;
       margin-bottom: 50px;
-      color: rgba(252, 217, 184, 0.8);
+      color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
       font-weight: 300;
     }
-    
-    .designs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-bottom: 50px;
-      
-      .design-card {
-        background-color: rgba(23, 24, 29, 0.5);
-        padding: 30px;
+
+    .flash-explainer {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+      font-weight: 300;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 18px;
+      margin-bottom: 40px;
+      border-radius: 24px;
+      border: 1px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
+      }
+    }
+
+    .pinterest-card {
+      background-color: color-mix(in srgb, var(--color-bg) 60%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 40px;
+
+      .pinterest-title {
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 0 0 16px;
+        color: var(--color-secondary);
+      }
+
+      .pinterest-embed {
+        min-height: 520px;
         border-radius: 8px;
-        text-align: center;
-        border: 1px solid rgba(224, 145, 69, 0.2);
-        transition: all 0.3s ease-in-out;
-        
+        background-color: color-mix(in srgb, var(--color-bg) 70%, transparent);
+        overflow: hidden;
+
+        > span {
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          min-width: 0 !important;
+        }
+
+        iframe {
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+      }
+
+      .pinterest-fallback {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        margin-top: 16px;
+        border-radius: 20px;
+        border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+        color: var(--color-primary);
+        text-decoration: none;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+        width: 100%;
+
         &:hover {
-          border-color: rgba(224, 145, 69, 0.5);
-          transform: translateY(-5px);
-        }
-        
-        .design-placeholder {
-          margin-bottom: 20px;
-          display: flex;
-          justify-content: center;
-          
-          svg {
-            opacity: 0.7;
-          }
-        }
-        
-        .design-name {
-          font-size: 16px;
-          font-weight: 400;
-          margin-bottom: 10px;
-          color: #FCD9B8;
-        }
-        
-        .design-status {
-          font-size: 12px;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          color: rgba(252, 217, 184, 0.5);
-          
-          &.available {
-            color: #E09145;
-          }
+          background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
         }
       }
     }
     
     .info-box {
-      background-color: rgba(224, 145, 69, 0.1);
+      background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent);
       padding: 20px;
       border-radius: 8px;
-      border-left: 3px solid #E09145;
+      border-left: 3px solid var(--color-secondary);
       
       p {
         margin: 0;
         font-size: 14px;
         line-height: 1.6;
-        color: rgba(252, 217, 184, 0.9);
+        color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
       }
     }
   }
@@ -136,10 +172,17 @@
       .title {
         font-size: 32px;
       }
-      
-      .designs-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+
+      .pinterest-card {
+        padding: 18px;
+
+        .pinterest-embed {
+          min-height: 420px;
+
+          > span {
+            min-width: 0 !important;
+          }
+        }
       }
     }
   }
