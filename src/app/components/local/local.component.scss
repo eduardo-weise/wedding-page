@@ -76,30 +76,7 @@
     }
     
     .open-maps-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background-color: var(--color-primary);
-      color: var(--color-bg);
-      border: none;
-      padding: 16px 32px;
-      font-size: 16px;
-      font-weight: 500;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
       width: 100%;
-      justify-content: center;
-      
-      &:hover {
-        background-color: var(--color-secondary);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
-      }
-      
-      &:active {
-        transform: translateY(0);
-      }
       
       svg {
         width: 20px;

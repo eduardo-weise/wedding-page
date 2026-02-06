@@ -64,6 +64,16 @@ html {
   transform: translateY(0);
 }
 
+.section--active .scroll-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section:not(.section--active) .scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 /* Remover estilos padrão de listas */
 ul, ol {
   list-style: none;
@@ -75,10 +85,32 @@ a {
   color: inherit;
 }
 
-/* Estilo para botões */
-button {
+/* Estilo para botões (exceto menu) */
+button:not(.menu-toggle):not(.close-btn),
+a.whatsapp-button,
+a.pinterest-fallback {
   font-family: inherit;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 24px;
+  border: none;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+button:not(.menu-toggle):not(.close-btn):hover,
+a.whatsapp-button:hover,
+a.pinterest-fallback:hover {
+  background-color: color-mix(in srgb, var(--color-secondary) 85%, var(--color-primary));
 }
 
 /* Responsividade para imagens */
