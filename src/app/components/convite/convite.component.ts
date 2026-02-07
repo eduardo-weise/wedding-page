@@ -12,7 +12,7 @@ import { ScrollActiveDirective } from '../../directives/scroll-active.directive'
 })
 export class ConviteComponent {
   groomName = 'Eduardo';
-  brideName = 'Mariana';
+  brideName = 'Maiara';
   weddingDate = '5 de dezembro de 2026';
   weddingTime = '18:00';
   venue = 'Morada dos Ventos';

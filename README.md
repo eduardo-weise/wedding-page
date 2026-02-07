@@ -1,10 +1,10 @@
-# Wedding Page - Eduardo & Mariana
+# Wedding Page - Eduardo & Maiara
 
 Landing page de casamento desenvolvida com Angular, focada em experiência mobile-first.
 
 ## 📋 Sobre o Projeto
 
-Este projeto é uma landing page moderna e elegante para o casamento de Eduardo e Mariana, desenvolvida seguindo as melhores práticas de desenvolvimento front-end com Angular.
+Este projeto é uma landing page moderna e elegante para o casamento de Eduardo e Maiara, desenvolvida seguindo as melhores práticas de desenvolvimento front-end com Angular.
 
 ### 🎨 Design
 
@@ -147,7 +147,7 @@ O projeto foi inspirado em:
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido especificamente para o casamento de Eduardo & Mariana.
+Este projeto foi desenvolvido especificamente para o casamento de Eduardo & Maiara.
 
 ---
 

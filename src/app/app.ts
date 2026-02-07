@@ -22,5 +22,5 @@ import { LocalComponent } from './components/local/local.component';
   styleUrl: './app.scss'
 })
 export class App {
-  title = 'Eduardo & Mariana';
+  title = 'Eduardo & Maiara';
 }
