@@ -19,8 +19,8 @@ export class FlashTattooComponent implements AfterViewInit {
 	pinterestBoardUrl = 'https://br.pinterest.com/ramonrocasilva/flash-5-cm/';
 
 	constructor(
-		private renderer: Renderer2,
-		@Inject(DOCUMENT) private document: Document
+		private readonly renderer: Renderer2,
+		@Inject(DOCUMENT) private readonly document: Document
 	) { }
 
 	ngAfterViewInit(): void {

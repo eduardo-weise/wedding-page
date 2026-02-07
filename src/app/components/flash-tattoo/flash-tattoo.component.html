@@ -1,46 +1,30 @@
-<app-section
-  sectionId="flash-tattoo"
-  sectionNumber="02"
-  sectionLabel="FLASH TATTOO"
-  sectionClass="flash-tattoo"
-  [title]="'Tatuagem Flash'"
-  [subtitle]="description"
->
-  <div class="tattoo-content">
-    <p class="description" appScrollReveal [revealDelayMin]="140" [revealDelayMax]="500" [revealOnce]="false" [innerHTML]="flashExplainer"></p>
+<app-section sectionId="flash-tattoo" sectionNumber="02" sectionLabel="FLASH TATTOO" sectionClass="flash-tattoo"
+	[title]="'Tatuagem Flash'" [subtitle]="description">
+	<div class="tattoo-content">
+		<p class="description" appScrollReveal [revealDelayMin]="140" [revealDelayMax]="500" [revealOnce]="false"
+			[innerHTML]="flashExplainer"></p>
 
-    <a
-      class="whatsapp-button"
-      appScrollReveal
-      [revealDelayMin]="160"
-      [revealDelayMax]="540"
-      [revealOnce]="false"
-      href="https://wa.me/555599015286?text=Oi%2C%20sou%20convidado%20do%20casamento%20do%20Eduardo%20e%20Maiara%20e%20gostaria%20de%20alinhar%20minha%20flash%20tattoo"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Falar no WhatsApp
-    </a>
-    
-    <div class="pinterest-card" appScrollReveal [revealDelayMin]="180" [revealDelayMax]="580" [revealOnce]="false">
-      <p class="flash-inspirations" appScrollReveal [revealDelayMin]="200" [revealDelayMax]="620">{{ flashInspirations }}</p>
-      <div class="pinterest-embed" id="pinterest-embed">
-        <a
-          title="Pinterest Board - Flash Tattoo Inspirations"
-          data-pin-do="embedBoard"
-          data-pin-board-width="880"
-          data-pin-scale-height="200"
-          data-pin-scale-width="80"
-          [href]="pinterestBoardUrl"
-        ></a>
-      </div>
-      <a class="pinterest-fallback" [href]="pinterestBoardUrl" target="_blank" rel="noopener noreferrer">
-        Abrir no Pinterest
-      </a>
-    </div>
-    
-    <div class="info-box" appScrollReveal [revealDelayMin]="240" [revealDelayMax]="680" [revealOnce]="false">
-      <p>As tatuagens serão realizadas por profissionais experientes em um ambiente seguro e higienizado.</p>
-    </div>
-  </div>
+		<a class="whatsapp-button" appScrollReveal [revealDelayMin]="160" [revealDelayMax]="540" [revealOnce]="false"
+			href="https://wa.me/555599015286?text=Oi%2C%20sou%20convidado%20do%20casamento%20do%20Eduardo%20e%20Maiara%20e%20gostaria%20de%20alinhar%20minha%20flash%20tattoo"
+			target="_blank" rel="noopener noreferrer">
+			Falar no WhatsApp
+		</a>
+
+		<div class="pinterest-card" appScrollReveal [revealDelayMin]="180" [revealDelayMax]="580" [revealOnce]="false">
+			<p class="flash-inspirations" appScrollReveal [revealDelayMin]="200" [revealDelayMax]="620">{{
+				flashInspirations }}</p>
+			<div class="pinterest-embed" id="pinterest-embed">
+				<a title="Pinterest Board - Flash Tattoo Inspirations" data-pin-do="embedBoard"
+					data-pin-board-width="880" data-pin-scale-height="200" data-pin-scale-width="80"
+					[href]="pinterestBoardUrl"></a>
+			</div>
+			<a class="pinterest-fallback" [href]="pinterestBoardUrl" target="_blank" rel="noopener noreferrer">
+				Abrir no Pinterest
+			</a>
+		</div>
+
+		<div class="info-box" appScrollReveal [revealDelayMin]="240" [revealDelayMax]="680" [revealOnce]="false">
+			<p>As tatuagens serão realizadas por profissionais experientes em um ambiente seguro e higienizado.</p>
+		</div>
+	</div>
 </app-section>
