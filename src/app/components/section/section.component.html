@@ -1,0 +1,46 @@
+<section
+  class="section section-base"
+  [id]="sectionId"
+  appScrollActive
+>
+  <div class="content">
+    <div
+      class="header"
+      appScrollReveal
+      [revealDelayMin]="80"
+      [revealDelayMax]="360"
+      [revealOnce]="false"
+    >
+      <h2 class="section-number" *ngIf="sectionNumber">{{ sectionNumber }}</h2>
+      <h3 class="section-label" *ngIf="sectionLabel">{{ sectionLabel }}</h3>
+    </div>
+
+    <div class="body">
+      <h1
+        class="title"
+        *ngIf="title"
+        appScrollReveal
+        [revealDelayMin]="100"
+        [revealDelayMax]="420"
+        [revealOnce]="false"
+      >
+        {{ title }}
+      </h1>
+
+      <p
+        class="subtitle"
+        *ngIf="subtitle"
+        appScrollReveal
+        [revealDelayMin]="120"
+        [revealDelayMax]="460"
+        [revealOnce]="false"
+      >
+        {{ subtitle }}
+      </p>
+
+      <div class="content-slot">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</section>
