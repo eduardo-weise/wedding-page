@@ -14,6 +14,7 @@ export class SectionComponent {
   @Input() sectionId = '';
   @Input() sectionNumber = '';
   @Input() sectionLabel = '';
+  @Input() sectionClass = '';
   @Input() title = '';
   @Input() subtitle = '';
 }

@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
-import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
+import { SectionComponent } from '../section/section.component';
 
 @Component({
   selector: 'app-convite',
   standalone: true,
-  imports: [CommonModule, ScrollRevealDirective, ScrollActiveDirective],
+  imports: [CommonModule, ScrollRevealDirective, SectionComponent],
   templateUrl: './convite.component.html',
-  styleUrls: ['./convite.component.scss']
+  styleUrls: ['./convite.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ConviteComponent {
   groomName = 'Eduardo';
