@@ -6,6 +6,7 @@ import { SaveTheDateComponent } from './components/save-the-date/save-the-date.c
 import { ConviteComponent } from './components/convite/convite.component';
 import { FlashTattooComponent } from './components/flash-tattoo/flash-tattoo.component';
 import { LocalComponent } from './components/local/local.component';
+import { HospedagemComponent } from './components/hospedagem/hospedagem.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ import { LocalComponent } from './components/local/local.component';
     SaveTheDateComponent,
     ConviteComponent,
     FlashTattooComponent,
-    LocalComponent
+    LocalComponent,
+    HospedagemComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

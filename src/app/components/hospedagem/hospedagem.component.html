@@ -1,0 +1,36 @@
+<app-section
+  sectionId="hospedagem"
+  sectionNumber="04"
+  sectionLabel="Hospedagem"
+  [title]="title"
+  [subtitle]="subtitle"
+>
+  <div class="cards">
+    <article class="hotel-card" *ngFor="let hotel of hotels">
+      <div class="card-header">
+        <h2 class="hotel-name">{{ hotel.name }}</h2>
+        <span class="distance">{{ hotel.distance }}</span>
+      </div>
+      <p class="price">{{ hotel.priceRange }}</p>
+      <p class="perks">{{ hotel.perks }}</p>
+      <div class="links">
+          <a
+            class="map-link"
+            [href]="hotel.mapUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver no Maps
+          </a>
+          <a
+            class="map-link"
+            [href]="hotel.bookingUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver no Booking
+          </a>
+      </div>
+    </article>
+  </div>
+</app-section>
