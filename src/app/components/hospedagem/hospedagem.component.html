@@ -6,14 +6,49 @@
   [subtitle]="subtitle"
 >
   <div class="cards">
-    <article class="hotel-card" *ngFor="let hotel of hotels">
-      <div class="card-header">
+    <article
+      class="hotel-card"
+      *ngFor="let hotel of hotels"
+      appScrollReveal
+      [revealDelayMin]="hotel.revealDelayMin"
+      [revealDelayMax]="hotel.revealDelayMax"
+      [revealOnce]="false"
+    >
+      <div
+        class="card-header"
+        appScrollReveal
+        [revealDelayMin]="hotel.revealDelayMin"
+        [revealDelayMax]="hotel.revealDelayMax"
+        [revealOnce]="false"
+      >
         <h2 class="hotel-name">{{ hotel.name }}</h2>
         <span class="distance">{{ hotel.distance }}</span>
       </div>
-      <p class="price">{{ hotel.priceRange }}</p>
-      <p class="perks">{{ hotel.perks }}</p>
-      <div class="links">
+      <p
+        class="price"
+        appScrollReveal
+        [revealDelayMin]="hotel.revealDelayMin + 40"
+        [revealDelayMax]="hotel.revealDelayMax + 40"
+        [revealOnce]="false"
+      >
+        {{ hotel.priceRange }}
+      </p>
+      <p
+        class="perks"
+        appScrollReveal
+        [revealDelayMin]="hotel.revealDelayMin + 80"
+        [revealDelayMax]="hotel.revealDelayMax + 80"
+        [revealOnce]="false"
+      >
+        {{ hotel.perks }}
+      </p>
+      <div
+        class="links"
+        appScrollReveal
+        [revealDelayMin]="hotel.revealDelayMin + 120"
+        [revealDelayMax]="hotel.revealDelayMax + 120"
+        [revealOnce]="false"
+      >
           <a
             class="map-link"
             [href]="hotel.mapUrl"
