@@ -4,43 +4,43 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
 
 @Component({
-  selector: 'app-flash-tattoo',
-  standalone: true,
-  imports: [ScrollRevealDirective, ScrollActiveDirective],
-  templateUrl: './flash-tattoo.component.html',
-  styleUrls: ['./flash-tattoo.component.scss']
+	selector: 'app-flash-tattoo',
+	standalone: true,
+	imports: [ScrollRevealDirective, ScrollActiveDirective],
+	templateUrl: './flash-tattoo.component.html',
+	styleUrls: ['./flash-tattoo.component.scss']
 })
 export class FlashTattooComponent implements AfterViewInit {
-  description = 'Além das lembranças no coração, você também poderá levar esse momento marcado na pele. Durante a celebração, teremos um espaço exclusivo de flash tattoo disponível para os convidados.';
-  flashExplainer = 'A flash tattoo é uma tatuagem rápida e permanente, feita no mesmo dia, a partir de desenhos previamente selecionados, com até 5 cm de tamanho. As tatuagens serão realizadas no local do evento, ao longo da festa.Para agilizar o atendimento no dia, escolha sua arte e informe o desenho e o local do corpo diretamente para a tatuadora utilizando o botão abaixo.';
-  flashInspirations = 'Aqui a Bruna deixou algumas inspirações para ajudar na escolha.';
+	description = 'Além das lembranças no coração, você também poderá levar esse momento marcado na pele. Durante a celebração, teremos um espaço exclusivo de flash tattoo disponível para os convidados.';
+	flashExplainer = 'A flash tattoo é uma tatuagem rápida e <strong>permanente</strong>, feita no mesmo dia, a partir de desenhos previamente selecionados, com até <strong>5 cm</strong> de tamanho. As tatuagens serão realizadas <strong>no local do evento</strong>, ao longo da festa. Para agilizar o atendimento no dia, escolha sua arte e informe <strong>o desenho e o local do corpo</strong> diretamente para a tatuadora utilizando o botão abaixo.';
+	flashInspirations = 'Aqui a Bruna deixou algumas inspirações para ajudar na escolha.';
 
-  pinterestBoardUrl = 'https://br.pinterest.com/ramonrocasilva/flash-5-cm/';
+	pinterestBoardUrl = 'https://br.pinterest.com/ramonrocasilva/flash-5-cm/';
 
-  constructor(
-    private renderer: Renderer2,
-    @Inject(DOCUMENT) private document: Document
-  ) {}
+	constructor(
+		private renderer: Renderer2,
+		@Inject(DOCUMENT) private document: Document
+	) { }
 
-  ngAfterViewInit(): void {
-    const existing = this.document.querySelector('script[src*="assets.pinterest.com/js/pinit.js"]');
-    if (existing) {
-      this.buildPinterestEmbed();
-      return;
-    }
+	ngAfterViewInit(): void {
+		const existing = this.document.querySelector('script[src*="assets.pinterest.com/js/pinit.js"]');
+		if (existing) {
+			this.buildPinterestEmbed();
+			return;
+		}
 
-    const script = this.renderer.createElement('script');
-    script.async = true;
-    script.defer = true;
-    script.src = 'https://assets.pinterest.com/js/pinit.js';
-    script.onload = () => this.buildPinterestEmbed();
-    this.renderer.appendChild(this.document.body, script);
-  }
+		const script = this.renderer.createElement('script');
+		script.async = true;
+		script.defer = true;
+		script.src = 'https://assets.pinterest.com/js/pinit.js';
+		script.onload = () => this.buildPinterestEmbed();
+		this.renderer.appendChild(this.document.body, script);
+	}
 
-  private buildPinterestEmbed(): void {
-    const pinUtils = (window as typeof window & { PinUtils?: { build: () => void } }).PinUtils;
-    if (pinUtils?.build) {
-      pinUtils.build();
-    }
-  }
+	private buildPinterestEmbed(): void {
+		const pinUtils = (window as typeof window & { PinUtils?: { build: () => void } }).PinUtils;
+		if (pinUtils?.build) {
+			pinUtils.build();
+		}
+	}
 }
