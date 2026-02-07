@@ -1,14 +1,15 @@
-import { AfterViewInit, Component, Inject, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, Inject, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
-import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
+import { SectionComponent } from '../section/section.component';
 
 @Component({
 	selector: 'app-flash-tattoo',
 	standalone: true,
-	imports: [ScrollRevealDirective, ScrollActiveDirective],
+	imports: [ScrollRevealDirective, SectionComponent],
 	templateUrl: './flash-tattoo.component.html',
-	styleUrls: ['./flash-tattoo.component.scss']
+	styleUrls: ['./flash-tattoo.component.scss'],
+	encapsulation: ViewEncapsulation.None
 })
 export class FlashTattooComponent implements AfterViewInit {
 	description = 'Além das lembranças no coração, você também poderá levar esse momento marcado na pele. Durante a celebração, teremos um espaço exclusivo de flash tattoo disponível para os convidados.';

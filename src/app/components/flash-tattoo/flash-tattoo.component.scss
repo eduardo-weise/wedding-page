@@ -1,57 +1,16 @@
-.flash-tattoo {
-	min-height: 30vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--color-bg);
-	padding: 40px 20px;
-
+.section-base.flash-tattoo {
 	.content {
 		max-width: 900px;
-		width: 100%;
-	}
-
-	.header {
-		display: flex;
-		align-items: baseline;
-		gap: 20px;
-		margin-bottom: 60px;
-
-		.section-number {
-			font-size: 72px;
-			font-weight: 300;
-			color: color-mix(in srgb, var(--color-primary));
-			font-family: 'Georgia', serif;
-			margin: 0;
-			line-height: 1;
-		}
-
-		.section-label {
-			font-size: 14px;
-			font-weight: 400;
-			letter-spacing: 3px;
-			color: var(--color-secondary);
-			margin: 0;
-			text-transform: uppercase;
-		}
 	}
 
 	.tattoo-content {
 		color: var(--color-secondary);
 
-		.title {
-			font-size: 42px;
-			font-weight: 300;
-			font-family: 'Georgia', serif;
-			margin-bottom: 30px;
-			color: var(--color-primary);
-		}
-
 		.description {
 			font-size: 15px;
 			line-height: 1.7;
 			margin-bottom: 40px;
-			color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+			color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
 			font-weight: 300;
 		}
 
@@ -59,7 +18,7 @@
 			font-size: 15px;
 			line-height: 1.7;
 			margin-bottom: 10px;
-			color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+			color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
 			font-weight: 300;
 		}
 
@@ -113,17 +72,7 @@
 }
 
 @media (max-width: 768px) {
-	.flash-tattoo {
-		padding: 30px 20px;
-
-		.header {
-			margin-bottom: 40px;
-
-			.section-number {
-				font-size: 56px;
-			}
-		}
-
+	.section-base.flash-tattoo {
 		.tattoo-content {
 			.title {
 				font-size: 32px;
