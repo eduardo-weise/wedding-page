@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
+import { SectionComponent } from '../section/section.component';
 
 @Component({
   selector: 'app-local',
   standalone: true,
-  imports: [CommonModule, ScrollRevealDirective, ScrollActiveDirective],
+  imports: [CommonModule, ScrollRevealDirective, ScrollActiveDirective, SectionComponent],
   templateUrl: './local.component.html',
-  styleUrls: ['./local.component.scss']
+  styleUrls: ['./local.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LocalComponent {
   venueName = 'Morada dos Ventos';
