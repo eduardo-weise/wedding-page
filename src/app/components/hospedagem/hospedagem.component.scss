@@ -32,26 +32,15 @@
 }
 
 .badge {
-  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 6px 12px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--color-secondary) 80%, #c57b35 20%);
-  color: var(--color-text-muted);
+  color:  color-mix(in srgb, var(--color-text-muted) 82%, transparent);
   font-size: 10px;
   letter-spacing: 0.2px;
   text-transform: none;
   text-wrap-mode: nowrap;
-}
-
-.badge--accent {
-  background: linear-gradient(135deg, #c9702a, #b05513);
-}
-
-.badge--muted {
-  background: linear-gradient(135deg, #4c3b2d, #3b2e24);
 }
 
 .card-header {
@@ -89,22 +78,26 @@
   margin: 4px 0 16px;
   font-size: 15px;
   font-weight: 600;
-  color: #eb7a2a;
+  color: var(--color-secondary);
   letter-spacing: 0.3px;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--color-secondary) 55%, transparent);
 }
 
 .amenities {
   display: flex;
-  gap: 10px;
+  column-gap: 25px;
   font-size: 12px;
 }
 
 .amenity {
   display: inline-flex;
   align-items: center;
+}
+
+.amenity-row {
+  display: flex;
+  align-items: center;
   gap: 8px;
-  padding-right: 12px;
-  color: color-mix(in srgb, var(--color-text-muted) 85%, transparent);
 }
 
 .amenity--success {
@@ -154,7 +147,7 @@
 }
 
 .action--primary {
-  background: linear-gradient(135deg, #c9702a, #a54b10);
+  background: linear-gradient(135deg, #a76330, var(--color-secondary));
   color: var(--color-text-muted);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
 

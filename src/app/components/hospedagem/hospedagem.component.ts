@@ -10,7 +10,7 @@ interface HotelSuggestion {
     priceRange: string;
     amenities: Amenity[];
     mapUrl: string;
-    bookingUrl?: string;
+    bookingUrl: string;
 }
 
 interface HotelHighlight {
@@ -93,4 +93,8 @@ export class HospedagemComponent {
             };
         });
     }
+
+    openLink(url: string): void {
+		window.open(url, '_blank', 'noopener,noreferrer');
+	}
 }

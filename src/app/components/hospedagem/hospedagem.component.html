@@ -1,4 +1,5 @@
 <app-section sectionId="hospedagem" sectionNumber="04" sectionLabel="Hospedagem" [title]="title" [subtitle]="subtitle">
+
 	<div class="cards">
 		@for (hotel of hotels; track hotel.name) {
 		<article class="hotel-card" appScrollReveal [revealDelayMin]="hotel.revealDelayMin"
@@ -8,8 +9,7 @@
 					[revealDelayMax]="hotel.revealDelayMax" [revealOnce]="false">
 					<div class="title-row">
 						<h2 class="hotel-name">{{ hotel.name }}</h2>
-						<div class="badge" [class.badge--accent]="hotel.tag.tone === 'accent'"
-							[class.badge--muted]="hotel.tag.tone === 'muted'">
+						<div class="badge">
 							<span class="material-symbols-rounded">check_circle</span>
 							{{ hotel.tag.label }}
 						</div>
@@ -24,10 +24,12 @@
 				<div class="amenities" appScrollReveal [revealDelayMin]="hotel.revealDelayMin + 80"
 					[revealDelayMax]="hotel.revealDelayMax + 80" [revealOnce]="false">
 					@for (amenity of hotel.amenities; track amenity.label) {
-					<div class="amenity" [class.amenity--success]="amenity.tone === 'success'"
-						[class.amenity--danger]="amenity.tone === 'danger'"
-						[class.amenity--muted]="amenity.tone === 'muted'">
-						<span class="material-symbols-rounded">{{ amenity.icon }}</span>
+					<div class="amenity-row">
+						<div class="amenity" [class.amenity--success]="amenity.tone === 'success'"
+							[class.amenity--danger]="amenity.tone === 'danger'"
+							[class.amenity--muted]="amenity.tone === 'muted'">
+							<span class="material-symbols-rounded">{{ amenity.icon }}</span>
+						</div>
 						<span>{{ amenity.label }}</span>
 					</div>
 					}
@@ -40,15 +42,14 @@
 
 				<div class="links" appScrollReveal [revealDelayMin]="hotel.revealDelayMin + 120"
 					[revealDelayMax]="hotel.revealDelayMax + 120" [revealOnce]="false">
-					<a class="action action--ghost" [href]="hotel.mapUrl" target="_blank" rel="noopener noreferrer">
+					<button class="action action--ghost" (click)="openLink(hotel.mapUrl)">
 						<span class="material-symbols-rounded">location_on</span>
 						Ver no Maps
-					</a>
-					<a class="action action--primary" [href]="hotel.bookingUrl" target="_blank"
-						rel="noopener noreferrer">
+					</button>
+					<button class="action action--primary" (click)="openLink(hotel.bookingUrl)">
 						<span class="material-symbols-rounded">event_available</span>
 						Reservar
-					</a>
+					</button>
 				</div>
 			</div>
 		</article>
