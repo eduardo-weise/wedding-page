@@ -7,6 +7,7 @@ import { ConviteComponent } from './components/convite/convite.component';
 import { FlashTattooComponent } from './components/flash-tattoo/flash-tattoo.component';
 import { LocalComponent } from './components/local/local.component';
 import { HospedagemComponent } from './components/hospedagem/hospedagem.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { HospedagemComponent } from './components/hospedagem/hospedagem.componen
     FlashTattooComponent,
     LocalComponent,
     HospedagemComponent,
+    FooterComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

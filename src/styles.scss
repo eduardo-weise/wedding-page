@@ -24,6 +24,19 @@ body {
   scroll-snap-type: y mandatory;
 }
 
+@media (max-width: 768px) {
+  html,
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Variáveis de cores baseadas na paleta fornecida */
 :root {
   --color-bg: #1F1F1D;
