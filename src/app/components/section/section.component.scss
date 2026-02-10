@@ -20,7 +20,7 @@
         .section-number {
             font-size: 72px;
             font-weight: 300;
-            color: var(--color-secondary);
+            color: color-mix(in srgb, var(--color-secondary) 70%, transparent 20%);
             font-family: 'Georgia', serif;
             margin: 0;
             line-height: 1;

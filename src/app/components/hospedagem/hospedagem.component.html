@@ -1,71 +1,57 @@
-<app-section
-  sectionId="hospedagem"
-  sectionNumber="04"
-  sectionLabel="Hospedagem"
-  [title]="title"
-  [subtitle]="subtitle"
->
-  <div class="cards">
-    <article
-      class="hotel-card"
-      *ngFor="let hotel of hotels"
-      appScrollReveal
-      [revealDelayMin]="hotel.revealDelayMin"
-      [revealDelayMax]="hotel.revealDelayMax"
-      [revealOnce]="false"
-    >
-      <div
-        class="card-header"
-        appScrollReveal
-        [revealDelayMin]="hotel.revealDelayMin"
-        [revealDelayMax]="hotel.revealDelayMax"
-        [revealOnce]="false"
-      >
-        <h2 class="hotel-name">{{ hotel.name }}</h2>
-        <span class="distance">{{ hotel.distance }}</span>
-      </div>
-      <p
-        class="price"
-        appScrollReveal
-        [revealDelayMin]="hotel.revealDelayMin + 40"
-        [revealDelayMax]="hotel.revealDelayMax + 40"
-        [revealOnce]="false"
-      >
-        {{ hotel.priceRange }}
-      </p>
-      <p
-        class="perks"
-        appScrollReveal
-        [revealDelayMin]="hotel.revealDelayMin + 80"
-        [revealDelayMax]="hotel.revealDelayMax + 80"
-        [revealOnce]="false"
-      >
-        {{ hotel.perks }}
-      </p>
-      <div
-        class="links"
-        appScrollReveal
-        [revealDelayMin]="hotel.revealDelayMin + 120"
-        [revealDelayMax]="hotel.revealDelayMax + 120"
-        [revealOnce]="false"
-      >
-          <a
-            class="map-link"
-            [href]="hotel.mapUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver no Maps
-          </a>
-          <a
-            class="map-link"
-            [href]="hotel.bookingUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver no Booking
-          </a>
-      </div>
-    </article>
-  </div>
+<app-section sectionId="hospedagem" sectionNumber="04" sectionLabel="Hospedagem" [title]="title" [subtitle]="subtitle">
+	<div class="cards">
+		@for (hotel of hotels; track hotel.name) {
+		<article class="hotel-card" appScrollReveal [revealDelayMin]="hotel.revealDelayMin"
+			[revealDelayMax]="hotel.revealDelayMax" [revealOnce]="false">
+			<div class="card-shell">
+				<div class="card-header" appScrollReveal [revealDelayMin]="hotel.revealDelayMin"
+					[revealDelayMax]="hotel.revealDelayMax" [revealOnce]="false">
+					<div class="title-row">
+						<h2 class="hotel-name">{{ hotel.name }}</h2>
+						<div class="badge" [class.badge--accent]="hotel.tag.tone === 'accent'"
+							[class.badge--muted]="hotel.tag.tone === 'muted'">
+							<span class="material-symbols-rounded">check_circle</span>
+							{{ hotel.tag.label }}
+						</div>
+					</div>
+				</div>
+
+				<div class="distance">
+					<span class="material-symbols-rounded">schedule</span>
+					<span>{{ hotel.travelTime }}</span>
+				</div>
+
+				<div class="amenities" appScrollReveal [revealDelayMin]="hotel.revealDelayMin + 80"
+					[revealDelayMax]="hotel.revealDelayMax + 80" [revealOnce]="false">
+					@for (amenity of hotel.amenities; track amenity.label) {
+					<div class="amenity" [class.amenity--success]="amenity.tone === 'success'"
+						[class.amenity--danger]="amenity.tone === 'danger'"
+						[class.amenity--muted]="amenity.tone === 'muted'">
+						<span class="material-symbols-rounded">{{ amenity.icon }}</span>
+						<span>{{ amenity.label }}</span>
+					</div>
+					}
+				</div>
+
+				<p class="price" appScrollReveal [revealDelayMin]="hotel.revealDelayMin + 40"
+					[revealDelayMax]="hotel.revealDelayMax + 40" [revealOnce]="false">
+					{{ hotel.priceRange }}
+				</p>
+
+				<div class="links" appScrollReveal [revealDelayMin]="hotel.revealDelayMin + 120"
+					[revealDelayMax]="hotel.revealDelayMax + 120" [revealOnce]="false">
+					<a class="action action--ghost" [href]="hotel.mapUrl" target="_blank" rel="noopener noreferrer">
+						<span class="material-symbols-rounded">location_on</span>
+						Ver no Maps
+					</a>
+					<a class="action action--primary" [href]="hotel.bookingUrl" target="_blank"
+						rel="noopener noreferrer">
+						<span class="material-symbols-rounded">event_available</span>
+						Reservar
+					</a>
+				</div>
+			</div>
+		</article>
+		}
+	</div>
 </app-section>

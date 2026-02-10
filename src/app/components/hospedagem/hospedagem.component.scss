@@ -1,91 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0');
+
 .cards {
   display: grid;
-  gap: 20px;
+  gap: 24px;
 }
 
 .hotel-card {
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  position: relative;
+  border-radius: 18px;
+  background: radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.05), transparent 34%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.35));
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   color: var(--color-primary);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-secondary);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
   }
+}
 
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
+.card-shell {
+  position: relative;
+  padding: 22px 18px 18px;
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-secondary) 80%, #c57b35 20%);
+  color: var(--color-text-muted);
+  font-size: 10px;
+  letter-spacing: 0.2px;
+  text-transform: none;
+  text-wrap-mode: nowrap;
+}
+
+.badge--accent {
+  background: linear-gradient(135deg, #c9702a, #b05513);
+}
+
+.badge--muted {
+  background: linear-gradient(135deg, #4c3b2d, #3b2e24);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.title-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hotel-name {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin: 0;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+}
+
+.distance {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--color-text-muted) 82%, transparent);
+}
+
+.price {
+  margin: 4px 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #eb7a2a;
+  letter-spacing: 0.3px;
+}
+
+.amenities {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.amenity {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-right: 12px;
+  color: color-mix(in srgb, var(--color-text-muted) 85%, transparent);
+}
+
+.amenity--success {
+  color: #b2e6a1;
+  border-color: rgba(178, 230, 161, 0.35);
+}
+
+.amenity--danger {
+  color: #ffb7aa;
+  border-color: rgba(255, 183, 170, 0.35);
+}
+
+.amenity--muted {
+  color: color-mix(in srgb, var(--color-text-muted) 65%, transparent);
+}
+
+.links {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  flex: 1 1 0;
+  min-width: 0;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action--ghost {
+  background: color-mix(in srgb, #2a2a29 85%, #0c0c0c 15%);
+  color: var(--color-text-muted);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+
+  &:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, #2f2f2d 80%, #151515 20%);
   }
+}
 
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 10px;
+.action--primary {
+  background: linear-gradient(135deg, #c9702a, #a54b10);
+  color: var(--color-text-muted);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #d47c33, #b75a18);
   }
+}
 
-  .hotel-name {
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--color-primary);
-    margin: 0;
-    font-family: 'Georgia', serif;
-  }
-
-  .distance {
-    font-size: 13px;
-    color: color-mix(in srgb, var(--color-text-muted) 70%, transparent);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .price {
-    margin: 6px 0 4px;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--color-secondary);
-  }
-
-  .perks {
-    margin: 0 0 14px;
-    font-size: 14px;
-    color: color-mix(in srgb, var(--color-text-muted) 85%, transparent);
-    line-height: 1.6;
-  }
-
-  .map-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border-radius: 999px;
-    background: var(--color-secondary);
-    color: var(--color-primary);
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: background 0.2s ease, transform 0.2s ease;
-    flex: 1 1 0;
-    min-width: 0;
-
-    &:hover {
-      background: color-mix(in srgb, var(--color-secondary) 85%, var(--color-primary));
-      transform: translateY(-1px);
-    }
-  }
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+  font-size: 10px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 640px) {
   .card-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .action {
+    width: 100%;
+    flex-basis: 100%;
   }
 }
