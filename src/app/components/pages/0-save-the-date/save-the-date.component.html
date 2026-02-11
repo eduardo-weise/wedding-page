@@ -1,13 +1,35 @@
 <section id="save-the-date" class="section save-the-date" appScrollActive>
-  <div class="content">
-    <img
-      class="save-the-date-logo"
-      src="assets/logo.svg"
-      alt="Save the date"
-      appScrollReveal
-      [revealDelayMin]="80"
-      [revealDelayMax]="360"
-      [revealOnce]="false"
-    />
-  </div>
+	<div class="content">
+		<img
+			class="save-the-date-logo"
+			src="assets/logo.svg"
+			alt="Save the date"
+			appScrollReveal
+			[revealDelayMin]="80"
+			[revealDelayMax]="360"
+			[revealOnce]="false" />
+		<div class="session-qr">
+			@if (qrSrc) {
+				<div
+					class="save-the-date-qr-wrap"
+					appScrollReveal
+					[revealDelayMin]="160"
+					[revealDelayMax]="520"
+					[revealOnce]="false">
+					<img
+						class="save-the-date-qr"
+						[src]="qrSrc"
+						alt="QR Code"
+						aria-label="QR Code" />
+					<img
+						class="save-the-date-qr-logo"
+						src="assets/logo-mark.svg"
+						alt=""
+						aria-hidden="true"
+						draggable="false" />
+				</div>
+			}
+			<span>Abra o QR Code</span>
+		</div>
+	</div>
 </section>
