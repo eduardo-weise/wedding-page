@@ -39,7 +39,7 @@ export class FlashTattooComponent implements AfterViewInit {
 	}
 
 	private buildPinterestEmbed(): void {
-		const pinUtils = (window as typeof window & { PinUtils?: { build: () => void } }).PinUtils;
+		const pinUtils = (globalThis as typeof globalThis & { PinUtils?: { build: () => void } }).PinUtils;
 		if (pinUtils?.build) {
 			pinUtils.build();
 		}
