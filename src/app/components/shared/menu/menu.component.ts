@@ -2,14 +2,14 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, Renderer2 } from '@angular/core';
 
 @Component({
-	selector: 'app-side-menu',
+	selector: 'app-menu',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './side-menu.component.html',
-	styleUrls: ['./side-menu.component.scss'],
+	templateUrl: './menu.component.html',
+	styleUrls: ['./menu.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SideMenuComponent implements OnDestroy {
+export class MenuComponent implements OnDestroy {
 	constructor(
 		@Inject(DOCUMENT) private readonly document: Document,
 		private readonly renderer: Renderer2

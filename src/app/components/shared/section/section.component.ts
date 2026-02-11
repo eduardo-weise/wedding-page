@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
-import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
+import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
+import { ScrollActiveDirective } from '../../../directives/scroll-active.directive';
 
 @Component({
 	selector: 'app-section',

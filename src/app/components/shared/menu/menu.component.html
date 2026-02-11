@@ -2,10 +2,12 @@
 	<!-- Desktop: top-centered dots with reveal text on hover -->
 	<nav class="desktop-menu" aria-label="Navegação principal">
 		<ul class="dot-list">
-			<li *ngFor="let item of menuItems" class="dot-item" (click)="scrollToSection(item.id)">
-				<span class="dot" aria-hidden="true"></span>
-				<span class="dot-label">{{ item.label }}</span>
-			</li>
+			@for(item of menuItems; track $index) {
+				<li (click)="scrollToSection(item.id)" class="dot-item">
+					<span class="dot" aria-hidden="true"></span>
+					<span class="dot-label">{{ item.label }}</span>
+				</li>
+			}
 		</ul>
 	</nav>
 
@@ -21,7 +23,9 @@
 
 		<div class="mobile-items" [class.open]="isOpen">
 			<ul>
-				<li *ngFor="let item of menuItems" (click)="scrollToSection(item.id)">{{ item.label }}</li>
+				@for (item of menuItems; track $index) {
+					<li (click)="scrollToSection(item.id)">{{ item.label }}</li>
+				}
 			</ul>
 		</div>
 	</div>

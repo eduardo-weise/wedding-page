@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
-import { ScrollActiveDirective } from '../../directives/scroll-active.directive';
+import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
+import { ScrollActiveDirective } from '../../../directives/scroll-active.directive';
 
 @Component({
   selector: 'app-save-the-date',

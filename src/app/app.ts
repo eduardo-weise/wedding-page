@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { SaveTheDateComponent } from './components/save-the-date/save-the-date.component';
-import { ConviteComponent } from './components/convite/convite.component';
-import { FlashTattooComponent } from './components/flash-tattoo/flash-tattoo.component';
-import { LocalComponent } from './components/local/local.component';
-import { HospedagemComponent } from './components/hospedagem/hospedagem.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
+import { SaveTheDateComponent } from './components/pages/0-save-the-date/save-the-date.component';
+import { ConviteComponent } from './components/pages/1-convite/convite.component';
+import { FlashTattooComponent } from './components/pages/2-flash-tattoo/flash-tattoo.component';
+import { LocalComponent } from './components/pages/3-local/local.component';
+import { HospedagemComponent } from './components/pages/4-hospedagem/hospedagem.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   imports: [
     CommonModule,
     RouterOutlet,
-    SideMenuComponent,
+    MenuComponent,
     SaveTheDateComponent,
     ConviteComponent,
     FlashTattooComponent,
@@ -23,8 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent,
   ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 export class App {
-  title = 'Eduardo & Maiara';
+  title = 'Casamento Eduardo & Maiara';
 }

@@ -15,7 +15,6 @@
 	.dot-list {
 		display: flex;
 		align-items: center;
-		gap: 18px;
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -24,73 +23,61 @@
 	.dot-item {
 		position: relative;
 		cursor: pointer;
-		padding: 12px;
-		transition: transform 0.35s ease-in-out;
+		padding: 12px 35px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		transition: transform 0.55s ease-in-out;
 
 		&:hover {
-			transform: translateY(-2px);
+			text-shadow: #fff 0 0 12px;
 
 			.dot {
-				padding: 0;
-				height: 17px;
-				min-width: 17px;
-				border-radius: 50%;
-				box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-				background-color: transparent;
+				opacity: 0;
+				transform: translate(-50%, -50%) scale(0.4);
 			}
 
 			.dot-label {
+				max-width: 320px;
 				opacity: 1;
-				transform: translate(-50%, -50%) scale(1);
+				transform: scale(1);
 			}
 		}
 
 		.dot {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			min-width: 17px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) scale(1);
+			width: 17px;
 			height: 17px;
 			border-radius: 50%;
 			background-color: var(--color-text-muted);
-			transition: opacity 0.15s ease-in-out, border-radius 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background 0.15s ease-in-out;
+			transition: opacity 0.25s ease, transform 0.25s ease, border-radius 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background 0.15s ease-in-out;
 			box-shadow: 0 0 10px color-mix(in srgb, var(--color-text-muted) 35%, transparent);
+			pointer-events: none;
 		}
 
 		.dot-label {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%) scale(0.92);
+			max-width: 0;
+			overflow: hidden;
+			transform: scale(0.92);
+			transform-origin: left center;
 			opacity: 0;
 			color: var(--color-primary);
 			font-family: "Helvetica Neue", "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", Arial, sans-serif;
 			font-weight: 700;
 			font-stretch: condensed;
-			font-size: 16px;
-			letter-spacing: 0.5px;
+			font-size: 25px;
+			letter-spacing: 2px;
 			white-space: nowrap;
-			transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+			transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out, max-width 0.35s ease-in-out;
 			pointer-events: none;
 		}
 	}
 
-	/* Smoothly push neighbors away while keeping spacing consistent */
-	.dot-list:has(.dot-item:hover) .dot-item {
-		transition: transform 0.35s ease-in-out;
-	}
-
-	.dot-item:has(~ .dot-item:hover) {
-		transform: translateX(-12px);
-	}
-
-	.dot-item:hover ~ .dot-item {
-		transform: translateX(12px);
-	}
-
-	.dot-item:hover {
-		transform: translateY(-2px);
-	}
+	/* Item expansion on hover pushes neighbors via flex layout (gap stays consistent). */
 }
 
 .mobile-menu {
@@ -205,7 +192,8 @@
 			cursor: pointer;
 			transform-origin: right center;
 
-			&:hover, &:active {
+			&:hover,
+			&:active {
 				transform: scale(1.06) translateY(-2px);
 				opacity: 1;
 				color: color-mix(in srgb, var(--color-primary) 30%, #fff 70%);

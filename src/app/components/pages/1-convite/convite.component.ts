@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
-import { SectionComponent } from '../section/section.component';
+import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
+import { SectionComponent } from '../../shared/section/section.component';
 
 @Component({
   selector: 'app-convite',
