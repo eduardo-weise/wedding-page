@@ -8,22 +8,6 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script>
-    // Força scroll para o topo imediatamente
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    
-    // Tenta scroll para o elemento, senão usa fallback
-    window.addEventListener('DOMContentLoaded', function() {
-      var firstSection = document.getElementById('save-the-date');
-      if (firstSection) {
-        firstSection.scrollIntoView({ behavior: 'auto', block: 'start' });
-      } else {
-        window.scrollTo(0, 0);
-      }
-    });
-  </script>
 </head>
 <body>
   <app-root></app-root>
