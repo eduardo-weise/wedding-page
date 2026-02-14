@@ -13,7 +13,16 @@
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    window.scrollTo(0, 0);
+    
+    // Tenta scroll para o elemento, senão usa fallback
+    window.addEventListener('DOMContentLoaded', function() {
+      var firstSection = document.getElementById('save-the-date');
+      if (firstSection) {
+        firstSection.scrollIntoView({ behavior: 'auto', block: 'start' });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    });
   </script>
 </head>
 <body>

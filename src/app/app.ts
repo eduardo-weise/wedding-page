@@ -51,21 +51,29 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 				history.scrollRestoration = 'manual';
 			}
 			
-			// Force scroll to top on load - múltiplas tentativas para garantir
-			window.scrollTo(0, 0);
-			document.documentElement.scrollTop = 0;
-			document.body.scrollTop = 0;
-			
-			// Força novamente após um pequeno delay (garante após Angular renderizar)
-			setTimeout(() => {
-				window.scrollTo(0, 0);
-				document.documentElement.scrollTop = 0;
-				document.body.scrollTop = 0;
-			}, 0);
+			// Scroll para a primeira seção usando o ID
+			this.scrollToFirstSection();
 		}
 	}
 
+	private scrollToFirstSection(): void {
+		setTimeout(() => {
+			const firstSection = document.getElementById('save-the-date');
+			if (firstSection) {
+				firstSection.scrollIntoView({ behavior: 'auto', block: 'start' });
+			} else {
+				// Fallback se o elemento ainda não estiver renderizado
+				window.scrollTo(0, 0);
+			}
+		}, 0);
+	}
+
 	ngAfterViewInit(): void {
+		// Garante que após a view estar renderizada, scroll esteja correto
+		if (isPlatformBrowser(this.platformId)) {
+			this.scrollToFirstSection();
+		}
+		
 		// Apenas gera QR code se não for mobile
 		if (!this.isMobile) {
 			this.qr.generateForCurrentUrl()
