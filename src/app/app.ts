@@ -51,11 +51,17 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 				history.scrollRestoration = 'manual';
 			}
 			
-			// Force scroll to top on load and refresh
-			setTimeout(() => window.scrollTo(0, 0), 0);
-			window.addEventListener('beforeunload', () => {
+			// Force scroll to top on load - múltiplas tentativas para garantir
+			window.scrollTo(0, 0);
+			document.documentElement.scrollTop = 0;
+			document.body.scrollTop = 0;
+			
+			// Força novamente após um pequeno delay (garante após Angular renderizar)
+			setTimeout(() => {
 				window.scrollTo(0, 0);
-			});
+				document.documentElement.scrollTop = 0;
+				document.body.scrollTop = 0;
+			}, 0);
 		}
 	}
 

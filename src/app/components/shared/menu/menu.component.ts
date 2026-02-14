@@ -40,7 +40,22 @@ export class MenuComponent implements OnDestroy {
 		this.closeMenu();
 		
 		if (element) {
+			// Desabilita scroll-snap temporariamente para navegação suave (mobile)
+			const htmlEl = this.document.documentElement;
+			const bodyEl = this.document.body;
+			const originalHtmlSnap = htmlEl.style.scrollSnapType;
+			const originalBodySnap = bodyEl.style.scrollSnapType;
+			
+			htmlEl.style.scrollSnapType = 'none';
+			bodyEl.style.scrollSnapType = 'none';
+			
 			element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			
+			// Reabilita scroll-snap após navegação completar
+			setTimeout(() => {
+				htmlEl.style.scrollSnapType = originalHtmlSnap;
+				bodyEl.style.scrollSnapType = originalBodySnap;
+			}, 1000);
 		}
 	}
 

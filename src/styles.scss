@@ -23,6 +23,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
+  body {
+    scroll-snap-type: y mandatory;
+  }
+  
   html,
   body {
     -ms-overflow-style: none;
@@ -60,6 +68,13 @@ html {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 .section--active {
