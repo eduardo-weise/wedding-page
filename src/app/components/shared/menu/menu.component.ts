@@ -40,18 +40,7 @@ export class MenuComponent implements OnDestroy {
 		this.closeMenu();
 		
 		if (element) {
-			// Desabilita temporariamente o scroll-snap para navegação suave
-			const htmlEl = this.document.documentElement;
-			const originalSnapType = htmlEl.style.scrollSnapType;
-			htmlEl.style.scrollSnapType = 'none';
-			
-			// Scroll para a seção
 			element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			
-			// Reabilita scroll-snap após a navegação
-			setTimeout(() => {
-				htmlEl.style.scrollSnapType = originalSnapType || 'y mandatory';
-			}, 1000);
 		}
 	}
 

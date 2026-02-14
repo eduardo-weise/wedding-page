@@ -32,7 +32,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	qrDataUrl?: SafeResourceUrl;
 	isMobile = false;
 	private resizeListener?: () => void;
-	private pageShowListener?: (event: PageTransitionEvent) => void;
 
 	constructor(
 		private readonly qr: QrCodeService,
@@ -43,38 +42,20 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
 	ngOnInit(): void {
 		if (isPlatformBrowser(this.platformId)) {
-			// Adiciona classe loading ao HTML
-			document.documentElement.classList.add('loading');
-			
-			// Garante que a página sempre inicie no topo
-			window.scrollTo(0, 0);
-			
 			this.checkIfMobile();
 			this.resizeListener = () => this.checkIfMobile();
 			window.addEventListener('resize', this.resizeListener);
 			
-			// Listener para quando a página é carregada do cache (pull-to-refresh)
-			this.pageShowListener = (event: PageTransitionEvent) => {
-				if (event.persisted) {
-					// Página foi carregada do cache
-					window.scrollTo(0, 0);
-					document.documentElement.classList.add('loading');
-					setTimeout(() => {
-						document.documentElement.classList.remove('loading');
-					}, 100);
-				}
-			};
-			window.addEventListener('pageshow', this.pageShowListener as EventListener);
-			
-			// Previne comportamento de scroll preservation
+			// Garante scroll no topo em todos os casos
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
 			}
 			
-			// Remove classe loading após um pequeno delay
-			setTimeout(() => {
-				document.documentElement.classList.remove('loading');
-			}, 100);
+			// Force scroll to top on load and refresh
+			setTimeout(() => window.scrollTo(0, 0), 0);
+			window.addEventListener('beforeunload', () => {
+				window.scrollTo(0, 0);
+			});
 		}
 	}
 
@@ -92,13 +73,8 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		if (isPlatformBrowser(this.platformId)) {
-			if (this.resizeListener) {
-				window.removeEventListener('resize', this.resizeListener);
-			}
-			if (this.pageShowListener) {
-				window.removeEventListener('pageshow', this.pageShowListener as EventListener);
-			}
+		if (isPlatformBrowser(this.platformId) && this.resizeListener) {
+			window.removeEventListener('resize', this.resizeListener);
 		}
 	}
 

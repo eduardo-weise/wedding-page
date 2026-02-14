@@ -11,12 +11,6 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  scroll-snap-type: y mandatory;
-}
-
-/* Desabilita scroll-snap temporariamente durante carregamento */
-html.loading {
-  scroll-snap-type: none;
 }
 
 body {
@@ -26,7 +20,6 @@ body {
   overflow-x: hidden;
   background-color: var(--color-bg);
   color: var(--color-secondary);
-  scroll-snap-type: y mandatory;
 }
 
 @media (max-width: 768px) {
@@ -61,11 +54,9 @@ html {
   scroll-padding-top: 0;
 }
 
-/* Scroll snap por seção */
+/* Controle de seções */
 .section {
   width: 100%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
