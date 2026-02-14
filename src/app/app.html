@@ -1,13 +1,23 @@
-<app-menu></app-menu>
+<!-- Desktop: apenas save the date com QR code -->
+@if (!isMobile) {
+  <main class="main-content desktop-only">
+    <app-save-the-date [qrSrc]="qrDataUrl" [showQr]="true"></app-save-the-date>
+  </main>
+}
 
-<main class="main-content">
-  <app-save-the-date [qrSrc]="qrDataUrl"></app-save-the-date>
-  <app-convite></app-convite>
-  <app-flash-tattoo></app-flash-tattoo>
-  <app-local></app-local>
-  <app-hospedagem></app-hospedagem>
-</main>
-
-<app-footer></app-footer>
+<!-- Mobile: todas as páginas sem QR code -->
+@if (isMobile) {
+  <app-menu></app-menu>
+  
+  <main class="main-content">
+    <app-save-the-date [showQr]="false"></app-save-the-date>
+    <app-convite></app-convite>
+    <app-flash-tattoo></app-flash-tattoo>
+    <app-local></app-local>
+    <app-hospedagem></app-hospedagem>
+  </main>
+  
+  <app-footer></app-footer>
+}
 
 <router-outlet />

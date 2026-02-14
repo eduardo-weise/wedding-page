@@ -1,17 +1,4 @@
 <div class="menu-container">
-	<!-- Desktop: top-centered dots with reveal text on hover -->
-	<nav class="desktop-menu" aria-label="Navegação principal">
-		<ul class="dot-list">
-			@for(item of menuItems; track $index) {
-				<li (click)="scrollToSection(item.id)" class="dot-item">
-					<span class="dot" aria-hidden="true"></span>
-					<span class="dot-label">{{ item.label }}</span>
-				</li>
-			}
-		</ul>
-	</nav>
-
-	<!-- Mobile: hamburger that morphs to X and reveals text list -->
 	<div class="mobile-menu" aria-label="Menu móvel">
 		<button class="burger" [class.open]="isOpen" (click)="toggleMenu()" aria-label="Alternar menu">
 			<span></span>

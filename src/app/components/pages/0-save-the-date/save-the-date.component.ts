@@ -13,4 +13,5 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 })
 export class SaveTheDateComponent {
 	@Input() qrSrc?: SafeResourceUrl | string;
+	@Input() showQr: boolean = true;
 }

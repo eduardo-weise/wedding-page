@@ -8,28 +8,30 @@
 			[revealDelayMin]="80"
 			[revealDelayMax]="360"
 			[revealOnce]="false" />
-		<div class="session-qr">
-			@if (qrSrc) {
-				<div
-					class="save-the-date-qr-wrap"
-					appScrollReveal
-					[revealDelayMin]="160"
-					[revealDelayMax]="520"
-					[revealOnce]="false">
-					<img
-						class="save-the-date-qr"
-						[src]="qrSrc"
-						alt="QR Code"
-						aria-label="QR Code" />
-					<img
-						class="save-the-date-qr-logo"
-						src="assets/logo-mark.svg"
-						alt=""
-						aria-hidden="true"
-						draggable="false" />
-				</div>
-			}
-			<span>Abra o QR Code</span>
-		</div>
+		@if (showQr) {
+			<div class="session-qr">
+				@if (qrSrc) {
+					<div
+						class="save-the-date-qr-wrap"
+						appScrollReveal
+						[revealDelayMin]="160"
+						[revealDelayMax]="520"
+						[revealOnce]="false">
+						<img
+							class="save-the-date-qr"
+							[src]="qrSrc"
+							alt="QR Code"
+							aria-label="QR Code" />
+						<img
+							class="save-the-date-qr-logo"
+							src="assets/logo-mark.svg"
+							alt=""
+							aria-hidden="true"
+							draggable="false" />
+					</div>
+				}
+				<span>Escaneie com seu celular para acessar o convite</span>
+			</div>
+		}
 	</div>
 </section>

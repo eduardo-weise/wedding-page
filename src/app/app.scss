@@ -7,3 +7,12 @@
 .main-content {
   width: 100%;
 }
+
+.main-content.desktop-only {
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}

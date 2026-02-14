@@ -37,6 +37,12 @@ body {
   }
 }
 
+@media (min-width: 769px) {
+  body {
+    overflow: hidden;
+  }
+}
+
 /* Variáveis de cores baseadas na paleta fornecida */
 :root {
   --color-bg: #1F1F1D;
