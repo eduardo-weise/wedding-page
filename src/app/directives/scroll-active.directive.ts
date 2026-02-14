@@ -20,6 +20,13 @@ export class ScrollActiveDirective implements AfterViewInit, OnDestroy {
       return;
     }
 
+    // Ativa imediatamente a primeira seção visível no carregamento
+    const rect = element.getBoundingClientRect();
+    const isInitiallyVisible = rect.top >= 0 && rect.top < window.innerHeight * 0.5;
+    if (isInitiallyVisible) {
+      this.renderer.addClass(element, 'section--active');
+    }
+
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

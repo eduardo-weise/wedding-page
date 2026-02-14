@@ -14,6 +14,11 @@ html {
   scroll-snap-type: y mandatory;
 }
 
+/* Desabilita scroll-snap temporariamente durante carregamento */
+html.loading {
+  scroll-snap-type: none;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
