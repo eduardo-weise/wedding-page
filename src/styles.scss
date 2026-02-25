@@ -23,16 +23,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    html {
-        scroll-snap-type: y mandatory;
-    }
-
-    body {
-        scroll-snap-type: y mandatory;
-    }
-
     html,
     body {
+        scroll-snap-type: y proximity;
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
