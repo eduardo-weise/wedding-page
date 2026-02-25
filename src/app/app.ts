@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, ChangeDetectorRef, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { SaveTheDateComponent } from './components/pages/0-save-the-date/save-the-date.component';
 import { ConviteComponent } from './components/pages/1-convite/convite.component';
@@ -32,12 +32,14 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	qrDataUrl?: SafeResourceUrl;
 	isMobile = false;
 	private resizeListener?: () => void;
+	private lastTouchEnd = 0;
 
 	constructor(
 		private readonly qr: QrCodeService,
 		private readonly sanitizer: DomSanitizer,
 		private readonly cdr: ChangeDetectorRef,
-		@Inject(PLATFORM_ID) private platformId: Object
+		@Inject(PLATFORM_ID) private platformId: Object,
+		@Inject(DOCUMENT) private readonly document: Document
 	) { }
 
 	ngOnInit(): void {
@@ -53,6 +55,11 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			
 			// Scroll para a primeira seção usando o ID
 			this.scrollToFirstSection();
+
+			// Impede zoom por duplo toque em iOS/Safari
+			this.document.addEventListener('touchend', this.handleTouchEnd as EventListener, {
+				passive: false
+			});
 		}
 	}
 
@@ -87,8 +94,12 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		if (isPlatformBrowser(this.platformId) && this.resizeListener) {
-			window.removeEventListener('resize', this.resizeListener);
+		if (isPlatformBrowser(this.platformId)) {
+			if (this.resizeListener) {
+				window.removeEventListener('resize', this.resizeListener);
+			}
+
+			this.document.removeEventListener('touchend', this.handleTouchEnd as EventListener);
 		}
 	}
 
@@ -101,4 +112,12 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			this.cdr.detectChanges();
 		}
 	}
+
+	private handleTouchEnd = (event: TouchEvent): void => {
+		const now = Date.now();
+		if (now - this.lastTouchEnd <= 300) {
+			event.preventDefault();
+		}
+		this.lastTouchEnd = now;
+	};
 }
