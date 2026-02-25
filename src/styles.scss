@@ -25,7 +25,7 @@ body {
 @media (max-width: 768px) {
     html,
     body {
-        scroll-snap-type: y mandatory;
+        scroll-snap-type: block mandatory;
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
