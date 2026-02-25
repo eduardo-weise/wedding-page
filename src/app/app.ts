@@ -33,7 +33,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	isMobile = false;
 	private resizeListener?: () => void;
 	private lastTouchEnd = 0;
-	private hasScrolledToFirst = false;
 
 	constructor(
 		private readonly qr: QrCodeService,
@@ -53,10 +52,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
 			}
-			
-			// Scroll para a primeira seção usando o ID
-			this.scrollToFirstSection();
-
 			// Impede zoom por duplo toque em iOS/Safari
 			this.document.addEventListener('touchend', this.handleTouchEnd as EventListener, {
 				passive: false
@@ -65,11 +60,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	}
 
 	private scrollToFirstSection(): void {
-		if (this.hasScrolledToFirst) {
-			return;
-		}
-		this.hasScrolledToFirst = true;
-
 		setTimeout(() => {
 			const htmlEl = this.document.documentElement;
 			const bodyEl = this.document.body;
