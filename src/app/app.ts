@@ -33,6 +33,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	isMobile = false;
 	private resizeListener?: () => void;
 	private lastTouchEnd = 0;
+	private hasScrolledToFirst = false;
 
 	constructor(
 		private readonly qr: QrCodeService,
@@ -56,10 +57,18 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			this.document.addEventListener('touchend', this.handleTouchEnd as EventListener, {
 				passive: false
 			});
+
+			// Garante que, mesmo em bfcache / pull-to-refresh, voltamos para a primeira seção
+			window.addEventListener('pageshow', this.handlePageShow as EventListener);
 		}
 	}
 
 	private scrollToFirstSection(): void {
+		if (this.hasScrolledToFirst) {
+			return;
+		}
+		this.hasScrolledToFirst = true;
+
 		setTimeout(() => {
 			const htmlEl = this.document.documentElement;
 			const bodyEl = this.document.body;
@@ -112,6 +121,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			}
 
 			this.document.removeEventListener('touchend', this.handleTouchEnd as EventListener);
+			window.removeEventListener('pageshow', this.handlePageShow as EventListener);
 		}
 	}
 
@@ -131,5 +141,9 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			event.preventDefault();
 		}
 		this.lastTouchEnd = now;
+	};
+
+	private handlePageShow = (): void => {
+		this.scrollToFirstSection();
 	};
 }
