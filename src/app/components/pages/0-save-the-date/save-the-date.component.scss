@@ -79,6 +79,10 @@
 
 @media (max-width: 768px) {
 	.save-the-date {
+		/* Dá um "fôlego" extra na primeira seção para evitar que pequenos movimentos
+		   de pull-to-refresh já aproximem demais a próxima seção para o scroll-snap */
+		min-height: 120vh;
+
 		.content {
 			flex-direction: column;
 			gap: 40px;
