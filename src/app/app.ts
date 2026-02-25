@@ -56,8 +56,10 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			bodyEl.style.scrollSnapType = 'none';
 			window.scrollTo(0, 0);
 
-			// Habilita scroll-snap apenas após o primeiro scroll do usuário
-			window.addEventListener('scroll', this.enableScrollSnapOnce, { passive: true });
+			// Habilita scroll-snap apenas na primeira interação de toque
+			window.addEventListener('touchstart', this.enableScrollSnapOnce as EventListener, {
+				passive: true
+			});
 			
 			// Impede zoom por duplo toque em iOS/Safari
 			this.document.addEventListener('touchend', this.handleTouchEnd as EventListener, {
@@ -86,7 +88,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			}
 
 			this.document.removeEventListener('touchend', this.handleTouchEnd as EventListener);
-			window.removeEventListener('scroll', this.enableScrollSnapOnce as EventListener);
+			window.removeEventListener('touchstart', this.enableScrollSnapOnce as EventListener);
 		}
 	}
 
@@ -113,6 +115,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 		const bodyEl = this.document.body;
 		htmlEl.style.scrollSnapType = '';
 		bodyEl.style.scrollSnapType = '';
-		window.removeEventListener('scroll', this.enableScrollSnapOnce as EventListener);
+		window.removeEventListener('touchstart', this.enableScrollSnapOnce as EventListener);
 	};
 }
