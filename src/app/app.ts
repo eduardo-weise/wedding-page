@@ -33,6 +33,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	isMobile = false;
 	private resizeListener?: () => void;
 	private lastTouchEnd = 0;
+	private scrollSnapDisabledNearTop = false;
 
 	constructor(
 		private readonly qr: QrCodeService,
@@ -52,8 +53,15 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
 			}
+
+			// Garante início no topo e desabilita temporariamente o snap lá em cima
 			window.scrollTo(0, 0);
+			this.updateScrollSnapForTop();
+
 			window.addEventListener('pageshow', this.handlePageShow as EventListener);
+			window.addEventListener('scroll', this.updateScrollSnapForTop as EventListener, {
+				passive: true
+			});
 
 			// Impede zoom por duplo toque em iOS/Safari
 			this.document.addEventListener('touchend', this.handleTouchEnd as EventListener, {
@@ -83,6 +91,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 
 			this.document.removeEventListener('touchend', this.handleTouchEnd as EventListener);
 			window.removeEventListener('pageshow', this.handlePageShow as EventListener);
+			window.removeEventListener('scroll', this.updateScrollSnapForTop as EventListener);
 		}
 	}
 
@@ -110,6 +119,38 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 		const pageEvent = event as any;
 		if (pageEvent.persisted === true) {
 			window.scrollTo(0, 0);
+			this.updateScrollSnapForTop();
+		}
+	};
+
+	/**
+	 * Em iOS, pequenos movimentos de pull-to-refresh perto do topo podem fazer
+	 * o scroll-snap "pular" da primeira para a segunda seção.
+	 * Aqui desligamos o snap quando o scroll está MUITO próximo do topo
+	 * e religamos assim que o usuário realmente começa a rolar a página.
+	 */
+	private updateScrollSnapForTop = (): void => {
+		const y =
+			window.scrollY ||
+			this.document.documentElement.scrollTop ||
+			this.document.body.scrollTop ||
+			0;
+
+		const shouldDisable = y <= 2;
+		if (shouldDisable && !this.scrollSnapDisabledNearTop) {
+			this.scrollSnapDisabledNearTop = true;
+
+			const htmlEl = this.document.documentElement;
+			const bodyEl = this.document.body;
+			htmlEl.style.scrollSnapType = 'none';
+			bodyEl.style.scrollSnapType = 'none';
+		} else if (!shouldDisable && this.scrollSnapDisabledNearTop) {
+			this.scrollSnapDisabledNearTop = false;
+
+			const htmlEl = this.document.documentElement;
+			const bodyEl = this.document.body;
+			htmlEl.style.scrollSnapType = '';
+			bodyEl.style.scrollSnapType = '';
 		}
 	};
 }
