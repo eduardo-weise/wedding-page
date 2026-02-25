@@ -33,6 +33,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	isMobile = false;
 	private resizeListener?: () => void;
 	private lastTouchEnd = 0;
+	private hasScrolledToFirst = false;
 
 	constructor(
 		private readonly qr: QrCodeService,
@@ -64,14 +65,35 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	}
 
 	private scrollToFirstSection(): void {
+		if (this.hasScrolledToFirst) {
+			return;
+		}
+		this.hasScrolledToFirst = true;
+
 		setTimeout(() => {
-			const firstSection = document.getElementById('save-the-date');
+			const htmlEl = this.document.documentElement;
+			const bodyEl = this.document.body;
+
+			const originalHtmlSnap = htmlEl.style.scrollSnapType;
+			const originalBodySnap = bodyEl.style.scrollSnapType;
+
+			// Desabilita scroll-snap temporariamente para evitar que o navegador "grude" em outra seção (ex: convite)
+			htmlEl.style.scrollSnapType = 'none';
+			bodyEl.style.scrollSnapType = 'none';
+
+			const firstSection = this.document.getElementById('save-the-date');
 			if (firstSection) {
 				firstSection.scrollIntoView({ behavior: 'auto', block: 'start' });
 			} else {
 				// Fallback se o elemento ainda não estiver renderizado
 				window.scrollTo(0, 0);
 			}
+
+			// Reabilita o scroll-snap após posicionar na seção inicial
+			setTimeout(() => {
+				htmlEl.style.scrollSnapType = originalHtmlSnap;
+				bodyEl.style.scrollSnapType = originalBodySnap;
+			}, 400);
 		}, 0);
 	}
 
