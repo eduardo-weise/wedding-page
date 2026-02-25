@@ -20,11 +20,7 @@
 		height: 46px;
 		border-radius: 50%;
 		background: none;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 6px;
+		display: block;
 		cursor: pointer;
 		transition: transform 0.2s ease, box-shadow 0.2s ease;
 		position: relative;
@@ -37,27 +33,43 @@
 
 		span {
 			display: block;
+			position: absolute;
+			left: 50%;
 			width: 22px;
 			height: 2px;
 			background-color: var(--color-primary);
 			transition: transform 0.25s ease, opacity 0.2s ease;
-			transform-origin: 11px center;
+			transform-origin: center;
+			transform: translateX(-50%);
+		}
+
+		span:nth-child(1) {
+			top: 16px;
+		}
+
+		span:nth-child(2) {
+			top: 22px;
+		}
+
+		span:nth-child(3) {
+			top: 28px;
 		}
 
 		&.open {
-			// Garante que apenas as barras 1 e 3 fiquem visíveis no estado "X"
-			span {
-				opacity: 0;
-			}
-
 			span:nth-child(1) {
 				opacity: 1;
-				transform: translateY(8px) rotate(45deg);
+				top: 22px;
+				transform: translateX(-50%) rotate(45deg);
+			}
+
+			span:nth-child(2) {
+				opacity: 0;
 			}
 
 			span:nth-child(3) {
 				opacity: 1;
-				transform: translateY(-8px) rotate(-45deg);
+				top: 22px;
+				transform: translateX(-50%) rotate(-45deg);
 			}
 		}
 	}
