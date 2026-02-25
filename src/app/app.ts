@@ -48,19 +48,13 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			this.resizeListener = () => this.checkIfMobile();
 			window.addEventListener('resize', this.resizeListener);
 
-			// Desabilita scroll-snap no carregamento inicial para evitar que o navegador
-			// "grude" automaticamente em uma seção intermediária (ex: convite) em iOS.
-			const htmlEl = this.document.documentElement;
-			const bodyEl = this.document.body;
-			htmlEl.style.scrollSnapType = 'none';
-			bodyEl.style.scrollSnapType = 'none';
+			// Garante que a página sempre inicie no topo (inclusive em reload/back)
+			if ('scrollRestoration' in history) {
+				history.scrollRestoration = 'manual';
+			}
 			window.scrollTo(0, 0);
+			window.addEventListener('pageshow', this.handlePageShow as EventListener);
 
-			// Habilita scroll-snap apenas na primeira interação de toque
-			window.addEventListener('touchstart', this.enableScrollSnapOnce as EventListener, {
-				passive: true
-			});
-			
 			// Impede zoom por duplo toque em iOS/Safari
 			this.document.addEventListener('touchend', this.handleTouchEnd as EventListener, {
 				passive: false
@@ -88,14 +82,14 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			}
 
 			this.document.removeEventListener('touchend', this.handleTouchEnd as EventListener);
-			window.removeEventListener('touchstart', this.enableScrollSnapOnce as EventListener);
+			window.removeEventListener('pageshow', this.handlePageShow as EventListener);
 		}
 	}
 
 	private checkIfMobile(): void {
 		const wasMobile = this.isMobile;
 		this.isMobile = window.innerWidth <= 768;
-		
+
 		// Se mudou de desktop para mobile ou vice-versa, recarrega a página
 		if (wasMobile !== this.isMobile && wasMobile !== undefined) {
 			this.cdr.detectChanges();
@@ -110,11 +104,12 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 		this.lastTouchEnd = now;
 	};
 
-	private enableScrollSnapOnce = (): void => {
-		const htmlEl = this.document.documentElement;
-		const bodyEl = this.document.body;
-		htmlEl.style.scrollSnapType = '';
-		bodyEl.style.scrollSnapType = '';
-		window.removeEventListener('touchstart', this.enableScrollSnapOnce as EventListener);
+	private handlePageShow = (event: Event): void => {
+		// Em alguns navegadores (ex: iOS Safari), o bfcache restaura a posição anterior.
+		// Reforçamos que o usuário sempre volte a ver o topo (save-the-date).
+		const pageEvent = event as any;
+		if (pageEvent.persisted === true) {
+			window.scrollTo(0, 0);
+		}
 	};
 }
