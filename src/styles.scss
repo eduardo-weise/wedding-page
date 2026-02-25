@@ -3,148 +3,149 @@
 
 /* Reset e estilos globais */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  font-size: 16px;
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  background-color: var(--color-bg);
-  color: var(--color-secondary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-color: var(--color-bg);
+    color: var(--color-secondary);
 }
 
 @media (max-width: 768px) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
+    html {
+        scroll-snap-type: y mandatory;
+    }
 
-  body {
-    scroll-snap-type: y mandatory;
-  }
-  
-  html,
-  body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    body {
+        scroll-snap-type: y mandatory;
+    }
 
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
-    display: none;
-  }
+    html,
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 @media (min-width: 769px) {
-  body {
-    overflow: hidden;
-  }
+    body {
+        overflow: hidden;
+    }
 }
 
 /* Variáveis de cores baseadas na paleta fornecida */
 :root {
-  --color-bg: #1F1F1D;
-  --color-primary: #BFBFBF;
-  --color-secondary: #7A4C29;
-  --color-text-muted: #F4F2EE;
+    --color-bg: #1F1F1D;
+    --color-primary: #BFBFBF;
+    --color-secondary: #7A4C29;
+    --color-text-muted: #F4F2EE;
 }
 
 /* Scroll suave para navegação */
 html {
-  scroll-padding-top: 0;
+    scroll-padding-top: 0;
 }
 
 /* Controle de seções */
 .section {
-  width: 100%;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
 }
 
 @media (max-width: 768px) {
-  .section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
+    .section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
 }
 
 .section--active {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .scroll-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
 }
 
 .scroll-reveal--visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section--active .scroll-reveal {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section:not(.section--active) .scroll-reveal {
-  opacity: 0;
-  transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 /* Remover estilos padrão de listas */
-ul, ol {
-  list-style: none;
+ul,
+ol {
+    list-style: none;
 }
 
 /* Remover estilos padrão de links */
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Estilo para botões (exceto menu) */
 button:not(.menu-toggle):not(.close-btn),
 a.whatsapp-button,
 a.pinterest-fallback {
-  font-family: inherit;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 18px;
-  border-radius: 24px;
-  border: none;
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.2s ease-in-out;
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 24px;
+    border: none;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
 }
 
 button:not(.menu-toggle):not(.close-btn):hover,
 a.whatsapp-button:hover,
 a.pinterest-fallback:hover {
-  background-color: color-mix(in srgb, var(--color-secondary) 85%, var(--color-primary));
+    background-color: color-mix(in srgb, var(--color-secondary) 85%, var(--color-primary));
 }
 
 /* Responsividade para imagens */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
