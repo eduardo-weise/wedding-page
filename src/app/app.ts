@@ -33,7 +33,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	isMobile = false;
 	private resizeListener?: () => void;
 	private lastTouchEnd = 0;
-	private hasScrolledToFirst = false;
 
 	constructor(
 		private readonly qr: QrCodeService,
@@ -48,60 +47,26 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			this.checkIfMobile();
 			this.resizeListener = () => this.checkIfMobile();
 			window.addEventListener('resize', this.resizeListener);
+
+			// Desabilita scroll-snap no carregamento inicial para evitar que o navegador
+			// "grude" automaticamente em uma seção intermediária (ex: convite) em iOS.
+			const htmlEl = this.document.documentElement;
+			const bodyEl = this.document.body;
+			htmlEl.style.scrollSnapType = 'none';
+			bodyEl.style.scrollSnapType = 'none';
+			window.scrollTo(0, 0);
+
+			// Habilita scroll-snap apenas após o primeiro scroll do usuário
+			window.addEventListener('scroll', this.enableScrollSnapOnce, { passive: true });
 			
-			// Garante scroll no topo em todos os casos
-			if ('scrollRestoration' in history) {
-				history.scrollRestoration = 'manual';
-			}
 			// Impede zoom por duplo toque em iOS/Safari
 			this.document.addEventListener('touchend', this.handleTouchEnd as EventListener, {
 				passive: false
 			});
-
-			// Garante que, mesmo em bfcache / pull-to-refresh, voltamos para a primeira seção
-			window.addEventListener('pageshow', this.handlePageShow as EventListener);
 		}
-	}
-
-	private scrollToFirstSection(): void {
-		if (this.hasScrolledToFirst) {
-			return;
-		}
-		this.hasScrolledToFirst = true;
-
-		setTimeout(() => {
-			const htmlEl = this.document.documentElement;
-			const bodyEl = this.document.body;
-
-			const originalHtmlSnap = htmlEl.style.scrollSnapType;
-			const originalBodySnap = bodyEl.style.scrollSnapType;
-
-			// Desabilita scroll-snap temporariamente para evitar que o navegador "grude" em outra seção (ex: convite)
-			htmlEl.style.scrollSnapType = 'none';
-			bodyEl.style.scrollSnapType = 'none';
-
-			const firstSection = this.document.getElementById('save-the-date');
-			if (firstSection) {
-				firstSection.scrollIntoView({ behavior: 'auto', block: 'start' });
-			} else {
-				// Fallback se o elemento ainda não estiver renderizado
-				window.scrollTo(0, 0);
-			}
-
-			// Reabilita o scroll-snap após posicionar na seção inicial
-			setTimeout(() => {
-				htmlEl.style.scrollSnapType = originalHtmlSnap;
-				bodyEl.style.scrollSnapType = originalBodySnap;
-			}, 400);
-		}, 0);
 	}
 
 	ngAfterViewInit(): void {
-		// Garante que após a view estar renderizada, scroll esteja correto
-		if (isPlatformBrowser(this.platformId)) {
-			this.scrollToFirstSection();
-		}
-		
 		// Apenas gera QR code se não for mobile
 		if (!this.isMobile) {
 			this.qr.generateForCurrentUrl()
@@ -121,7 +86,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			}
 
 			this.document.removeEventListener('touchend', this.handleTouchEnd as EventListener);
-			window.removeEventListener('pageshow', this.handlePageShow as EventListener);
+			window.removeEventListener('scroll', this.enableScrollSnapOnce as EventListener);
 		}
 	}
 
@@ -143,7 +108,11 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 		this.lastTouchEnd = now;
 	};
 
-	private handlePageShow = (): void => {
-		this.scrollToFirstSection();
+	private enableScrollSnapOnce = (): void => {
+		const htmlEl = this.document.documentElement;
+		const bodyEl = this.document.body;
+		htmlEl.style.scrollSnapType = '';
+		bodyEl.style.scrollSnapType = '';
+		window.removeEventListener('scroll', this.enableScrollSnapOnce as EventListener);
 	};
 }
