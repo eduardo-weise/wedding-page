@@ -42,7 +42,7 @@ export class MenuComponent implements OnDestroy {
 		if (opening) {
 			animate('.mobile-item', {
 				x: ['-100cqw', '0cqw'],
-				delay: stagger(60, { from: 'random' }),
+				delay: stagger(60),
 				ease: spring({ bounce: 0.4, duration: 500 }),
 			});
 		} else {
