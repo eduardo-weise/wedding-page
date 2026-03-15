@@ -9,10 +9,12 @@
 					[revealDelayMax]="hotel.revealDelayMax" [revealOnce]="false">
 					<div class="title-row">
 						<h2 class="hotel-name">{{ hotel.name }}</h2>
-						<div class="badge">
-							<span class="material-symbols-rounded">check_circle</span>
-							{{ hotel.tag.label }}
-						</div>
+						@if (hotel.tag) {
+							<div class="badge">
+								<span class="material-symbols-rounded">check_circle</span>
+								{{ hotel.tag.label }}
+							</div>
+						}
 					</div>
 				</div>
 
