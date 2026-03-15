@@ -16,6 +16,9 @@ export class FlashTattooComponent implements AfterViewInit {
 	flashExplainer = 'A flash tattoo é uma tatuagem rápida e <strong>permanente</strong>, feita no mesmo dia, a partir de desenhos previamente selecionados, com até <strong>5 cm</strong> de tamanho. As tatuagens serão realizadas <strong>no local do evento</strong>, ao longo da festa. Para agilizar o atendimento no dia, escolha sua arte e informe <strong>o desenho e o local do corpo</strong> diretamente para a tatuadora utilizando o botão abaixo.';
 	flashInspirations = 'Aqui a Bruna deixou algumas inspirações para ajudar na escolha.';
 
+	whatsappMessage = 'Oi, sou convidado do casamento do Eduardo e Maiara e gostaria de alinhar minha flash tattoo';
+	whatsappUrl = `https://wa.me/555599015286?text=${encodeURIComponent(this.whatsappMessage)}`;
+
 	pinterestBoardUrl = 'https://br.pinterest.com/ramonrocasilva/flash-5-cm/';
 
 	constructor(
