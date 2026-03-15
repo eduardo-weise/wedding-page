@@ -1,5 +1,6 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, Renderer2 } from '@angular/core';
+import { animate, stagger, spring } from 'animejs';
 
 @Component({
 	selector: 'app-menu',
@@ -28,11 +29,29 @@ export class MenuComponent implements OnDestroy {
 	toggleMenu(): void {
 		this.isOpen = !this.isOpen;
 		this.isOpen ? this.lockScroll() : this.unlockScroll();
+		this.animateMenuItems(this.isOpen);
 	}
 
 	closeMenu(): void {
 		this.isOpen = false;
 		this.unlockScroll();
+		this.animateMenuItems(this.isOpen);
+	}
+
+	private animateMenuItems(opening: boolean): void {
+		if (opening) {
+			animate('.mobile-item', {
+				x: ['-100cqw', '0cqw'],
+				delay: stagger(60, { from: 'random' }),
+				ease: spring({ bounce: 0.4, duration: 500 }),
+			});
+		} else {
+			animate('.mobile-item', {
+				x: '-100cqw',
+				delay: stagger(60),
+				ease: spring({ bounce: 0.4, duration: 500 }),
+			});
+		}
 	}
 
 	scrollToSection(sectionId: string): void {

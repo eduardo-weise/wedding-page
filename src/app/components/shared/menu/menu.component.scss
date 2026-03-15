@@ -100,17 +100,13 @@
 		left: auto;
 		background-color: transparent;
 		border: none;
-		border-radius: 0;
 		box-shadow: none;
 		opacity: 0;
-		transform: translateY(-10px);
 		pointer-events: none;
-		transition: opacity 0.25s ease, transform 0.25s ease;
 		z-index: 1001;
 
 		&.open {
 			opacity: 1;
-			transform: translateY(0);
 			pointer-events: auto;
 		}
 
@@ -128,23 +124,6 @@
 			color: var(--color-primary);
 			font-weight: 700;
 			text-transform: uppercase;
-			border-radius: 0;
-			transition: transform 0.25s ease, opacity 0.25s ease, text-shadow 0.25s ease, color 0.25s ease;
-			cursor: pointer;
-			transform-origin: right center;
-
-			&:hover,
-			&:active {
-				transform: scale(1.06) translateY(-2px);
-				opacity: 1;
-				color: color-mix(in srgb, var(--color-primary) 30%, #fff 70%);
-				text-shadow: 0 4px 18px color-mix(in srgb, var(--color-primary) 45%, transparent);
-			}
-
-			&:active {
-				user-select: none;
-				background: transparent;
-			}
 		}
 	}
 }
@@ -156,7 +135,6 @@
 		}
 	}
 }
-
 
 @media (max-width: 768px) {
 	.desktop-menu {

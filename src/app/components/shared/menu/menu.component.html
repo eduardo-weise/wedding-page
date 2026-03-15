@@ -11,7 +11,7 @@
 		<div class="mobile-items" [class.open]="isOpen">
 			<ul>
 				@for (item of menuItems; track $index) {
-					<li (click)="scrollToSection(item.id)">{{ item.label }}</li>
+					<li class="mobile-item" (click)="scrollToSection(item.id)">{{ item.label }}</li>
 				}
 			</ul>
 		</div>
