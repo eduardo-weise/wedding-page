@@ -33,9 +33,9 @@
 	will-change: transform, opacity;
 	color: hsl(350, 80%, 55%);
 
-	&:nth-child(5n + 1) { left: 8%;  color: hsl(340, 75%, 50%); font-size: 14px; }
-	&:nth-child(5n + 2) { left: 28%; color: hsl(355, 85%, 60%); font-size: 18px; }
-	&:nth-child(5n + 3) { left: 48%; color: hsl(345, 70%, 55%); font-size: 12px; }
-	&:nth-child(5n + 4) { left: 68%; color: hsl(350, 90%, 65%); font-size: 20px; }
-	&:nth-child(5n + 5) { left: 88%; color: hsl(348, 80%, 58%); font-size: 16px; }
+	&:nth-child(5n + 1) { left: 8%;  color: hsl(340, 100%, 100%); font-size: 14px; }
+	&:nth-child(5n + 2) { left: 28%; color: hsl(355, 8%, 93%); font-size: 18px; }
+	&:nth-child(5n + 3) { left: 48%; color: hsl(348, 5%, 79%); font-size: 12px; }
+	&:nth-child(5n + 4) { left: 68%; color: hsl(350, 100%, 98%); font-size: 20px; }
+	&:nth-child(5n + 5) { left: 88%; color: hsl(342, 20%, 94%); font-size: 16px; }
 }
