@@ -14,7 +14,7 @@
 		</p>
 
 		<div class="pix-box" appScrollReveal [revealDelayMin]="160" [revealDelayMax]="540" [revealOnce]="false">
-			<span class="pix-label">Pix copia e cola</span>
+			<span class="pix-label">Chave pix</span>
 			<div class="pix-key-row">
 				<code class="pix-key" #pixKeyEl>@for (char of pixChars; track $index) {<span class="pix-char">{{ char }}</span>}</code>
 				<button class="copy-btn" (click)="copyPix()" aria-label="Copiar chave Pix">
