@@ -31,7 +31,7 @@
 	font-size: 16px;
 	opacity: 0;
 	will-change: transform, opacity;
-	color: hsl(350, 80%, 55%);
+	color: hsl(0, 0%, 100%);
 
 	&:nth-child(5n + 1) { left: 8%;  color: hsl(340, 100%, 100%); font-size: 14px; }
 	&:nth-child(5n + 2) { left: 28%; color: hsl(355, 8%, 93%); font-size: 18px; }
