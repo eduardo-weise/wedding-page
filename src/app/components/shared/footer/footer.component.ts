@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, AfterViewInit, ViewEncapsulation } from '@angular/core';
-import { animate, onScroll, stagger } from 'animejs';
+import { animate, onScroll } from 'animejs';
 
 @Component({
 	selector: 'app-footer',
@@ -24,8 +24,7 @@ export class FooterComponent implements AfterViewInit {
 
 		onScroll({
 			target: '.footer-logo',
-			enter: 'bottom',
-			leave: 'bottom',
+			debug: true,
 			onEnter: () => {
 				anim.reversed = false;
 				anim.play();
@@ -66,5 +65,11 @@ export class FooterComponent implements AfterViewInit {
 	private stopHearts(): void {
 		this.heartsAnims.forEach(a => a.pause());
 		this.heartsAnims = [];
+		animate('.heart', {
+			opacity: 0,
+			scale: 0,
+			duration: 600,
+			ease: 'inQuad',
+		});
 	}
 }
