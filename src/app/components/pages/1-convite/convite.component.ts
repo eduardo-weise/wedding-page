@@ -21,4 +21,12 @@ export class ConviteComponent {
   city = 'Santa Rosa - RS';
   
   message = 'Com imensa alegria, convidamos você para celebrar conosco este momento especial. Sua presença é fundamental para tornar este dia ainda mais memorável.';
+
+  whatsappConfirmMessage =
+    'Oi! Sou convidado do casamento do Eduardo e Maiara e gostaria de confirmar minha presença.';
+  whatsappConfirmUrl = `https://wa.me/555599015286?text=${encodeURIComponent(this.whatsappConfirmMessage)}`;
+
+  whatsappDeclineMessage =
+    'Oi! Sou convidado do casamento do Eduardo e Maiara e infelizmente não vou conseguir comparecer.';
+  whatsappDeclineUrl = `https://wa.me/555599015286?text=${encodeURIComponent(this.whatsappDeclineMessage)}`;
 }
