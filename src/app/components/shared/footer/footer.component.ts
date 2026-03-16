@@ -24,7 +24,6 @@ export class FooterComponent implements AfterViewInit {
 
 		onScroll({
 			target: '.footer-logo',
-			debug: true,
 			onEnter: () => {
 				anim.reversed = false;
 				anim.play();
