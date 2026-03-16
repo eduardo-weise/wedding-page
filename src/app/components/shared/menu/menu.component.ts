@@ -23,6 +23,7 @@ export class MenuComponent implements OnDestroy {
 		{ id: 'convite', label: 'convite', icon: '💌' },
 		{ id: 'flash-tattoo', label: 'flash tattoo', icon: '✨' },
 		{ id: 'local', label: 'local', icon: '📍' },
+		{ id: 'presente', label: 'o presente', icon: '🎁' },
 		{ id: 'hospedagem', label: 'hospedagem', icon: '🏨' }
 	];
 

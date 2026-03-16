@@ -1,0 +1,30 @@
+<app-section sectionId="presente" sectionNumber="05" sectionLabel="O PRESENTE" sectionClass="presente"
+	title="Sem listas, sem stress">
+
+	<div class="presente-content">
+		<p class="intro" appScrollReveal [revealDelayMin]="120" [revealDelayMax]="460" [revealOnce]="false">
+			A gente não fez lista de presentes. Se você quiser nos dar algo, a gente prefere que seja em
+			dinheiro mesmo — sem frescura! No dia do casamento, vai ter uma caixinha na entrada com
+			envelopes pra quem quiser contribuir.
+		</p>
+
+		<p class="intro" appScrollReveal [revealDelayMin]="140" [revealDelayMax]="500" [revealOnce]="false">
+			Se preferir Pix, também temos! Vai ter um QR code na caixinha, ou se preferir
+			já garantir antes, é só copiar a chave aqui embaixo:
+		</p>
+
+		<div class="pix-box" appScrollReveal [revealDelayMin]="160" [revealDelayMax]="540" [revealOnce]="false">
+			<span class="pix-label">Pix copia e cola</span>
+			<div class="pix-key-row">
+				<code class="pix-key" #pixKeyEl>@for (char of pixChars; track $index) {<span class="pix-char">{{ char }}</span>}</code>
+				<button class="copy-btn" (click)="copyPix()" aria-label="Copiar chave Pix">
+					<span class="material-symbols-rounded">content_copy</span>
+				</button>
+			</div>
+		</div>
+
+		<p class="note" appScrollReveal [revealDelayMin]="180" [revealDelayMax]="580" [revealOnce]="false">
+			Mas, de verdade, o que mais importa é ter você lá com a gente. <span class="material-symbols-rounded">favorite</span>
+		</p>
+	</div>
+</app-section>

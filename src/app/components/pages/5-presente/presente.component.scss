@@ -1,0 +1,107 @@
+.section-base.presente {
+    .content {
+        max-width: 800px;
+    }
+
+    .presente-content {
+        color: var(--color-secondary);
+
+        .intro {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--color-primary);
+            font-weight: 300;
+        }
+
+        .pix-box {
+            background: color-mix(in srgb, var(--color-secondary) 6%, transparent);
+            border: 1px solid color-mix(in srgb, var(--color-secondary) 12%, transparent);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+
+            .pix-label {
+                display: block;
+                font-size: 12px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--color-secondary);
+                font-weight: 400;
+                margin-bottom: 12px;
+            }
+
+            .pix-key-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .pix-key {
+                font-size: 16px;
+                font-family: 'Courier New', monospace;
+                color: var(--color-primary);
+                word-break: break-all;
+                flex: 1;
+            }
+
+            .copy-btn {
+                flex-shrink: 0;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                border: 1px solid color-mix(in srgb, var(--color-secondary) 20%, transparent);
+                background: transparent;
+                color: var(--color-secondary);
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:active {
+                    background: color-mix(in srgb, var(--color-secondary) 10%, transparent);
+                }
+
+                .material-symbols-rounded {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .note {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-primary);
+            font-weight: 300;
+            font-style: italic;
+
+            & span {
+                font-size: inherit;
+                font-style: inherit;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .section-base.presente {
+        .presente-content {
+            .intro {
+                font-size: 15px;
+            }
+
+            .pix-box {
+                padding: 20px;
+
+                .pix-key {
+                    font-size: 14px;
+                }
+            }
+
+            .note {
+                font-size: 15px;
+            }
+        }
+    }
+}
