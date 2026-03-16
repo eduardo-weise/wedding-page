@@ -21,7 +21,7 @@ export class PresenteComponent implements AfterViewInit {
     ngAfterViewInit(): void {
         onScroll({
             target: '.pix-box',
-            onEnter: () => this.playTypewriter(),
+            onEnter: () => setTimeout(() => this.playTypewriter(), 500),
             onLeave: () => this.resetTypewriter(),
         });
     }
