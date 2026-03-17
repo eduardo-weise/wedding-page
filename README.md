@@ -1,27 +1,28 @@
 # Wedding Page - Eduardo & Maiara
 
-Landing page de casamento desenvolvida com Angular, focada em experiência mobile-first.
+Landing page de casamento desenvolvida com Angular 21, focada em experiência mobile-first com scroll-snap e animações de scroll reveal.
 
 ## 📋 Sobre o Projeto
 
-Este projeto é uma landing page moderna e elegante para o casamento de Eduardo e Maiara, desenvolvida seguindo as melhores práticas de desenvolvimento front-end com Angular.
+Landing page moderna e elegante para o casamento de Eduardo e Maiara, com seções navegáveis, confirmação de presença via WhatsApp, integração com Google Maps e geração de QR Code para presentes.
 
 ### 🎨 Design
 
 - **Paleta de Cores:**
-  - Fundo escuro: `#17181D` e `#292C35`
-  - Cor primária (dourado): `#E09145`
-  - Texto claro: `#FCD9B8`
-  
+  - Fundo: `#1F1F1D`
+  - Primária (cinza claro): `#BFBFBF`
+  - Secundária (marrom acobreado): `#7A4C29`
+  - Texto muted: `#F4F2EE`
+
 - **Tipografia:**
   - Fonte principal: Inter (Google Fonts)
-  - Fonte serifada: Georgia (para títulos e elementos especiais)
+  - Fonte serifada: Cormorant Garamond / Georgia (títulos)
 
 - **Estilo:**
   - Design minimalista e elegante
-  - Inspiração em portfólios modernos
-  - Animações suaves (ease-in-out)
-  - Mobile-first (99% dos usuários em smartphones)
+  - Scroll-snap em mobile com seções full-screen
+  - Animações de scroll reveal com delays escalonados
+  - Mobile-first
 
 ## 🏗️ Arquitetura
 
@@ -30,126 +31,106 @@ Este projeto é uma landing page moderna e elegante para o casamento de Eduardo 
 ```
 src/app/
 ├── components/
-│   ├── save-the-date/      # Seção inicial com data do casamento
-│   ├── convite/            # Detalhes do convite
-│   ├── flash-tattoo/       # Informações sobre tatuagem flash
-│   ├── local/              # Localização com integração Google Maps
-│   └── side-menu/          # Menu lateral responsivo
-├── shared/
-│   └── services/           # Serviços compartilhados
-├── app.ts                  # Componente principal
-├── app.html                # Template principal
-└── app.scss                # Estilos globais
+│   ├── pages/
+│   │   ├── 0-save-the-date/   # Tela inicial com data do casamento
+│   │   ├── 1-convite/         # Convite + confirmação de presença (RSVP)
+│   │   ├── 2-flash-tattoo/    # Flash tattoo com integração WhatsApp e Pinterest
+│   │   ├── 3-local/           # Localização com Google Maps
+│   │   ├── 4-presente/        # Presente com QR Code Pix
+│   │   └── 5-hospedagem/      # Cards de hotéis com links de reserva
+│   └── shared/
+│       ├── footer/            # Rodapé
+│       ├── menu/              # Menu lateral responsivo
+│       └── section/           # Componente base reutilizável de seção
+├── directives/
+│   ├── scroll-active.directive.ts   # Controle de seção ativa por scroll
+│   └── scroll-reveal.directive.ts   # Animação de reveal ao entrar na viewport
+├── services/
+│   └── qr-code.service.ts    # Geração de QR Code
+├── app.ts                     # Componente raiz
+├── app.html                   # Template raiz
+├── app.scss                   # Estilos do app
+├── app.config.ts              # Configuração standalone
+└── app.routes.ts              # Rotas
 ```
 
 ### Seções da Landing Page
 
-1. **Save the Date**
-   - Apresentação inicial com iniciais do casal
-   - Data do casamento em destaque
-   - Design minimalista com elementos decorativos
-
-2. **Convite**
-   - Informações detalhadas do evento
-   - Data, horário e local
-   - Mensagem personalizada aos convidados
-
-3. **Flash Tattoo**
-   - Apresentação do estúdio de tatuagem flash
-   - Grid de designs disponíveis
-   - Informações de segurança
-
-4. **Local**
-   - Endereço completo do evento
-   - Mapa interativo do Google Maps
-   - Botão para abrir no aplicativo de mapas
-
-### Menu Lateral
-
-- Design thumb-friendly (otimizado para uso com uma mão)
-- Animação suave de abertura/fechura
-- Navegação por scroll suave entre seções
-- Overlay escurecido ao abrir
-- Ícones intuitivos para cada seção
+1. **Save the Date** — Apresentação com iniciais do casal e data em destaque
+2. **Convite** — Detalhes do evento (data, horário, local) + card RSVP com confirmação via WhatsApp
+3. **Flash Tattoo** — Tatuagem flash no evento, integração com WhatsApp e board do Pinterest
+4. **Local** — Endereço completo com mapa interativo do Google Maps
+5. **Presente** — Pix para presente
+6. **Hospedagem** — Cards de hotéis próximos com distância, amenidades e link de reserva
 
 ## 🚀 Tecnologias
 
-- **Angular 21+** - Framework principal
-- **TypeScript** - Linguagem de programação
-- **SCSS** - Pré-processador CSS
-- **Google Maps API** - Integração de mapas
-- **Google Fonts** - Tipografia (Inter)
+- **Angular 21** — Framework principal (standalone components)
+- **TypeScript 5.9** — Linguagem
+- **SCSS** — Estilos componentizados
+- **anime.js** — Animações
+- **qrcode** — Geração de QR Code
+- **Google Maps Embed** — Mapa interativo
+- **Pinterest Embed** — Board de inspirações
+- **GitHub Pages** — Deploy (via angular-cli-ghpages)
 
 ## 📱 Mobile-First
 
-O projeto foi desenvolvido com foco absoluto em dispositivos móveis:
-
-- Layout responsivo com breakpoints otimizados
-- Toques e gestos nativos
+- Scroll-snap entre seções full-screen
+- Menu lateral thumb-friendly
+- Scroll reveal com delays configuráveis
 - Performance otimizada para smartphones
-- Scroll suave e natural
-- Menu lateral acessível com uma mão
 
 ## 🎯 Funcionalidades
 
-- ✅ Navegação suave entre seções
+- ✅ Navegação suave entre seções com scroll-snap
 - ✅ Menu lateral responsivo
+- ✅ Confirmação de presença (RSVP) via WhatsApp
+- ✅ Flash tattoo com contato direto via WhatsApp
+- ✅ Board do Pinterest integrado
 - ✅ Integração com Google Maps
-- ✅ Animações suaves (ease-in-out)
-- ✅ Design mobile-first
+- ✅ QR Code Pix para presentes
+- ✅ Cards de hospedagem com reserva
+- ✅ Scroll reveal com animações escalonadas
 - ✅ Componentes standalone (Angular moderno)
-- ✅ Arquitetura escalável e organizada
 
 ## 🛠️ Desenvolvimento
 
 ### Pré-requisitos
 
 - Node.js 22+
-- pnpm (gerenciador de pacotes)
+- pnpm 10+
 
 ### Instalação
 
 ```bash
-# Instalar dependências
 pnpm install
-
-# Executar em modo de desenvolvimento
 pnpm start
-
-# Build para produção
-pnpm build
 ```
 
-### Estrutura de Desenvolvimento
+### Build e Deploy
 
-O projeto utiliza a arquitetura moderna do Angular com:
+```bash
+# Build para produção (GitHub Pages)
+pnpm run build:gh
 
-- Componentes standalone (sem módulos)
-- Lazy loading preparado via rotas
-- Separação clara de responsabilidades
-- Estilos componentizados (SCSS)
+# Deploy para GitHub Pages
+pnpm run deploy
+```
 
 ## 📝 Customização
 
-Para customizar o conteúdo:
-
-1. **Dados do casal**: Editar os componentes individuais
-2. **Cores**: Modificar as variáveis CSS em `src/styles.scss`
-3. **Localização**: Atualizar coordenadas no `local.component.ts`
-4. **Imagens**: Adicionar em `src/assets/`
-
-## 🎨 Inspirações de Design
-
-O projeto foi inspirado em:
-- Portfólios minimalistas de UI/UX designers
-- Landing pages modernas com tipografia elegante
-- Design system com paleta de cores quentes e acolhedoras
+1. **Dados do casal**: Editar propriedades nos componentes de cada seção
+2. **Cores**: Variáveis CSS em `src/styles.scss` (`:root`)
+3. **Localização**: Coordenadas em `local.component.ts`
+4. **Hotéis**: Array de dados em `hospedagem.component.ts`
+5. **WhatsApp**: Números e mensagens nos componentes `convite` e `flash-tattoo`
+6. **Imagens**: Adicionar em `src/assets/`
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido especificamente para o casamento de Eduardo & Maiara.
+Projeto desenvolvido para o casamento de Eduardo & Maiara.
 
 ---
 
-**Data do Casamento:** 05 de dezembro de 2026  
-**Desenvolvido com ❤️ usando Angular**
+**Data do Casamento:** 05 de dezembro de 2026
