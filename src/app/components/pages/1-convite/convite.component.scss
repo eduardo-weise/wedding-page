@@ -124,15 +124,15 @@
 			}
 
 			.action--ghost {
-				background: color-mix(in srgb, #2a2a29 85%, #0c0c0c 15%);
+				background: var(--color-action-ghost);
 				color: var(--color-text-muted);
-				box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+				box-shadow: 0 10px 28px var(--color-action-ghost-shadow);
 			}
 
 			.action--primary {
-				background: linear-gradient(135deg, #a76330, var(--color-secondary));
+				background: var(--color-action-primary);
 				color: var(--color-text-muted);
-				box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+				box-shadow: 0 14px 32px var(--color-action-primary-shadow);
 			}
 		}
 	}

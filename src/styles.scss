@@ -42,12 +42,31 @@ body {
     }
 }
 
-/* Variáveis de cores baseadas na paleta fornecida */
-:root {
+/* Variáveis de cores */
+:root,
+:root[data-theme='dark'] {
     --color-bg: #1F1F1D;
     --color-primary: #BFBFBF;
     --color-secondary: #7A4C29;
     --color-text-muted: #F4F2EE;
+
+    --color-card-bg: color-mix(in srgb, #2a2a29 85%, #0c0c0c 15%);
+    --color-card-bg-hover: color-mix(in srgb, #2f2f2d 80%, #151515 20%);
+    --color-card-shadow: rgba(0, 0, 0, 0.55);
+    --color-card-inset: rgba(255, 255, 255, 0.04);
+    --color-card-inset-hover: rgba(255, 255, 255, 0.05);
+
+    --color-action-primary: linear-gradient(135deg, #a76330, var(--color-secondary));
+    --color-action-primary-hover: linear-gradient(135deg, #d47c33, #b75a18);
+    --color-action-ghost: var(--color-card-bg);
+    --color-action-ghost-hover: var(--color-card-bg-hover);
+    --color-action-ghost-shadow: rgba(0, 0, 0, 0.35);
+    --color-action-primary-shadow: rgba(0, 0, 0, 0.4);
+
+    --color-success: #b2e6a1;
+    --color-danger: #ffb7aa;
+
+    --color-overlay: rgba(0, 0, 0, 0.45);
 }
 
 /* Scroll suave para navegação */
