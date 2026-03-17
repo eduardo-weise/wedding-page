@@ -38,4 +38,15 @@
 	&:nth-child(5n + 3) { left: 48%; color: hsl(348, 5%, 79%); font-size: 12px; }
 	&:nth-child(5n + 4) { left: 68%; color: hsl(350, 100%, 98%); font-size: 20px; }
 	&:nth-child(5n + 5) { left: 88%; color: hsl(342, 20%, 94%); font-size: 16px; }
+
+	:root[data-theme='light'] & {
+		color: hsl(0, 0%, 45%);
+		font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+		&:nth-child(5n + 1) { color: hsl(0, 0%, 50%); }
+		&:nth-child(5n + 2) { color: hsl(0, 0%, 42%); }
+		&:nth-child(5n + 3) { color: hsl(0, 0%, 55%); }
+		&:nth-child(5n + 4) { color: hsl(0, 0%, 38%); }
+		&:nth-child(5n + 5) { color: hsl(0, 0%, 48%); }
+	}
 }

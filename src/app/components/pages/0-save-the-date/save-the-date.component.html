@@ -5,8 +5,16 @@
 	
 	<div class="content">
 		<img
-			class="save-the-date-logo"
-			src="assets/logo.svg"
+			class="save-the-date-logo logo-dark"
+			src="assets/logo/logo.svg"
+			alt="Save the date"
+			appScrollReveal
+			[revealDelayMin]="80"
+			[revealDelayMax]="360"
+			[revealOnce]="false" />
+		<img
+			class="save-the-date-logo logo-light"
+			src="assets/logo/logo-light.svg"
 			alt="Save the date"
 			appScrollReveal
 			[revealDelayMin]="80"
@@ -28,7 +36,7 @@
 							aria-label="QR Code" />
 						<img
 							class="save-the-date-qr-logo"
-							src="assets/logo-mark.svg"
+							src="assets/logo/logo-mark.svg"
 							alt=""
 							aria-hidden="true"
 							draggable="false" />

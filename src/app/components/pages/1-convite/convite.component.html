@@ -9,11 +9,14 @@
 		</p>
 
 		<article class="rsvp-card" appScrollReveal [revealDelayMin]="200" [revealDelayMax]="620" [revealOnce]="false">
+			<img class="leaf-decoration" src="assets/decorative/leaf.svg" alt="" aria-hidden="true" />
 			<div class="card-shell" appScrollReveal [revealDelayMin]="220" [revealDelayMax]="640" [revealOnce]="false">
 				<h2 class="rsvp-name" appScrollReveal [revealDelayMin]="240" [revealDelayMax]="660"
 					[revealOnce]="false">Confirmação de presença</h2>
 				<p class="rsvp-text" appScrollReveal [revealDelayMin]="260" [revealDelayMax]="680" [revealOnce]="false">
 					Sua confirmação nos ajuda a preparar tudo com carinho.</p>
+				<p class="rsvp-text" appScrollReveal [revealDelayMin]="260" [revealDelayMax]="680" [revealOnce]="false">
+					<i>Confirme até <b>{{ deadline }}</b>.</i></p>
 
 				<div class="links" appScrollReveal [revealDelayMin]="280" [revealDelayMax]="700" [revealOnce]="false">
 					<a class="action action--ghost" [href]="whatsappDeclineUrl" target="_blank"

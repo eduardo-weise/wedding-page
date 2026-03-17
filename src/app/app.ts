@@ -45,6 +45,9 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	) { }
 
 	ngOnInit(): void {
+		const theme = localStorage.getItem('theme') ?? 'dark';
+		this.document.documentElement.dataset['theme'] = theme;
+		
 		if (isPlatformBrowser(this.platformId)) {
 			this.checkIfMobile();
 			this.resizeListener = () => this.checkIfMobile();

@@ -5,7 +5,7 @@ type GenerateOptions = { includeLogo?: boolean; useDots?: boolean };
 
 @Injectable({ providedIn: 'root' })
 export class QrCodeService {
-    private readonly logoPath = 'assets/logo-mark.svg';
+    private readonly logoPath = 'assets/logo/logo-mark.svg';
     private readonly qrOptions: QRCode.QRCodeToStringOptions = {
         type: 'svg',
         margin: 2,

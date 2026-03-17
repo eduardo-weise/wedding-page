@@ -1,10 +1,15 @@
 <div class="menu-container">
 	<div class="mobile-menu" aria-label="Menu móvel">
-		<button class="burger" [class.open]="isOpen" (click)="toggleMenu()" aria-label="Alternar menu">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
+		<div class="menu-actions" [class.open]="isOpen">
+			<button class="theme-toggle" (click)="toggleTheme()" aria-label="Alternar tema">
+				<div class="bulb-container" #bulbContainer></div>
+			</button>
+			<button class="burger" [class.open]="isOpen" (click)="toggleMenu()" aria-label="Alternar menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
 
 		<div class="menu-overlay" [class.visible]="isOpen" (click)="closeMenu()"></div>
 

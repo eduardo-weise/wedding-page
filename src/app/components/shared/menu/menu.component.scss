@@ -15,11 +15,59 @@
 	z-index: 1002;
 	pointer-events: auto;
 
+	.menu-actions {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		position: relative;
+		z-index: 1003;
+
+		.theme-toggle {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: none;
+			border: none;
+			padding: 0;
+			outline: none;
+			-webkit-tap-highlight-color: transparent;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			pointer-events: none;
+			transform: scale(0.6);
+			transition: opacity 0.25s ease, transform 0.25s ease;
+			z-index: 1004;
+
+			.bulb-container {
+				svg path {
+					fill: var(--color-primary) !important;
+					stroke: var(--color-primary) !important;
+				}
+			}
+		}
+
+		&.open .theme-toggle {
+			opacity: 1;
+			pointer-events: auto;
+			transform: scale(1);
+		}
+	}
+
 	.burger {
-		width: 46px;
-		height: 46px;
-		border-radius: 50%;
-		background: none;
+		width: 56px;
+		height: 56px;
+		background: radial-gradient(
+			ellipse,
+			color-mix(in srgb, var(--color-bg) 40%, transparent) 20%,
+			transparent 70%
+		);
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+		-webkit-mask-image: radial-gradient(ellipse, black 30%, transparent 70%);
+		mask-image: radial-gradient(ellipse, black 30%, transparent 70%);
 		border: none;
 		padding: 0;
 		outline: none;
@@ -55,6 +103,10 @@
 		}
 
 		&.open {
+			background: none;
+			backdrop-filter: none;
+			-webkit-backdrop-filter: none;
+
 			span:nth-child(1) {
 				opacity: 1;
 				top: 22px;
