@@ -18,7 +18,6 @@
         margin-bottom: 60px;
 
         .section-number {
-            font-size: 72px;
             font-weight: 300;
             color: color-mix(in srgb, var(--color-secondary) 70%, transparent 20%);
             font-family: 'Georgia', serif;
@@ -27,7 +26,7 @@
         }
 
         .section-label {
-            font-size: 14px;
+            
             font-weight: 400;
             letter-spacing: 3px;
             color: var(--color-secondary);
@@ -69,10 +68,6 @@
 
         .header {
             margin-bottom: 40px;
-
-            .section-number {
-                font-size: 56px;
-            }
         }
 
         .body {
