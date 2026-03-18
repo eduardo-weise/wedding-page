@@ -1,22 +1,50 @@
 <div class="menu-container">
-	<div class="mobile-menu" aria-label="Menu móvel">
-		<div class="menu-actions" [class.open]="isOpen">
-			<button class="theme-toggle" (click)="toggleTheme()" aria-label="Alternar tema">
-				<div class="bulb-container" #bulbContainer></div>
+	<div
+		class="mobile-menu"
+		aria-label="Menu móvel"
+	>
+		<div
+			class="menu-actions"
+			[class.open]="isOpen"
+		>
+			<button
+				class="theme-toggle"
+				(click)="toggleTheme()"
+				aria-label="Alternar tema"
+			>
+				<div
+					class="bulb-container"
+					#bulbContainer
+				></div>
 			</button>
-			<button class="burger" [class.open]="isOpen" (click)="toggleMenu()" aria-label="Alternar menu">
+			<button
+				class="burger"
+				[class.open]="isOpen"
+				(click)="toggleMenu()"
+				aria-label="Alternar menu"
+			>
 				<span></span>
 				<span></span>
 				<span></span>
 			</button>
 		</div>
 
-		<div class="menu-overlay" [class.visible]="isOpen" (click)="closeMenu()"></div>
+		<div
+			class="menu-overlay"
+			[class.visible]="isOpen"
+			(click)="closeMenu()"
+		></div>
 
-		<div class="mobile-items" [class.open]="isOpen">
+		<div
+			class="mobile-items"
+			[class.open]="isOpen"
+		>
 			<ul>
 				@for (item of menuItems; track $index) {
-					<li class="mobile-item" (click)="scrollToSection(item.id)">{{ item.label }}</li>
+				<li
+					class="mobile-item"
+					(click)="scrollToSection(item.id)"
+				>{{ item.label }}</li>
 				}
 			</ul>
 		</div>

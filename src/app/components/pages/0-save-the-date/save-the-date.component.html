@@ -1,8 +1,9 @@
 <section
 	id="save-the-date"
 	class="section save-the-date"
-	appScrollActive>
-	
+	appScrollActive
+>
+
 	<div class="content">
 		<img
 			class="save-the-date-logo logo-dark"
@@ -11,7 +12,8 @@
 			appScrollReveal
 			[revealDelayMin]="80"
 			[revealDelayMax]="360"
-			[revealOnce]="false" />
+			[revealOnce]="false"
+		/>
 		<img
 			class="save-the-date-logo logo-light"
 			src="assets/logo/logo-light.svg"
@@ -19,31 +21,35 @@
 			appScrollReveal
 			[revealDelayMin]="80"
 			[revealDelayMax]="360"
-			[revealOnce]="false" />
+			[revealOnce]="false"
+		/>
 		@if (showQr) {
-			<div class="session-qr">
-				@if (qrSrc) {
-					<div
-						class="save-the-date-qr-wrap"
-						appScrollReveal
-						[revealDelayMin]="160"
-						[revealDelayMax]="520"
-						[revealOnce]="false">
-						<img
-							class="save-the-date-qr"
-							[src]="qrSrc"
-							alt="QR Code"
-							aria-label="QR Code" />
-						<img
-							class="save-the-date-qr-logo"
-							src="assets/logo/logo-mark.svg"
-							alt=""
-							aria-hidden="true"
-							draggable="false" />
-					</div>
-				}
-				<span>Escaneie com seu celular para acessar o convite</span>
+		<div class="session-qr">
+			@if (qrSrc) {
+			<div
+				class="save-the-date-qr-wrap"
+				appScrollReveal
+				[revealDelayMin]="160"
+				[revealDelayMax]="520"
+				[revealOnce]="false"
+			>
+				<img
+					class="save-the-date-qr"
+					[src]="qrSrc"
+					alt="QR Code"
+					aria-label="QR Code"
+				/>
+				<img
+					class="save-the-date-qr-logo"
+					src="assets/logo/logo-mark.svg"
+					alt=""
+					aria-hidden="true"
+					draggable="false"
+				/>
 			</div>
+			}
+			<span>Escaneie com seu celular para acessar o convite</span>
+		</div>
 		}
 	</div>
 </section>
