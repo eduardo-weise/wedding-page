@@ -16,12 +16,7 @@ export class SectionComponent {
 	@Input() sectionLabel = '';
 	@Input() sectionClass = '';
 	@Input() title = '';
-	@Input() subtitle: string | string[] = '';
+	@Input() subtitle: string[] = [];
 	@Input() subtitleHtml = '';
 	@Input() maxWidth = '900px';
-
-	get subtitleParagraphs(): string[] {
-		if (!this.subtitle) return [];
-		return Array.isArray(this.subtitle) ? this.subtitle : [this.subtitle];
-	}
 }

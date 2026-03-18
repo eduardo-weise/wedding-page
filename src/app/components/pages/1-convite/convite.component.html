@@ -4,135 +4,101 @@
 	sectionLabel="O CONVITE"
 	sectionClass="convite"
 	maxWidth="800px"
+	[title]="title"
+	[subtitle]="message"
 >
-	<div class="invitation-text">
-		<h1
-			class="couple-names"
-			appScrollReveal
-			[revealDelayMin]="100"
-			[revealDelayMax]="420"
-			[revealOnce]="false"
-		>
-			{{ groomName }} <span class="ampersand">&</span> {{ brideName }}
-		</h1>
-
+	<app-card
+		customClass="hotel-card"
+		appScrollReveal
+		[revealDelayMin]="200"
+		[revealDelayMax]="620"
+		[revealOnce]="false"
+		title="Confirmação de presença"
+	>
+		<img
+			class="leaf-decoration"
+			src="assets/decorative/leaf.svg"
+			alt=""
+			aria-hidden="true"
+		/>
 		<p
-			class="body-text"
+			class="description"
 			appScrollReveal
-			[revealDelayMin]="120"
-			[revealDelayMax]="460"
+			[revealDelayMin]="260"
+			[revealDelayMax]="680"
 			[revealOnce]="false"
 		>
-			{{ message }}
+			Sua confirmação nos ajuda a preparar tudo com carinho.</p>
+		<p
+			class="description observations"
+			appScrollReveal
+			[revealDelayMin]="260"
+			[revealDelayMax]="680"
+			[revealOnce]="false"
+		>
+			<i>Confirme até <b>{{ deadline }}</b>.</i>
 		</p>
 
-		<article
-			class="rsvp-card card"
+		<div
+			class="links"
 			appScrollReveal
-			[revealDelayMin]="200"
-			[revealDelayMax]="620"
+			[revealDelayMin]="280"
+			[revealDelayMax]="700"
 			[revealOnce]="false"
 		>
-			<img
-				class="leaf-decoration"
-				src="assets/decorative/leaf.svg"
-				alt=""
-				aria-hidden="true"
-			/>
-			<div
-				class="card-shell"
-				appScrollReveal
-				[revealDelayMin]="220"
-				[revealDelayMax]="640"
-				[revealOnce]="false"
+			<a
+				class="action action--ghost"
+				[href]="whatsappDeclineUrl"
+				target="_blank"
+				rel="noopener noreferrer"
 			>
-				<h2
-					class="card-title"
-					appScrollReveal
-					[revealDelayMin]="240"
-					[revealDelayMax]="660"
-					[revealOnce]="false"
-				>Confirmação de presença</h2>
-				<p
-					class="rsvp-text body-text-sm"
-					appScrollReveal
-					[revealDelayMin]="260"
-					[revealDelayMax]="680"
-					[revealOnce]="false"
-				>
-					Sua confirmação nos ajuda a preparar tudo com carinho.</p>
-				<p
-					class="rsvp-text body-text-sm"
-					appScrollReveal
-					[revealDelayMin]="260"
-					[revealDelayMax]="680"
-					[revealOnce]="false"
-				>
-					<i>Confirme até <b>{{ deadline }}</b>.</i>
-				</p>
-
-				<div
-					class="links"
-					appScrollReveal
-					[revealDelayMin]="280"
-					[revealDelayMax]="700"
-					[revealOnce]="false"
-				>
-					<a
-						class="action action--ghost"
-						[href]="whatsappDeclineUrl"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						INFELIZMENTE NÃO
-					</a>
-					<a
-						class="action action--primary"
-						[href]="whatsappConfirmUrl"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						SIM, ESTAREI LÁ
-					</a>
-				</div>
-			</div>
-		</article>
-
-		<div class="details">
-			<div
-				class="detail-item"
-				appScrollReveal
-				[revealDelayMin]="140"
-				[revealDelayMax]="500"
-				[revealOnce]="false"
+				INFELIZMENTE NÃO
+			</a>
+			<a
+				class="action action--primary"
+				[href]="whatsappConfirmUrl"
+				target="_blank"
+				rel="noopener noreferrer"
 			>
-				<span class="text-label">Data</span>
-				<span class="text-detail">{{ weddingDate }}</span>
-			</div>
+				SIM, ESTAREI LÁ
+			</a>
+		</div>
+	</app-card>
 
-			<div
-				class="detail-item"
-				appScrollReveal
-				[revealDelayMin]="160"
-				[revealDelayMax]="540"
-				[revealOnce]="false"
-			>
-				<span class="text-label">Horário</span>
-				<span class="text-detail">{{ weddingTime }}</span>
-			</div>
+	<div class="details">
+		<div
+			class="detail-item"
+			appScrollReveal
+			[revealDelayMin]="140"
+			[revealDelayMax]="500"
+			[revealOnce]="false"
+		>
+			<span class="text-label">Data</span>
+			<span class="text-detail">{{ weddingDate }}</span>
+		</div>
 
-			<div
-				class="detail-item"
-				appScrollReveal
-				[revealDelayMin]="180"
-				[revealDelayMax]="580"
-				[revealOnce]="false"
-			>
-				<span class="text-label">Local</span>
-				<span class="text-detail">{{ venue }}</span>
-				<span class="detail-address">{{ address }}</span>
-				<span class="detail-address">{{ city }}</span>
-			</div>
+		<div
+			class="detail-item"
+			appScrollReveal
+			[revealDelayMin]="160"
+			[revealDelayMax]="540"
+			[revealOnce]="false"
+		>
+			<span class="text-label">Horário</span>
+			<span class="text-detail">{{ weddingTime }}</span>
+		</div>
+
+		<div
+			class="detail-item"
+			appScrollReveal
+			[revealDelayMin]="180"
+			[revealDelayMax]="580"
+			[revealOnce]="false"
+		>
+			<span class="text-label">Local</span>
+			<span class="text-detail">{{ venue }}</span>
+			<span class="detail-address">{{ address }}</span>
+			<span class="detail-address">{{ city }}</span>
 		</div>
 	</div>
 </app-section>

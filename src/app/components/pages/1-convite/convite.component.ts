@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
 import { SectionComponent } from '../../shared/section/section.component';
+import { CardComponent } from '../../shared/card/card.component';
 
 @Component({
 	selector: 'app-convite',
 	standalone: true,
-	imports: [CommonModule, ScrollRevealDirective, SectionComponent],
+	imports: [CommonModule, ScrollRevealDirective, SectionComponent, CardComponent],
 	templateUrl: './convite.component.html',
 	styleUrls: ['./convite.component.scss']
 })
@@ -19,7 +20,8 @@ export class ConviteComponent {
 	address = 'R. dos Pinhais, 224 - Cruzeiro';
 	city = 'Santa Rosa - RS';
 
-	message = 'Com imensa alegria, convidamos você para celebrar conosco este momento especial. Sua presença é fundamental para tornar este dia ainda mais memorável.';
+	title = this.groomName + ' <span class="ampersand">&</span> ' + this.brideName;
+	message = ['Com imensa alegria, convidamos você para celebrar conosco este momento especial. Sua presença é fundamental para tornar este dia ainda mais memorável.'];
 	deadline = '20 de novembro de 2026';
 
 	whatsappConfirmMessage =

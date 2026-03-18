@@ -1,8 +1,11 @@
 .section-base.flash-tattoo {
 	.tattoo-content {
+		gap: 20px;
+		display: flex;
+		flex-direction: column;
+
 		.whatsapp-button {
 			width: 100%;
-			margin-bottom: 40px;
 		}
 
 		.flash-inspirations {
@@ -15,7 +18,9 @@
 
 		.pinterest-card {
 			padding: 0;
-			margin-bottom: 40px;
+			gap: 20px;
+			display: flex;
+			flex-direction: column;
 
 			.pinterest-embed {
 				max-height: 520px;
@@ -36,7 +41,6 @@
 			}
 
 			.pinterest-fallback {
-				margin-top: 16px;
 				width: 100%;
 			}
 		}

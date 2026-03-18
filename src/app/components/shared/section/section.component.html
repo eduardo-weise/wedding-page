@@ -31,30 +31,22 @@
 				[revealDelayMin]="100"
 				[revealDelayMax]="420"
 				[revealOnce]="false"
-			>
-				{{ title }}
-			</h1>
+				[innerHTML]="title"
+			></h1>
 			}
-			@for (p of subtitleParagraphs; track $index) {
-			<p
-				class="subtitle body-text"
-				appScrollReveal
-				[revealDelayMin]="120"
-				[revealDelayMax]="460"
-				[revealOnce]="false"
-			>
-				{{ p }}
-			</p>
-			}
-			@if (subtitleHtml) {
-			<p
-				class="subtitle body-text"
-				appScrollReveal
-				[revealDelayMin]="120"
-				[revealDelayMax]="460"
-				[revealOnce]="false"
-				[innerHTML]="subtitleHtml"
-			></p>
+			@if (subtitle.length) {
+			<div class="subtitles">
+				@for (p of subtitle; track $index) {
+				<p
+					class="subtitle body-text"
+					appScrollReveal
+					[revealDelayMin]="120"
+					[revealDelayMax]="460"
+					[revealOnce]="false"
+					[innerHTML]="p"
+				></p>
+				}
+			</div>
 			}
 			<div class="content-slot">
 				<ng-content></ng-content>

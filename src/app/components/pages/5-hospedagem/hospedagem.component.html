@@ -2,99 +2,88 @@
 	sectionId="hospedagem"
 	sectionNumber="05"
 	sectionLabel="Hospedagem"
+	maxWidth="900px"
 	[title]="title"
 	[subtitle]="subtitle"
 >
 
 	<div class="cards">
 		@for (hotel of hotels; track hotel.name) {
-		<article
-		class="hotel-card card card--lg"
+		<app-card
+			customClass="hotel-card"
 			appScrollReveal
 			[revealDelayMin]="hotel.revealDelayMin"
 			[revealDelayMax]="hotel.revealDelayMax"
 			[revealOnce]="false"
+			[title]="hotel.name"
 		>
-			<div class="card-shell">
-				<div
-					class="card-header"
-					appScrollReveal
-					[revealDelayMin]="hotel.revealDelayMin"
-					[revealDelayMax]="hotel.revealDelayMax"
-					[revealOnce]="false"
-				>
-					<div class="title-row">
-						<h2 class="card-title">{{ hotel.name }}</h2>
-						@if (hotel.tag) {
-						<div class="badge">
-							<span class="material-symbols-rounded">check_circle</span>
-							{{ hotel.tag.label }}
-						</div>
-						}
-					</div>
+			<div>
+				@if (hotel.tag) {
+				<div class="badge">
+					<span class="material-symbols-rounded">check_circle</span>
+					{{ hotel.tag.label }}
 				</div>
-
-				<div class="distance">
-					<span class="material-symbols-rounded">schedule</span>
-					<span>{{ hotel.travelTime }}</span>
-				</div>
-
-				<div
-					class="amenities"
-					appScrollReveal
-					[revealDelayMin]="hotel.revealDelayMin + 80"
-					[revealDelayMax]="hotel.revealDelayMax + 80"
-					[revealOnce]="false"
-				>
-					@for (amenity of hotel.amenities; track amenity.label) {
-					<div class="amenity-row">
-						<div
-							class="amenity"
-							[class.amenity--success]="amenity.tone === 'success'"
-							[class.amenity--danger]="amenity.tone === 'danger'"
-							[class.amenity--muted]="amenity.tone === 'muted'"
-						>
-							<span class="material-symbols-rounded">{{ amenity.icon }}</span>
-						</div>
-						<span>{{ amenity.label }}</span>
-					</div>
-					}
-				</div>
-
-				<p
-					class="price"
-					appScrollReveal
-					[revealDelayMin]="hotel.revealDelayMin + 40"
-					[revealDelayMax]="hotel.revealDelayMax + 40"
-					[revealOnce]="false"
-				>
-					{{ hotel.priceRange }}
-				</p>
-
-				<div
-					class="links"
-					appScrollReveal
-					[revealDelayMin]="hotel.revealDelayMin + 120"
-					[revealDelayMax]="hotel.revealDelayMax + 120"
-					[revealOnce]="false"
-				>
-					<button
-						class="action action--ghost"
-						(click)="openLink(hotel.mapUrl)"
-					>
-						<span class="material-symbols-rounded">location_on</span>
-						Ver no Maps
-					</button>
-					<button
-						class="action action--primary"
-						(click)="openLink(hotel.bookingUrl)"
-					>
-						<span class="material-symbols-rounded">event_available</span>
-						Reservar
-					</button>
-				</div>
+				}
 			</div>
-		</article>
+
+			<div class="distance">
+				<span class="material-symbols-rounded">schedule</span>
+				<span>{{ hotel.travelTime }}</span>
+			</div>
+
+			<div
+				class="amenities"
+				appScrollReveal
+				[revealDelayMin]="hotel.revealDelayMin + 80"
+				[revealDelayMax]="hotel.revealDelayMax + 80"
+				[revealOnce]="false"
+			>
+				@for (amenity of hotel.amenities; track amenity.label) {
+				<div class="amenity-row">
+					<div
+						class="amenity"
+						[class.amenity--success]="amenity.tone === 'success'"
+						[class.amenity--danger]="amenity.tone === 'danger'"
+						[class.amenity--muted]="amenity.tone === 'muted'"
+					>
+						<span class="material-symbols-rounded">{{ amenity.icon }}</span>
+					</div>
+					<span>{{ amenity.label }}</span>
+				</div>
+				}
+			</div>
+
+			<p
+				class="price"
+				appScrollReveal
+				[revealDelayMin]="hotel.revealDelayMin + 40"
+				[revealDelayMax]="hotel.revealDelayMax + 40"
+				[revealOnce]="false"
+			>
+				{{ hotel.priceRange }}
+			</p>
+
+			<div
+				class="links"
+				appScrollReveal
+				[revealDelayMin]="hotel.revealDelayMin + 120"
+				[revealDelayMax]="hotel.revealDelayMax + 120"
+				[revealOnce]="false"
+			>
+				<button
+					class="action action--ghost"
+					(click)="openLink(hotel.mapUrl)"
+				>
+					<span class="material-symbols-rounded">location_on</span>
+					Ver no Maps
+				</button>
+				<button
+					class="action action--primary"
+					(click)="openLink(hotel.bookingUrl)"
+				>
+					<span class="material-symbols-rounded">event_available</span>
+					Reservar
+				</button>
+			</div>
+		</app-card>
 		}
-	</div>
-</app-section>

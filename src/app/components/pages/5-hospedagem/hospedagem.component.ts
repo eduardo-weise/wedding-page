@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SectionComponent } from '../../shared/section/section.component';
 import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
+import { CardComponent } from '../../shared/card/card.component';
 
 interface HotelSuggestion {
     name: string;
@@ -31,14 +32,14 @@ type HotelSuggestionWithDelay = HotelSuggestion & {
 
 @Component({
     selector: 'app-hospedagem',
-    imports: [CommonModule, ScrollRevealDirective, SectionComponent],
+    imports: [CommonModule, ScrollRevealDirective, SectionComponent, CardComponent],
     templateUrl: './hospedagem.component.html',
     styleUrls: ['./hospedagem.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HospedagemComponent {
     title = 'Sugestões de hospedagem';
-    subtitle = 'Selecionamos três opções próximas ao local pelo custo-benefício e proximidade. Valores podem variar conforme data e disponibilidade.';
+    subtitle = ['Selecionamos três opções próximas ao local pelo custo-benefício e proximidade. Valores podem variar conforme data e disponibilidade.'];
 
     hotels: HotelSuggestionWithDelay[] = this.buildHotelsWithDelay();
 

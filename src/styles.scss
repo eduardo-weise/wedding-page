@@ -27,6 +27,7 @@ body {
     html,
     body {
         scroll-snap-type: block mandatory;
+        overscroll-behavior-y: contain;
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
@@ -58,6 +59,7 @@ body {
     --color-card-inset: rgba(255, 255, 255, 0.04);
     --color-card-inset-hover: rgba(255, 255, 255, 0.05);
 
+    --color-action-ghost: #4b4b4b;
     --color-action-primary: linear-gradient(135deg, #a76330, var(--color-secondary));
     --color-action-primary-hover: linear-gradient(135deg, #d47c33, #b75a18);
     --color-action-ghost-hover: var(--color-card-bg-hover);
@@ -84,7 +86,7 @@ body {
     --color-card-inset-hover: rgba(255, 255, 255, 0.7);
 
     --color-action-primary: linear-gradient(135deg, #a76330, var(--color-secondary));
-    --color-action-ghost: var(--color-card-bg);
+    --color-action-ghost: #4b4b4b;
     --color-action-ghost-hover: var(--color-card-bg-hover);
     --color-action-ghost-shadow: rgba(0, 0, 0, 0.08);
     --color-action-primary-shadow: rgba(0, 0, 0, 0.15);
@@ -249,37 +251,6 @@ img {
 	font-weight: 300;
 }
 
-/* ─── Card ─── */
-
-.card {
-	position: relative;
-	border-radius: 14px;
-	color: var(--color-primary);
-	box-shadow: 0 14px 40px var(--color-card-shadow), 0 0 0 1px var(--color-card-inset) inset;
-	overflow: hidden;
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card--lg {
-	border-radius: 18px;
-}
-
-.card-shell {
-	position: relative;
-	padding: 24px 20px;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.card-title {
-	font-size: 28px;
-	font-weight: 500;
-	color: var(--color-primary);
-	margin: 0;
-	font-family: 'Cormorant Garamond', 'Georgia', serif;
-}
-
 /* ─── Info Box ─── */
 
 .info-box {
@@ -292,7 +263,7 @@ img {
 		margin: 0;
 		font-size: 14px;
 		line-height: 1.6;
-		color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+		color: color-mix(in srgb, var(--color-primary) 90%, transparent);
 	}
 }
 

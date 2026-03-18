@@ -1,52 +1,39 @@
-.invitation-text {
-	color: var(--color-secondary);
-	gap: 24px;
+:host ::ng-deep span.ampersand {
+	color: var(--color-action-ghost);
+	font-style: italic;
+}
+
+.description {
 	display: flex;
 	flex-direction: column;
-}
-
-.couple-names {
-	font-size: 48px;
+	gap: 8px;
+	font-size: 14px;
+	color: var(--color-primary);
 	font-weight: 300;
-	font-family: 'Georgia', serif;
-	line-height: 1.2;
-
-	.ampersand {
-		color: var(--color-primary);
-		font-style: italic;
-		margin: 0 10px;
-	}
+	text-align: center;
 }
 
-.rsvp-card {
-	box-shadow: 8px 8px 40px 10px var(--color-card-shadow), -8px -8px 40px 10px var(--color-card-inset) inset;
-	margin-left: auto;
-	margin-right: auto;
-	transition: opacity 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+.observations {
+	font-size: 10px !important;
+	font-style: italic;
+}
 
-	.card-shell {
-		padding: 30px 25px;
-		align-items: center;
-		text-align: center;
-	}
+:host ::ng-deep .card-title {
+	text-align: center;
+}
 
-	.leaf-decoration {
-		position: absolute;
-		top: 88px;
-		right: -95px;
-		width: 260px;
-		height: auto;
-		pointer-events: none;
-		opacity: 0.85;
-	}
+:host ::ng-deep .card-shell {
+	gap: 24px !important;
+}
 
-	.rsvp-text > i {
-		font-size: 10px;
-
-		> b {
-			font-weight: 600;
-		}
-	}
+.leaf-decoration {
+	position: absolute;
+	top: 50px;
+	right: -100px;
+	width: 260px;
+	height: auto;
+	pointer-events: none;
+	opacity: 0.85;
 }
 
 .details {

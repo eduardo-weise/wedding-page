@@ -15,7 +15,6 @@ export class LocalComponent {
 	venueName = 'Morada dos Ventos';
 	address = 'R. dos Pinhais, 224 - Cruzeiro';
 	city = 'Santa Rosa - RS';
-	cep = '98900-000';
 
 	latitude = -27.8687971;
 	longitude = -54.4259527;
