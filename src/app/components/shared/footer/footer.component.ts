@@ -11,7 +11,7 @@ import { animate, onScroll } from 'animejs';
 })
 export class FooterComponent implements AfterViewInit {
 
-	readonly hearts = Array(60);
+	readonly hearts = new Array(60);
 
 	ngAfterViewInit(): void {
 		const anim = animate('.footer-logo', {
@@ -24,6 +24,7 @@ export class FooterComponent implements AfterViewInit {
 
 		onScroll({
 			target: '.footer-logo',
+			debug: false,
 			onEnter: () => {
 				anim.reversed = false;
 				anim.play();

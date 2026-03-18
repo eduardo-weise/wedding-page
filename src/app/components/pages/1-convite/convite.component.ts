@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
 import { SectionComponent } from '../../shared/section/section.component';
@@ -8,8 +8,7 @@ import { SectionComponent } from '../../shared/section/section.component';
 	standalone: true,
 	imports: [CommonModule, ScrollRevealDirective, SectionComponent],
 	templateUrl: './convite.component.html',
-	styleUrls: ['./convite.component.scss'],
-	encapsulation: ViewEncapsulation.None
+	styleUrls: ['./convite.component.scss']
 })
 export class ConviteComponent {
 	groomName = 'Eduardo';

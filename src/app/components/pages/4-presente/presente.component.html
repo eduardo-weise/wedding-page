@@ -4,31 +4,11 @@
 	sectionLabel="O PRESENTE"
 	sectionClass="presente"
 	title="Sem listas, sem stress"
+	maxWidth="800px"
+	[subtitle]="introTexts"
 >
 
 	<div class="presente-content">
-		<p
-			class="intro"
-			appScrollReveal
-			[revealDelayMin]="120"
-			[revealDelayMax]="460"
-			[revealOnce]="false"
-		>
-			A gente não fez lista de presentes. Se você quiser nos dar algo, a gente prefere que seja em
-			dinheiro mesmo — sem frescura! No dia do casamento, vai ter uma caixinha na entrada com
-			envelopes pra quem quiser contribuir.
-		</p>
-
-		<p
-			class="intro"
-			appScrollReveal
-			[revealDelayMin]="140"
-			[revealDelayMax]="500"
-			[revealOnce]="false"
-		>
-			Se preferir Pix, também temos! Vai ter um QR code na caixinha, ou se preferir
-			já garantir antes, é só copiar a chave aqui embaixo:
-		</p>
 
 		<div
 			class="pix-box"
@@ -37,7 +17,7 @@
 			[revealDelayMax]="540"
 			[revealOnce]="false"
 		>
-			<span class="pix-label">Chave pix</span>
+		<span class="text-label pix-label">Chave pix</span>
 			<div class="pix-key-row">
 				<code
 					class="pix-key"
@@ -54,7 +34,7 @@
 		</div>
 
 		<p
-			class="note"
+			class="note body-text"
 			appScrollReveal
 			[revealDelayMin]="180"
 			[revealDelayMax]="580"

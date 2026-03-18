@@ -1,5 +1,6 @@
 /* Importar fontes do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0..1,0');
 
 /* Reset e estilos globais */
 * {
@@ -215,4 +216,117 @@ img {
 
 :root[data-theme='light'] .logo-light {
     display: block;
+}
+
+/* ─── Tipografia ─── */
+
+.body-text {
+	font-size: 16px;
+	line-height: 1.8;
+	color: var(--color-primary);
+	font-weight: 300;
+}
+
+.body-text-sm {
+	font-size: 14px;
+	line-height: 1.7;
+	color: color-mix(in srgb, var(--color-text-muted) 82%, transparent);
+	font-weight: 300;
+}
+
+.text-label {
+	font-size: 12px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--color-secondary);
+	font-weight: 400;
+}
+
+.text-detail {
+	font-size: 24px;
+	font-family: 'Georgia', serif;
+	color: var(--color-primary);
+	font-weight: 300;
+}
+
+/* ─── Card ─── */
+
+.card {
+	position: relative;
+	border-radius: 14px;
+	color: var(--color-primary);
+	box-shadow: 0 14px 40px var(--color-card-shadow), 0 0 0 1px var(--color-card-inset) inset;
+	overflow: hidden;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card--lg {
+	border-radius: 18px;
+}
+
+.card-shell {
+	position: relative;
+	padding: 24px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.card-title {
+	font-size: 28px;
+	font-weight: 500;
+	color: var(--color-primary);
+	margin: 0;
+	font-family: 'Cormorant Garamond', 'Georgia', serif;
+}
+
+/* ─── Info Box ─── */
+
+.info-box {
+	background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent);
+	padding: 20px;
+	border-radius: 8px;
+	border-left: 3px solid var(--color-secondary);
+
+	p {
+		margin: 0;
+		font-size: 14px;
+		line-height: 1.6;
+		color: color-mix(in srgb, var(--color-text-muted) 90%, transparent);
+	}
+}
+
+/* ─── Links Container ─── */
+
+.links {
+	display: flex;
+	gap: 12px;
+	width: 100%;
+}
+
+/* ─── Material Symbols ─── */
+
+.material-symbols-rounded {
+	font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+	font-size: 10px;
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ─── Responsividade - Design System ─── */
+
+@media (max-width: 768px) {
+	.body-text {
+		font-size: 15px;
+	}
+
+	.text-detail {
+		font-size: 20px;
+	}
+
+	.card-title {
+		font-size: 24px;
+	}
 }

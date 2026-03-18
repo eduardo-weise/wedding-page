@@ -4,7 +4,10 @@
 	[ngClass]="sectionClass"
 	appScrollActive
 >
-	<div class="content">
+	<div
+		class="content"
+		[style.max-width]="maxWidth"
+	>
 		<div
 			class="header"
 			appScrollReveal
@@ -32,16 +35,26 @@
 				{{ title }}
 			</h1>
 			}
-			@if (subtitle) {
+			@for (p of subtitleParagraphs; track $index) {
 			<p
-				class="subtitle"
+				class="subtitle body-text"
 				appScrollReveal
 				[revealDelayMin]="120"
 				[revealDelayMax]="460"
 				[revealOnce]="false"
 			>
-				{{ subtitle }}
+				{{ p }}
 			</p>
+			}
+			@if (subtitleHtml) {
+			<p
+				class="subtitle body-text"
+				appScrollReveal
+				[revealDelayMin]="120"
+				[revealDelayMax]="460"
+				[revealOnce]="false"
+				[innerHTML]="subtitleHtml"
+			></p>
 			}
 			<div class="content-slot">
 				<ng-content></ng-content>

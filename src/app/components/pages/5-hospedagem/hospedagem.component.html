@@ -9,7 +9,7 @@
 	<div class="cards">
 		@for (hotel of hotels; track hotel.name) {
 		<article
-			class="hotel-card"
+		class="hotel-card card card--lg"
 			appScrollReveal
 			[revealDelayMin]="hotel.revealDelayMin"
 			[revealDelayMax]="hotel.revealDelayMax"
@@ -24,7 +24,7 @@
 					[revealOnce]="false"
 				>
 					<div class="title-row">
-						<h2 class="hotel-name">{{ hotel.name }}</h2>
+						<h2 class="card-title">{{ hotel.name }}</h2>
 						@if (hotel.tag) {
 						<div class="badge">
 							<span class="material-symbols-rounded">check_circle</span>

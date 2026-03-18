@@ -1,4 +1,4 @@
-﻿import { Component, ViewEncapsulation, AfterViewInit } from '@angular/core';
+﻿import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { animate, onScroll, stagger } from 'animejs';
 import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
@@ -10,9 +10,12 @@ import { SectionComponent } from '../../shared/section/section.component';
     imports: [CommonModule, ScrollRevealDirective, SectionComponent],
     templateUrl: './presente.component.html',
     styleUrls: ['./presente.component.scss'],
-    encapsulation: ViewEncapsulation.None,
 })
 export class PresenteComponent implements AfterViewInit {
+    introTexts = [
+        'A gente não fez lista de presentes. Se você quiser nos dar algo, a gente prefere que seja em dinheiro mesmo — sem frescura! No dia do casamento, vai ter uma caixinha na entrada com envelopes pra quem quiser contribuir.',
+        'Se preferir Pix, também temos! Vai ter um QR code na caixinha, ou se preferir já garantir antes, é só copiar a chave aqui embaixo:'
+    ];
     pixKey = 'weise.eduardo@gmail.com';
     pixChars = this.pixKey.split('');
 

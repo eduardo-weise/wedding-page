@@ -5,17 +5,10 @@
 	sectionClass="flash-tattoo"
 	[title]="'Tatuagem Flash'"
 	[subtitle]="description"
+	[subtitleHtml]="flashExplainer"
 >
 
 	<div class="tattoo-content">
-		<p
-			class="description"
-			appScrollReveal
-			[revealDelayMin]="140"
-			[revealDelayMax]="500"
-			[revealOnce]="false"
-			[innerHTML]="flashExplainer"
-		></p>
 
 		<a
 			class="whatsapp-button action--primary"

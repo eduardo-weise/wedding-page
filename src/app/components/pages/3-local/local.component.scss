@@ -1,56 +1,46 @@
-.section-base.local {
-  .content {
-    max-width: 900px;
-  }
+.local-content {
+	.address-info {
+		margin-bottom: 40px;
 
-  .local-content {
-    color: var(--color-secondary);
-        
-    .address-info {
-      margin-bottom: 40px;
-      
-      p {
-        margin: 8px 0;
-        font-size: 16px;
-        color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
-        font-weight: 300;
-      }
-      
-      .address {
-        font-size: 18px;
-        color: var(--color-primary);
-      }
-    }
-    
-    .map-container {
-      margin-bottom: 30px;
-      border-radius: 8px;
-      overflow: hidden;
-      
-      iframe {
-        display: block;
-      }
-    }
-    
-    .open-maps-btn {
-      width: 100%;
-      
-      svg {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
+		p {
+			margin: 8px 0;
+			font-size: 16px;
+			color: color-mix(in srgb, var(--color-text-muted) 80%, transparent);
+			font-weight: 300;
+		}
+
+		.address {
+			font-size: 18px;
+			color: var(--color-primary);
+		}
+	}
+
+	.map-container {
+		margin-bottom: 30px;
+		border-radius: 8px;
+		overflow: hidden;
+
+		iframe {
+			display: block;
+		}
+	}
+
+	.open-maps-btn {
+		width: 100%;
+
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
 }
 
 @media (max-width: 768px) {
-  .section-base.local {
-    .local-content {      
-      .map-container {
-        iframe {
-          height: 300px;
-        }
-      }
-    }
-  }
+	.local-content {
+		.map-container {
+			iframe {
+				height: 300px;
+			}
+		}
+	}
 }

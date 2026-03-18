@@ -48,12 +48,12 @@
         }
 
         .subtitle {
-            margin-bottom: 40px;
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--color-primary);
-            font-weight: 300;
-        }
+			margin-bottom: 20px;
+
+			&:last-of-type {
+				margin-bottom: 40px;
+			}
+		}
 
         .content-slot {
             display: block;
@@ -73,10 +73,6 @@
         .body {
             .title {
                 font-size: 32px;
-            }
-
-            .subtitle {
-                font-size: 15px;
             }
         }
     }

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
@@ -9,8 +9,7 @@ import { SectionComponent } from '../../shared/section/section.component';
 	standalone: true,
 	imports: [CommonModule, ScrollRevealDirective, SectionComponent],
 	templateUrl: './local.component.html',
-	styleUrls: ['./local.component.scss'],
-	encapsulation: ViewEncapsulation.None
+	styleUrls: ['./local.component.scss']
 })
 export class LocalComponent {
 	venueName = 'Morada dos Ventos';

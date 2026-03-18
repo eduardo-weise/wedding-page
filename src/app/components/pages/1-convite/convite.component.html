@@ -3,6 +3,7 @@
 	sectionNumber="01"
 	sectionLabel="O CONVITE"
 	sectionClass="convite"
+	maxWidth="800px"
 >
 	<div class="invitation-text">
 		<h1
@@ -16,7 +17,7 @@
 		</h1>
 
 		<p
-			class="message"
+			class="body-text"
 			appScrollReveal
 			[revealDelayMin]="120"
 			[revealDelayMax]="460"
@@ -26,7 +27,7 @@
 		</p>
 
 		<article
-			class="rsvp-card"
+			class="rsvp-card card"
 			appScrollReveal
 			[revealDelayMin]="200"
 			[revealDelayMax]="620"
@@ -46,14 +47,14 @@
 				[revealOnce]="false"
 			>
 				<h2
-					class="rsvp-name"
+					class="card-title"
 					appScrollReveal
 					[revealDelayMin]="240"
 					[revealDelayMax]="660"
 					[revealOnce]="false"
 				>Confirmação de presença</h2>
 				<p
-					class="rsvp-text"
+					class="rsvp-text body-text-sm"
 					appScrollReveal
 					[revealDelayMin]="260"
 					[revealDelayMax]="680"
@@ -61,7 +62,7 @@
 				>
 					Sua confirmação nos ajuda a preparar tudo com carinho.</p>
 				<p
-					class="rsvp-text"
+					class="rsvp-text body-text-sm"
 					appScrollReveal
 					[revealDelayMin]="260"
 					[revealDelayMax]="680"
@@ -105,8 +106,8 @@
 				[revealDelayMax]="500"
 				[revealOnce]="false"
 			>
-				<span class="detail-label">Data</span>
-				<span class="detail-value">{{ weddingDate }}</span>
+				<span class="text-label">Data</span>
+				<span class="text-detail">{{ weddingDate }}</span>
 			</div>
 
 			<div
@@ -116,8 +117,8 @@
 				[revealDelayMax]="540"
 				[revealOnce]="false"
 			>
-				<span class="detail-label">Horário</span>
-				<span class="detail-value">{{ weddingTime }}</span>
+				<span class="text-label">Horário</span>
+				<span class="text-detail">{{ weddingTime }}</span>
 			</div>
 
 			<div
@@ -127,8 +128,8 @@
 				[revealDelayMax]="580"
 				[revealOnce]="false"
 			>
-				<span class="detail-label">Local</span>
-				<span class="detail-value">{{ venue }}</span>
+				<span class="text-label">Local</span>
+				<span class="text-detail">{{ venue }}</span>
 				<span class="detail-address">{{ address }}</span>
 				<span class="detail-address">{{ city }}</span>
 			</div>

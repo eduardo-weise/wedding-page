@@ -1,169 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0');
+.invitation-text {
+	color: var(--color-secondary);
+	gap: 24px;
+	display: flex;
+	flex-direction: column;
+}
 
-.section-base.convite {
-	.content {
-		max-width: 800px;
+.couple-names {
+	font-size: 48px;
+	font-weight: 300;
+	font-family: 'Georgia', serif;
+	line-height: 1.2;
+
+	.ampersand {
+		color: var(--color-primary);
+		font-style: italic;
+		margin: 0 10px;
+	}
+}
+
+.rsvp-card {
+	box-shadow: 8px 8px 40px 10px var(--color-card-shadow), -8px -8px 40px 10px var(--color-card-inset) inset;
+	margin-left: auto;
+	margin-right: auto;
+	transition: opacity 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+	.card-shell {
+		padding: 30px 25px;
+		align-items: center;
+		text-align: center;
 	}
 
-	.header {
-		margin-bottom: 60px;
+	.leaf-decoration {
+		position: absolute;
+		top: 88px;
+		right: -95px;
+		width: 260px;
+		height: auto;
+		pointer-events: none;
+		opacity: 0.85;
 	}
 
-	.invitation-text {
-		color: var(--color-secondary);
-		gap: 24px;
-		display: flex;
-		flex-direction: column;
+	.rsvp-text > i {
+		font-size: 10px;
 
-		.couple-names {
-			font-size: 48px;
-			font-weight: 300;
-			font-family: 'Georgia', serif;
-			line-height: 1.2;
-
-			.ampersand {
-				color: var(--color-primary);
-				font-style: italic;
-				margin: 0 10px;
-			}
-		}
-
-		.message {
-			font-size: 16px;
-			line-height: 1.8;
-			color: var(--color-primary);
-			font-weight: 300;
-		}
-
-		.details {
-			display: flex;
-			flex-direction: column;
-			gap: 40px;
-
-			.detail-item {
-				display: flex;
-				flex-direction: column;
-				gap: 8px;
-
-				.detail-label {
-					font-size: 12px;
-					letter-spacing: 2px;
-					text-transform: uppercase;
-					color: var(--color-secondary);
-					font-weight: 400;
-				}
-
-				.detail-value {
-					font-size: 24px;
-					font-family: 'Georgia', serif;
-					color: var(--color-primary);
-					font-weight: 300;
-				}
-
-				.detail-address {
-					font-size: 14px;
-					color: var(--color-primary);
-					font-weight: 300;
-				}
-			}
-		}
-
-		.rsvp-card {
-			position: relative;
-			border-radius: 14px;
-			color: var(--color-primary);
-			transition: opacity 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
-			box-shadow: 8px 8px 40px 10px var(--color-card-shadow), -8px -8px 40px 10px var(--color-card-inset) inset;
-			margin-left: auto;
-			margin-right: auto;
-
-			.leaf-decoration {
-				position: absolute;
-				top: 88px;
-				right: -95px;
-				width: 260px;
-				height: auto;
-				pointer-events: none;
-				opacity: 0.85;
-			}
-
-			.card-shell {
-				position: relative;
-				padding: 30px 25px 30px;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				text-align: center;
-				gap: 10px;
-			}
-
-			.rsvp-name {
-				font-size: 28px;
-				font-weight: 500;
-				color: var(--color-primary);
-				margin: 0;
-				font-family: 'Cormorant Garamond', 'Georgia', serif;
-			}
-
-			.rsvp-text {
-				font-size: 14px;
-				line-height: 1.7;
-				color: color-mix(in srgb, var(--color-text-muted) 82%, transparent);
-				font-weight: 300;
-
-				> i {
-					font-size: 10px;
-
-					> b {
-						font-weight: 600;
-					}
-				}
-			}
-
-			.links {
-				display: flex;
-				gap: 12px;
-				width: 100%;
-			}
+		> b {
+			font-weight: 600;
 		}
 	}
 }
 
+.details {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+
+	.detail-item {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.detail-address {
+		font-size: 14px;
+		color: var(--color-primary);
+		font-weight: 300;
+	}
+}
+
 @media (max-width: 768px) {
-	.section-base.convite {
-		.header {
-			margin-bottom: 40px;
-		}
+	.couple-names {
+		font-size: 36px;
+	}
 
-		.invitation-text {
-			.couple-names {
-				font-size: 36px;
-			}
+	.details {
+		gap: 30px;
+	}
 
-			.message {
-				font-size: 15px;
-			}
-
-			.details {
-				gap: 30px;
-
-				.detail-item {
-					.detail-value {
-						font-size: 20px;
-					}
-				}
-			}
-
-			.rsvp-card {
-				.rsvp-name {
-					font-size: 24px;
-				}
-
-				.action {
-					width: 100%;
-					flex-basis: 100%;
-				}
-			}
-		}
+	.action {
+		width: 100%;
+		flex-basis: 100%;
 	}
 }
