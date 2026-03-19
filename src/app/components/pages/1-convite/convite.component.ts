@@ -22,7 +22,7 @@ export class ConviteComponent {
 
 	title = this.groomName + ' <span class="ampersand">&</span> ' + this.brideName;
 	message = ['Com imensa alegria, convidamos você para celebrar conosco este momento especial. Sua presença é fundamental para tornar este dia ainda mais memorável.'];
-	deadline = '25 de novembro de 2026';
+	deadline = '27 de novembro de 2026';
 	numero = '5555999656461';
 	confirmMessage = 'Oi! Sou convidado do casamento do Eduardo e Maiara e gostaria de confirmar minha presença.';
 	declineMessage = 'Oi! Sou convidado do casamento do Eduardo e Maiara e infelizmente não vou conseguir comparecer.';
