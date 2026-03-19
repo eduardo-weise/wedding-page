@@ -34,7 +34,7 @@ export class LocalComponent implements OnInit, OnDestroy {
 
 		const heartPinIcon = L.divIcon({
 			className: '',
-			html: `<span class="material-symbols-rounded pin-drop" style="font-size:40px;color:#e63946;opacity:0;">map_pin_heart</span>`,
+			html: `<span class="material-symbols-rounded pin-drop">map_pin_heart</span>`,
 			iconSize: [40, 40],
 			iconAnchor: [20, 40],
 		});
@@ -42,8 +42,8 @@ export class LocalComponent implements OnInit, OnDestroy {
 		const marker = L.marker([this.latitude, this.longitude], { icon: heartPinIcon })
 			.addTo(map)
 			.bindTooltip(this.venueName, {
-				offset: L.point(15, 0),
-				direction: 'right',
+				offset: L.point(0, -40),
+				direction: 'top',
 				permanent: false
 			});
 
