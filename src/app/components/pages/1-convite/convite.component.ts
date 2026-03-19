@@ -23,12 +23,13 @@ export class ConviteComponent {
 	title = this.groomName + ' <span class="ampersand">&</span> ' + this.brideName;
 	message = ['Com imensa alegria, convidamos você para celebrar conosco este momento especial. Sua presença é fundamental para tornar este dia ainda mais memorável.'];
 	deadline = '20 de novembro de 2026';
+	numero = '5555999656461';
 
 	whatsappConfirmMessage =
 		'Oi! Sou convidado do casamento do Eduardo e Maiara e gostaria de confirmar minha presença.';
-	whatsappConfirmUrl = `https://wa.me/5555981035906?text=${encodeURIComponent(this.whatsappConfirmMessage)}`;
+	whatsappConfirmUrl = `https://wa.me/${this.numero}?text=${encodeURIComponent(this.whatsappConfirmMessage)}`;
 
 	whatsappDeclineMessage =
 		'Oi! Sou convidado do casamento do Eduardo e Maiara e infelizmente não vou conseguir comparecer.';
-	whatsappDeclineUrl = `https://wa.me/5555981035906?text=${encodeURIComponent(this.whatsappDeclineMessage)}`;
+	whatsappDeclineUrl = `https://wa.me/${this.numero}?text=${encodeURIComponent(this.whatsappDeclineMessage)}`;
 }
