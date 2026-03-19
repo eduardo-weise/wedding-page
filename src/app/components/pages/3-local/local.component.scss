@@ -9,7 +9,7 @@
 			border-radius: 8px;
 			overflow: hidden;
 			width: 100%;
-			height: 400px;
+			height: 325px;
 		}
 	}
 
@@ -42,14 +42,6 @@
 		svg {
 			width: 20px;
 			height: 20px;
-		}
-	}
-}
-
-@media (max-width: 768px) {
-	.local-content {
-		::ng-deep .venue-tooltip {
-			//top: -15px !important;
 		}
 	}
 }
