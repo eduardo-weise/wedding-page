@@ -15,7 +15,7 @@ export class ConviteComponent {
 	groomName = 'Eduardo';
 	brideName = 'Maiara';
 	weddingDate = '5 de dezembro de 2026';
-	weddingTime = '18:00';
+	weddingTime = '18:30';
 	venue = 'Morada dos Ventos';
 	address = 'R. dos Pinhais, 224 - Cruzeiro';
 	city = 'Santa Rosa - RS';
