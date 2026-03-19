@@ -14,17 +14,7 @@
       [revealDelayMax]="500"
       [revealOnce]="false"
     >
-      <iframe
-        title="map"
-        [src]="mapUrl"
-        width="100%"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      >
-      </iframe>
+      <div #mapContainer style="width:100%; height:400px;"></div>
     </div>
 
     <button

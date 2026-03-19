@@ -7,9 +7,20 @@
 		margin-bottom: 30px;
 		border-radius: 8px;
 		overflow: hidden;
+	}
 
-		iframe {
-			display: block;
+	::ng-deep .venue-tooltip {
+		background: var(--color-bg);
+		color: var(--color-primary);
+		border: none;
+		border-radius: 4px;
+		font-size: 13px;
+		font-weight: 600;
+		padding: 4px 10px;
+		box-shadow: 0 2px 6px var(--color-bg);
+
+		&::before {
+			border-right-color: var(--color-bg);
 		}
 	}
 
