@@ -24,8 +24,8 @@
 
 			.pinterest-embed {
 				max-height: 520px;
-				background-color: color-mix(in srgb, var(--color-bg) 70%, transparent);
 				overflow: hidden;
+				border-radius: 8px;
 
 				>span {
 					display: block !important;
@@ -33,11 +33,12 @@
 					max-width: 100% !important;
 					min-width: 0 !important;
 				}
+			}
 
-				iframe {
-					width: 100% !important;
-					max-width: 100% !important;
-				}
+			&[data-theme="light"] .pinterest-embed span,
+			&[data-theme="dark"] .pinterest-embed span {
+				background-color: color-mix(in srgb, var(--color-bg) 70%, transparent);
+				color: var(--color-primary);
 			}
 
 			.pinterest-fallback {

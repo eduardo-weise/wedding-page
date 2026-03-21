@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, Renderer2, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, OnDestroy, Component, Inject, Renderer2, ViewEncapsulation } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
 import { SectionComponent } from '../../shared/section/section.component';
@@ -11,7 +11,9 @@ import { SectionComponent } from '../../shared/section/section.component';
 	styleUrls: ['./flash-tattoo.component.scss'],
 	encapsulation: ViewEncapsulation.None
 })
-export class FlashTattooComponent implements AfterViewInit {
+export class FlashTattooComponent implements AfterViewInit, OnDestroy {
+	private themeObserver?: MutationObserver;
+
 	description = [
 		'Além das lembranças no coração, você também poderá levar esse momento marcado na pele. Durante a celebração, teremos um espaço exclusivo de flash tattoo disponível para os convidados.',
 		'A flash tattoo é uma tatuagem rápida e <b>permanente</b>, feita no mesmo dia, a partir de desenhos previamente selecionados, com até <b>5 cm</b> de tamanho. As tatuagens serão realizadas <b>no local do evento</b>, ao longo da festa. Para agilizar o atendimento no dia, escolha sua arte e informe <b>o desenho e o local do corpo</b> diretamente para a tatuadora utilizando o botão abaixo.',
@@ -29,6 +31,8 @@ export class FlashTattooComponent implements AfterViewInit {
 	) { }
 
 	ngAfterViewInit(): void {
+		this.setupThemeObserver();
+
 		const existing = this.document.querySelector('script[src*="assets.pinterest.com/js/pinit.js"]');
 		if (existing) {
 			this.buildPinterestEmbed();
@@ -43,10 +47,36 @@ export class FlashTattooComponent implements AfterViewInit {
 		this.renderer.appendChild(this.document.body, script);
 	}
 
+	private setupThemeObserver(): void {
+		const updateTheme = () => {
+			const newTheme = this.getCurrentTheme();
+			const wrapper = this.document.querySelector('.pinterest-card');
+			if (wrapper) {
+				wrapper.setAttribute('data-theme', newTheme);
+			}
+		};
+
+		this.themeObserver = new MutationObserver(updateTheme);
+		this.themeObserver.observe(this.document.documentElement, {
+			attributes: true,
+			attributeFilter: ['data-theme']
+		});
+
+		updateTheme();
+	}
+
 	private buildPinterestEmbed(): void {
 		const pinUtils = (globalThis as typeof globalThis & { PinUtils?: { build: () => void } }).PinUtils;
 		if (pinUtils?.build) {
 			pinUtils.build();
 		}
+	}
+
+	ngOnDestroy(): void {
+		this.themeObserver?.disconnect();
+	}
+
+	private getCurrentTheme(): string {
+		return document.documentElement.dataset['theme'] || 'light';
 	}
 }
