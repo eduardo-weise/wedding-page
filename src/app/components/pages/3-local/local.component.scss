@@ -3,9 +3,12 @@
 }
 
 .local-content {
+	display: flex;
+    flex-direction: column;
+    gap: 20px;
+
 	.map {
 		>div {
-			margin-bottom: 30px;
 			border-radius: 8px;
 			overflow: hidden;
 			width: 100%;
@@ -34,14 +37,5 @@
 		opacity: 0;
 		width: 40px;
 		height: 40px;
-	}
-
-	.open-maps-btn {
-		width: 100%;
-
-		svg {
-			width: 20px;
-			height: 20px;
-		}
 	}
 }
