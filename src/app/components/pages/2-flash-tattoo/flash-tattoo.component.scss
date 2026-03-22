@@ -17,15 +17,14 @@
 		}
 
 		.pinterest-card {
-			padding: 0;
-			gap: 20px;
 			display: flex;
 			flex-direction: column;
+			gap: 10px;
 
 			.pinterest-embed {
-				max-height: 520px;
 				overflow: hidden;
 				border-radius: 8px;
+
 
 				>span {
 					display: block !important;
@@ -35,14 +34,14 @@
 				}
 			}
 
-			&[data-theme="light"] .pinterest-embed span,
-			&[data-theme="dark"] .pinterest-embed span {
+			&[data-theme="light"] .pinterest-embed span {
 				background-color: color-mix(in srgb, var(--color-bg) 70%, transparent);
 				color: var(--color-primary);
 			}
 
-			.pinterest-fallback {
-				width: 100%;
+			&[data-theme="dark"] .pinterest-embed span {
+				background-color: var(--color-action-ghost);
+				color: var(--color-primary);
 			}
 		}
 	}
@@ -53,8 +52,6 @@
 		.tattoo-content {
 			.pinterest-card {
 				.pinterest-embed {
-					max-height: 310px;
-
 					>span {
 						min-width: 0 !important;
 						height: 300px !important;
