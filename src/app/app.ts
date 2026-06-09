@@ -45,8 +45,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 	) { }
 
 	ngOnInit(): void {
-		const theme = localStorage.getItem('theme') ?? 'dark';
-		this.document.documentElement.dataset['theme'] = theme;
+		this.document.documentElement.dataset['theme'] = this.resolveInitialTheme();
 		
 		if (isPlatformBrowser(this.platformId)) {
 			this.checkIfMobile();
@@ -117,4 +116,17 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
 			window.scrollTo(0, 0);
 		}
 	};
+
+	private resolveInitialTheme(): 'dark' | 'light' {
+		if (!isPlatformBrowser(this.platformId)) {
+			return 'light';
+		}
+
+		const savedTheme = localStorage.getItem('theme');
+		if (savedTheme === 'dark' || savedTheme === 'light') {
+			return savedTheme;
+		}
+
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	}
 }

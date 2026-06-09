@@ -36,7 +36,7 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 	isDark = true;
 
 	ngOnInit(): void {
-		const theme = localStorage.getItem('theme') ?? 'dark';
+		const theme = this.resolveInitialTheme();
 		this.isDark = theme === 'dark';
 		this.document.documentElement.dataset['theme'] = theme;
 	}
@@ -170,5 +170,14 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
 	private unlockScroll(): void {
 		this.renderer.removeStyle(this.document.body, 'overflow');
+	}
+
+	private resolveInitialTheme(): 'dark' | 'light' {
+		const savedTheme = localStorage.getItem('theme');
+		if (savedTheme === 'dark' || savedTheme === 'light') {
+			return savedTheme;
+		}
+
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
 }
