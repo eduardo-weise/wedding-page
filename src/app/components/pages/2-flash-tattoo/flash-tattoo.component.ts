@@ -23,7 +23,7 @@ export class FlashTattooComponent implements AfterViewInit, OnDestroy {
 	whatsappMessage = 'Oi, sou convidado do casamento do Eduardo e Maiara e gostaria de alinhar minha flash tattoo';
 	whatsappUrl = `https://wa.me/555599015286?text=${encodeURIComponent(this.whatsappMessage)}`;
 
-	pinterestBoardUrl = 'https://br.pinterest.com/ramonrocasilva/flash-5-cm/';
+	pinterestBoardUrl = 'https://br.pinterest.com/maiaracbertoldo/flash-tattoo-maidu-casamento/';
 
 	constructor(
 		private readonly renderer: Renderer2,
