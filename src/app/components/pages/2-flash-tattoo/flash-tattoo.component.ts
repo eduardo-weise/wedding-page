@@ -16,14 +16,10 @@ export class FlashTattooComponent implements AfterViewInit, OnDestroy {
 
 	description = [
 		'Além das lembranças no coração, você também poderá levar esse momento marcado na pele. Durante a celebração, teremos um espaço exclusivo de flash tattoo disponível para os convidados.',
-		'A flash tattoo é uma tatuagem rápida e <b>permanente</b>, feita no mesmo dia, a partir de desenhos previamente selecionados, com até <b>5 cm</b> de tamanho. As tatuagens serão realizadas <b>no local do evento</b>, ao longo da festa. Para agilizar o atendimento no dia, escolha sua arte e informe <b>o desenho e o local do corpo</b> diretamente para a tatuadora utilizando o botão abaixo.',
+		'A flash tattoo é uma tatuagem rápida e <b>permanente</b>, feita no mesmo dia, a partir de desenhos previamente selecionados, com até <b>5 cm</b> de tamanho. As tatuagens serão realizadas <b>no local do evento</b>, ao longo da festa.',
 	];
-	flashInspirations = 'Aqui a Bruna deixou algumas inspirações para ajudar na escolha.';
-
-	whatsappMessage = 'Oi, sou convidado do casamento do Eduardo e Maiara e gostaria de alinhar minha flash tattoo';
-	whatsappUrl = `https://wa.me/555599015286?text=${encodeURIComponent(this.whatsappMessage)}`;
-
 	pinterestBoardUrl = 'https://br.pinterest.com/maiaracbertoldo/flash-tattoo-maidu-casamento/';
+	flashAvisos = 'As tatuagens serão realizadas por um profissional experiente em um ambiente seguro e higienizado.';
 
 	constructor(
 		private readonly renderer: Renderer2,
