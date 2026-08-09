@@ -20,7 +20,7 @@ export class DressCodeComponent implements AfterViewInit, OnDestroy {
 
 	// Croquis de inspiração; a lista é duplicada para o marquee circular sem emenda.
 	croquis = Array.from(
-		{ length: 14 },
+		{ length: 13 },
 		(_, i) => `assets/dress-code/${String(i + 1).padStart(2, '0')}.png`
 	);
 	loopCroquis = [...this.croquis, ...this.croquis];
