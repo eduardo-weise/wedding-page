@@ -23,12 +23,15 @@
 			align-items: center;
 			width: max-content;
 			animation: dc-marquee 30s linear infinite;
+			will-change: transform;
+			backface-visibility: hidden;
 		}
 
 		.dc-croqui {
 			flex: 0 0 auto;
+			width: 125px;
 			height: 125px;
-			width: auto;
+			object-fit: contain;
 			display: block;
 		}
 	}
@@ -36,10 +39,10 @@
 
 @keyframes dc-marquee {
 	from {
-		transform: translateX(0);
+		transform: translate3d(0, 0, 0);
 	}
 	to {
-		transform: translateX(-50%);
+		transform: translate3d(-50%, 0, 0);
 	}
 }
 
