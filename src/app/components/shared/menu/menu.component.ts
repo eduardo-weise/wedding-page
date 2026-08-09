@@ -98,6 +98,7 @@ export class MenuComponent implements OnInit, AfterViewInit, OnDestroy {
 	menuItems = [
 		{ id: 'save-the-date', label: 'save the date', icon: '🏠' },
 		{ id: 'convite', label: 'convite', icon: '💌' },
+		{ id: 'dress-code', label: 'dress code', icon: '🖤' },
 		{ id: 'flash-tattoo', label: 'flash tattoo', icon: '✨' },
 		{ id: 'local', label: 'local', icon: '📍' },
 		{ id: 'presente', label: 'o presente', icon: '🎁' },

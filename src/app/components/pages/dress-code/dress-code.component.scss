@@ -1,0 +1,51 @@
+.dc-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 18px;
+
+	.dc-marquee {
+		width: 100%;
+		max-width: 340px;
+		overflow: hidden;
+		-webkit-mask-image: linear-gradient(
+			to right,
+			transparent 0,
+			#000 14%,
+			#000 86%,
+			transparent 100%
+		);
+		mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 86%, transparent 100%);
+
+		.dc-track {
+			display: flex;
+			align-items: center;
+			width: max-content;
+			animation: dc-marquee 30s linear infinite;
+		}
+
+		.dc-croqui {
+			flex: 0 0 auto;
+			height: 125px;
+			width: auto;
+			display: block;
+		}
+	}
+}
+
+@keyframes dc-marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dc-content .dc-marquee .dc-track {
+		animation: none;
+	}
+}
+

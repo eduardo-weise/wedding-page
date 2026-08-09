@@ -8,6 +8,7 @@ import { FlashTattooComponent } from './components/pages/2-flash-tattoo/flash-ta
 import { LocalComponent } from './components/pages/3-local/local.component';
 import { PresenteComponent } from './components/pages/4-presente/presente.component';
 import { HospedagemComponent } from './components/pages/5-hospedagem/hospedagem.component';
+import { DressCodeComponent } from './components/pages/dress-code/dress-code.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { QrCodeService } from './services/qr-code.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -24,6 +25,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 		LocalComponent,
 		HospedagemComponent,
 		PresenteComponent,
+		DressCodeComponent,
 		FooterComponent,
 	],
 	templateUrl: './app.html',

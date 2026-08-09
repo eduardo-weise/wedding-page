@@ -1,0 +1,31 @@
+<app-section
+	sectionId="dress-code"
+	sectionNumber="2"
+	sectionLabel="DRESS CODE"
+	sectionClass="dress-code"
+	title="Do seu jeito, de preto"
+	maxWidth="700px"
+	[subtitle]="message"
+>
+	<div class="dc-content">
+		<div
+			class="dc-marquee"
+			aria-hidden="true"
+			appScrollReveal
+			[revealDelayMin]="160"
+			[revealDelayMax]="480"
+			[revealOnce]="false"
+		>
+			<div class="dc-track">
+				@for (src of loopCroquis; track $index) {
+				<img
+					class="dc-croqui"
+					[src]="src"
+					alt=""
+					draggable="false"
+				/>
+				}
+			</div>
+		</div>
+	</div>
+</app-section>
