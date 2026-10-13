@@ -4,10 +4,19 @@
 	appScrollActive
 >
 
+	<div
+		class="hero-photo"
+		aria-hidden="true"
+	></div>
+	<div
+		class="hero-scrim"
+		aria-hidden="true"
+	></div>
+
 	<div class="content">
 		<img
 			class="save-the-date-logo logo-dark"
-			src="assets/logo/logo.svg"
+			src="assets/logo/logo-sem-fundo.svg"
 			alt="Save the date"
 			appScrollReveal
 			[revealDelayMin]="80"
@@ -16,7 +25,7 @@
 		/>
 		<img
 			class="save-the-date-logo logo-light"
-			src="assets/logo/logo-light.svg"
+			src="assets/logo/logo-light-sem-fundo.svg"
 			alt="Save the date"
 			appScrollReveal
 			[revealDelayMin]="80"
@@ -40,8 +49,15 @@
 					aria-label="QR Code"
 				/>
 				<img
-					class="save-the-date-qr-logo"
+					class="save-the-date-qr-logo logo-dark"
 					src="assets/logo/logo-mark.svg"
+					alt=""
+					aria-hidden="true"
+					draggable="false"
+				/>
+				<img
+					class="save-the-date-qr-logo logo-light"
+					src="assets/logo/logo-mark-light.svg"
 					alt=""
 					aria-hidden="true"
 					draggable="false"

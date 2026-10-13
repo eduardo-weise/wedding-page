@@ -14,9 +14,15 @@ Todas as cores são definidas como CSS custom properties em `:root` e alternam e
 |---|---|---|---|
 | `--color-bg` | `#1F1F1D` | `#f4f2ef` | Fundo da página |
 | `--color-primary` | `#BFBFBF` | `#2C2C2A` | Texto principal, títulos |
-| `--color-secondary` | `#7A4C29` | `#94501c` | Destaques, labels, bordas, ícones |
+| `--color-secondary` | `#7A4C29` | `#94501c` | Bordas, fundos tingidos e gradiente da ação |
+| `--color-accent-text` | `#C98A52` | herda `secondary` | Texto e ícones na cor de acento (labels, números, `.section-label`) |
 | `--color-text-muted` | `#F4F2EE` | `#F4F2EE` | Texto claro sobre fundos escuros |
 | `--color-text-mute-ghost` | `82% de text-muted` | `#1F1F1D` | Texto em botões ghost |
+
+> `--color-secondary` sobre `--color-bg` tem contraste 2,3:1 no tema escuro e reprova no WCAG AA
+> para texto pequeno. Use `--color-accent-text` em qualquer texto ou ícone na cor de acento;
+> `--color-secondary` fica reservado a bordas, fundos tingidos e ao gradiente de `.action--primary`.
+> No tema claro `--color-accent-text` herda `--color-secondary`, que já passa (5,5:1).
 
 ### Cards
 

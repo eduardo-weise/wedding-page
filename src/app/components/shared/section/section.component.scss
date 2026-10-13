@@ -22,7 +22,7 @@
 
         .section-number {
             font-weight: 300;
-            color: color-mix(in srgb, var(--color-secondary) 70%, transparent 20%);
+            color: color-mix(in srgb, var(--color-accent-text) 70%, transparent 20%);
             font-family: 'Georgia', serif;
             margin: 0;
             line-height: 1;
@@ -31,14 +31,14 @@
         .section-label {
             font-weight: 400;
             letter-spacing: 3px;
-            color: var(--color-secondary);
+            color: var(--color-accent-text);
             margin: 0;
             text-transform: uppercase;
         }
     }
 
     .body {
-        color: var(--color-secondary);
+        color: var(--color-accent-text);
         display: flex;
         flex-direction: column;
         gap: 20px;

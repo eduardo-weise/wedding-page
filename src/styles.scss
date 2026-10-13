@@ -20,7 +20,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     background-color: var(--color-bg);
-    color: var(--color-secondary);
+    color: var(--color-accent-text);
 }
 
 @media (max-width: 768px) {
@@ -50,6 +50,7 @@ body {
     --color-bg: #1F1F1D;
     --color-primary: #BFBFBF;
     --color-secondary: #7A4C29;
+    --color-accent-text: #C98A52; /* texto: secondary dá só 2,3:1 sobre --color-bg */
     --color-text-muted: #F4F2EE;
     --color-text-mute-ghost: color-mix(in srgb, var(--color-text-muted) 82%, transparent);
 
@@ -76,6 +77,7 @@ body {
     --color-bg: #f4f2ef;
     --color-primary: #2C2C2A;
     --color-secondary: #94501c;
+    --color-accent-text: var(--color-secondary); /* #94501c já passa no AA */
     --color-text-muted: #F4F2EE;
     --color-text-mute-ghost: #1F1F1D;
 
@@ -240,7 +242,7 @@ img {
 	font-size: 12px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
-	color: var(--color-secondary);
+	color: var(--color-accent-text);
 	font-weight: 400;
 }
 
