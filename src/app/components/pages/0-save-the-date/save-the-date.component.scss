@@ -1,4 +1,5 @@
 .save-the-date {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -6,7 +7,40 @@
 	overflow: hidden;
 	min-height: 100vh;
 
+	// Foto de fundo. Horizontal no desktop, vertical no mobile (ver media queries);
+	// preto e branco no tema escuro, colorida no claro (ver :host-context abaixo).
+	// Só a variante correspondente é baixada, porque o seletor/media query filtra a regra.
+	// Os caminhos são públicos (/assets/...) e não relativos ao .scss de propósito: o
+	// bundler achata url() em media/<nome> e os dois photo-h.avif colidiriam.
+	.hero-photo {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		background-image: url('/assets/photos/black-and-white/photo-h.avif');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+
+	// Véu na própria cor de fundo: escurece no tema escuro e clareia no claro.
+	// Mais forte na faixa central, onde ficam o logo e o QR nos dois layouts, porque
+	// a data em --color-secondary some sobre as partes claras da foto.
+	.hero-scrim {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		background: linear-gradient(
+			color-mix(in srgb, var(--color-bg) 42%, transparent) 0%,
+			color-mix(in srgb, var(--color-bg) 75%, transparent) 38%,
+			color-mix(in srgb, var(--color-bg) 75%, transparent) 72%,
+			color-mix(in srgb, var(--color-bg) 50%, transparent) 100%
+		);
+		pointer-events: none;
+	}
+
 	.content {
+		position: relative;
+		z-index: 1;
 		width: 100%;
 		max-width: 100vw;
 		display: flex;
@@ -28,7 +62,7 @@
 
 		& span {
 			font-size: 14px;
-			color: var(--color-text-muted);
+			color: var(--color-primary);
 			white-space: nowrap;
 			max-width: 256px;
 			text-wrap: auto;
@@ -77,10 +111,19 @@
 	}
 }
 
+// Tema claro: mesma foto, versão colorida.
+:host-context([data-theme='light']) .save-the-date .hero-photo {
+	background-image: url('/assets/photos/color/photo-h.avif');
+}
+
 @media (max-width: 768px) {
 	.save-the-date {
 		min-height: 100vh;
-		
+
+		.hero-photo {
+			background-image: url('/assets/photos/black-and-white/photo-v.avif');
+		}
+
 		.session-qr {
 			width: 100%;
 			bottom: 0;
@@ -103,6 +146,10 @@
 		.session-qr span {
 			font-size: 13px;
 		}
+	}
+
+	:host-context([data-theme='light']) .save-the-date .hero-photo {
+		background-image: url('/assets/photos/color/photo-v.avif');
 	}
 }
 
